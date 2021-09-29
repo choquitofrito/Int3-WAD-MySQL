@@ -1,0 +1,124 @@
+body {
+ background-color: #ffffff;
+ color: #000000;
+}
+
+table {
+}
+
+td {
+ text-align: center;
+ vertical-align: top;
+}
+
+.code {
+ background-color: #f5f5f5;
+ color: #000000;
+ font-weight: bold;
+ padding-left: 10px;
+ padding-right: 10px;
+ text-align: left;
+}
+
+.contents {
+ border-color: #606060;
+ border-style: solid;
+ border-width: thick;
+ color: #606060;
+ background-color: #f5f5f5;
+ text-align: left;
+}
+
+.description {
+ background-color: #f5f5f5;
+ color: #000000;
+ padding-left: 10px;
+ padding-right: 10px;
+ text-align: justify;
+}
+
+.example {
+ background-color:#f5f5f5;
+ color: #000000;
+ padding-left: 10px;
+ padding-right: 10px;
+ text-align: left;
+}
+
+.inputData {
+ font-style: italic;
+ font-weight: normal;
+}
+
+.normalizer {
+ width: 425px;
+}
+
+.normalizerEmpty {
+ width: 1px;
+}
+
+.note {
+ font-weight: bold
+}
+
+.rules {
+ font-weight: bold
+}
+
+.servo {
+ background-color:#f5f5f5;
+ color: #000000;
+ padding-left: 10px;
+ padding-right: 10px;
+ text-align: left;
+}
+
+.tableDescription {
+ border-color: #606060;
+ border-width: 1px;
+ border-style: solid;
+ vertical-align: top;
+ width: 100%; 
+}
+
+.tableDescription caption {
+ background-color: #606060;
+ border-color: #606060;
+ border-width: 1px;
+ border-style: solid;
+ color: #FFFFFF;
+ font-size: 1.2em;
+ text-align: center;
+}
+
+.tableDescription th {
+ border-color: #606060;
+ border-width: 1px;
+ border-style: solid;
+ font-size: 1.2em;
+ text-align: center;
+}
+
+.tableDescription td {
+ border-color: #606060;
+ border-width: 1px;
+ border-style: solid;
+ padding-left: 1em;;
+ text-align: left;
+}
+
+.titleMain {
+ background-color: #ffffff;
+ color: #606060;
+ font-size: 4em;
+ font-weight: bold;
+ text-align: left;
+}
+
+.titleChapter {
+ background-color: #606060;
+ color: #FFFFFF;
+ font-size: 1.5em;
+ text-align: center;
+}
