@@ -7,7 +7,7 @@
 
 1. Créez un tableau Produit (id, nom, prix)
 2. Insérez deux produits
-3. Rajoutez une colonne description'
+3. Rajoutez une colonne 'description'
 4. Rajoutez une colonne 'disponible' du type boolean
 5. Modifiez la colonne 'disponible'. Elle sera INT maintenant et s'appellera 'unitesDisponibles'
 6. Rajoute deux produits
