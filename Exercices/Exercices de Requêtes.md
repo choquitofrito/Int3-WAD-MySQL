@@ -53,47 +53,45 @@
 
 ## Requêtes de jointure
 
-22. Obtenir la ville de chaque client
+22.  Obtenir tous les titres des films joués par Fred Costner
 
-23. Obtenir tous les titres des films joués par Fred Costner
+23.  Obtenir la liste d'acteurs qui jouent dans African Egg
 
-24. Obtenir la liste d'acteurs qui jouent dans African Egg
+24.  Obtenir tous les films de chaque catégorie
 
-25. Obtenir tous les films de chaque catégorie
-
-26. Obtenir toutes les villes de chaque pays
+25.  Obtenir toutes les villes de chaque pays
 
 ## Group by + jointures
 
-27. Obtenir le nombre de films par durée de location
+26.  Obtenir le nombre de films par durée de location
 
-28. Obtenir le nombre de locations par client
+27. Obtenir le nombre de locations par client
 
-29. Obtenir le nombre de films par rating
+28. Obtenir le nombre de films par rating
 
-30. Obtenir le nombre de films par langue
+29. Obtenir le nombre de films par langue
 
-31. Obtenir le nombre de locations par client
+30. Obtenir le nombre de locations par client
 
-32. Obtenir le nombre de copies de Alabama Devil qui se trouvent dans
+31. Obtenir le nombre de copies de Alabama Devil qui se trouvent dans
     l'inventaire
 
-33. Obtenir la liste de films loués par Lisa Anderson
+32. Obtenir la liste de films loués par Lisa Anderson
 
-34. Obtenir le nombre de locations faites par Elizabeth Brown
+33. Obtenir le nombre de locations faites par Elizabeth Brown
 
-35. Obtenir le nombre de films par catégorie
+34. Obtenir le nombre de films par catégorie
 
-36. Obtenir le nombre de clients par pays
+35. Obtenir le nombre de clients par pays
 
-37. Obtenir le nombre de films par acteur. Affichez le nom de l'acteur
+36. Obtenir le nombre de films par acteur. Affichez le nom de l'acteur
 
-38. Obtenir le nombre de films par catégorie, uniquement pour les
+37. Obtenir le nombre de films par catégorie, uniquement pour les
     catégories qui ont au moins 5 films
 
-39. Obtenir le prix total des locations de chaque client
+38. Obtenir le prix total des locations de chaque client
 
-40. Obtenir la liste de tous les clients qui ont réalisé plus de 5
+39. Obtenir la liste de tous les clients qui ont réalisé plus de 5
     locations
 
 ## Calculs et fonctions de base
