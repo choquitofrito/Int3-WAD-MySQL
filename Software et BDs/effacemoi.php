@@ -8,9 +8,7 @@
 </head>
 <body>
     <?php
-    // $a = 5;
-    // echo ....
-
+    
     // connexion au serveur de BD
 
     // créer le code SQL pour faire une requête
@@ -18,7 +16,7 @@
     // lancer la requête
 
     // eventuellement (si SELECT) obtenir le résultat et le mettre dans un array 
-    
+
     // traiter l'array (afficher, modifier, faire de calculs...)
 
     ?>
