@@ -37,13 +37,13 @@
 15. Chercher tous les clients qui s'appellent « Rashomon »
 
 16. Chercher tous les paiements qui ont été réalisés pendant les 10
-    premiers jours d'Aout 2005
+    premiers jours d'Aout 2005 (pas le faire)
 
 ## Agrégation
 
 17. Obtenir le nombre de clients
 
-18. Calculer la moyenne des prix de location
+18. Calculer la moyenne des prix de location 
 
 19. Compter le nombre de clients actifs
 
