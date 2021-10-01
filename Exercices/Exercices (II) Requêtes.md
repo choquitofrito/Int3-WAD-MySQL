@@ -28,7 +28,7 @@
     un dossier \"images\" dans le serveur. Créez une BD simple contenant
     un tableau
 
-# Exercices base requêtes SQL
+# Exercices base requêtes SQL (manque BD, ne pas faire)
 
 ## Requêtes sans filtre
 
