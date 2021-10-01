@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 30 sep. 2021 à 16:45
+-- Généré le : ven. 01 oct. 2021 à 15:53
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.10
 
@@ -1045,9 +1045,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `store_id`, `first_name`, `last_name`, `email`, `address_id`, `active`, `create_date`, `last_update`) VALUES
-(1, 1, 'MARY', 'SMITH', 'MARY.SMITH@sakilacustomer.org', 5, 1, '2006-02-14 22:04:36', '2006-02-15 03:57:20'),
-(2, 1, 'PATRICIA', 'JOHNSON', 'PATRICIA.JOHNSON@sakilacustomer.org', 6, 1, '2006-02-14 22:04:36', '2006-02-15 03:57:20'),
-(3, 1, 'LINDA', 'WILLIAMS', 'LINDA.WILLIAMS@sakilacustomer.org', 7, 1, '2006-02-14 22:04:36', '2006-02-15 03:57:20'),
+(1, 1, 'MARY', 'WHITE', 'MARY.SMITH@sakilacustomer.org', 5, 1, '2006-02-14 22:04:36', '2021-10-01 08:54:12'),
+(2, 1, 'BETTY', 'JOHNSON', 'PATRICIA.JOHNSON@sakilacustomer.org', 6, 1, '2006-02-14 22:04:36', '2021-10-01 08:56:22'),
+(3, 1, 'BETTY', 'WHITE', 'LINDA.WILLIAMS@sakilacustomer.org', 7, 1, '2006-02-14 22:04:36', '2021-10-01 08:56:44'),
 (4, 2, 'BARBARA', 'JONES', 'BARBARA.JONES@sakilacustomer.org', 8, 1, '2006-02-14 22:04:36', '2006-02-15 03:57:20'),
 (5, 1, 'ELIZABETH', 'BROWN', 'ELIZABETH.BROWN@sakilacustomer.org', 9, 1, '2006-02-14 22:04:36', '2006-02-15 03:57:20'),
 (6, 2, 'JENNIFER', 'DAVIS', 'JENNIFER.DAVIS@sakilacustomer.org', 10, 1, '2006-02-14 22:04:36', '2006-02-15 03:57:20'),
@@ -31231,6 +31231,12 @@ ALTER TABLE `film_actor`
 ALTER TABLE `film_category`
   ADD CONSTRAINT `film_category_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `film_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
+
+--
+-- Contraintes pour la table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `rental`
