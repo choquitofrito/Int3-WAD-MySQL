@@ -22,7 +22,7 @@ Lien de propriété entre personnes et voitures
 
 <br>
 
-![](./PersonneVoiture.png)
+![](./images/PersonneVoiture.png)
 
 <br>
 
@@ -30,7 +30,7 @@ Lien de propriété entre personnes et voitures
 
 <br>
 
-![](./LocationVoiture.png)
+![](./images/LocationVoiture.png)
 
 Insérez de données en utilisant phpMyAdmin ou Adminer. Puis étudiez le SQL généré et créez vos propres requêtes d'insertion.
 Faites la même chose pour apprendre à effacer de données.

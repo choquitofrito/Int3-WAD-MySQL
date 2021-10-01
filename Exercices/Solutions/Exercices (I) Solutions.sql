@@ -15,4 +15,6 @@ SELECT * FROM customer WHERE last_name <> "White" OR first_name <> "Betty"
 -- alternative
 SELECT * FROM customer WHERE NOT (last_name = "White" AND first_name = "Betty") ORDER BY first_name
 
-
+-- Exemples LIKE
+SELECT * FROM clients WHERE nom LIKE "B%" OR nom LIKE "D%"
+SELECT * FROM clients WHERE nom = "B" OR nom = "D"
