@@ -19,7 +19,7 @@
 7.  Obtenir les films dont la location (rental_rate) coute moins de 3
     euros. Triez le résultat par prix ascendant en utilisant ORDER BY
 
-8.  Obtenir tous les films qu'on peut louer pendant plus de 5 jours
+8.  Obtenir tous les films qu'on peut louer pendant au moins 5 jours
 
 9.  Chercher les informations sur le film 'Backlash Undefeated'
 
