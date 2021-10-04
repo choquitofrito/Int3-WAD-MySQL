@@ -27,12 +27,32 @@ GROUP BY country.country;
 
 
 
-SELECT country.country, COUNT (country.country_id) AS decompteVilles
+SELECT country.country, COUNT (city.country_id) AS decompteVilles
 FROM country
 INNER JOIN city
 ON country.country_id = city.country_id
 GROUP BY country.country
-ORDER BY decompteVilles DESC
+HAVING decompteVilles > 30
+ORDER BY decompteVilles DESC;
+
+
+SELECT film.rental_rate, COUNT (film.film_id) 
+FROM film
+GROUP BY film.rental_rate
+HAVING film.rental_rate < 4;
+
+-- filtre après le regroupement (HAVING)
+-- plus lourd
+SELECT film.rental_rate, COUNT (film.film_id) 
+FROM film
+GROUP BY film.rental_rate
+HAVING film.rental_rate < 4;
+
+-- filtre avant le regroupement, plus efficace
+SELECT film.rental_rate, COUNT (film.film_id) 
+FROM film
+WHERE film.rental_rate < 4
+GROUP BY film.rental_rate;
 
 
 
