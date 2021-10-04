@@ -16,9 +16,8 @@
     try {
         $bdd = new PDO(DBDRIVER . ':host=' . DBHOST . ';port=' . DBPORT .
             ';dbname=' . DBNAME . ';charset='
-            . DBCHARSET, DBUSER, DBPASS. "k");
-    }
-    catch (PDOException $e){
+            . DBCHARSET, DBUSER, DBPASS );
+    } catch (PDOException $e) {
         echo "Une erreur de connexion s'est produite <a href='./accueil.php'>Accueil</a>";
         // echo $e->getMessage();
         die();
@@ -27,12 +26,24 @@
 
     // $sql = "INSERT INTO `actor` (`actor_id`, `first_name`, `last_name`, `last_update`) VALUES (NULL, \'test\', \'test\', current_timestamp());";
 
-    $sql = "INSERT INTO actor (first_name, last_name, last_update) ". 
-            "VALUES (\"LOLO\", \"LAURE\", current_timestamp())";
-    $requete = $bdd->prepare ($sql);
+    $sql = "INSERT INTO actor (first_name, last_name, last_update) " .
+        "VALUES (:un_first_name, :un_last_name, current_timestamp())";
+
+    $requete = $bdd->prepare($sql);
+
+    // le serveur analyse une seule requête, ça sera plus vite que lancer trois requêtes
+    // même si elles se ressemblent
+    $requete->bindValue(":un_first_name","LOLA");
+    $requete->bindValue(":un_last_name","GARCÍA");
     $requete->execute();
-    var_dump ($requete->errorInfo());
-    var_dump ($bdd->errorInfo());
+
+    $requete->bindValue(":un_first_name","STEFFI");
+    $requete->bindValue(":un_last_name","GRAFF");
+    $requete->execute();
+
+
+    // var_dump ($requete->errorInfo());
+    // var_dump ($bdd->errorInfo());
 
 
     ?>
