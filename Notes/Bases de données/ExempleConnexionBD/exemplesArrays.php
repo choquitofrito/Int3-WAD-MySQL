@@ -43,7 +43,7 @@
     $clesVals = array_keys($vals);
     var_dump($clesVals);
 
-    // résultat d'une bd
+    // accés au résultat d'une bd
     include "./config/db.php";
 
     $bdd = new PDO(DBDRIVER . ':host=' . DBHOST . ';port=' . DBPORT .
@@ -54,6 +54,38 @@
     $requete = $bdd->prepare($sql);
     $requete->execute();
     $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+    // afficher avec var_dump
+    var_dump ($resultat);
+    // exemples :
+    // 1. afficher le nom du deuxième acteur
+    echo "<br>";
+    echo $resultat[1]['first_name'];
+
+    // 2. mettre le 3ème acteur dans un array
+    $arrayActeur = $resultat[2];
+    // afficher son nom de famille
+    echo $arrayActeur['last_update'];
+
+    // Obtenir uniquement les en-têtes
+    $entetes = array_keys($resultat[0]);
+    var_dump ($entetes);
+
+    // Parcourir le résultat et afficher le contenu sous la forme
+    // clé : valeur
+    
+    // first_name : Toto
+    // last_name : Dupont
+
+    // ex avec for :
+    for ($i = 0; $i < count ($resultat); $i++){
+        $unActeur = $resultat[$i];
+        echo "<br>first_name : " . $unActeur['first_name'];  
+        echo "<br>last_name : " .  $unActeur['last_name'];
+
+    }
+
+
 
     ?>
 
