@@ -11,6 +11,22 @@ SELECT COUNT(customer.email) FROM customer;
 SELECT COUNT(*)
 FROM customer;
 
+SELECT AVG(film.rental_rate) FROM film;
+-- pas de problèmes si les couleurs changent,
+-- souvent ce sont de mots reservées du langage
+SELECT length FROM film;
+
+SELECT SUM(film.rental_rate) FROM film;
+SELECT MAX(film.rental_rate) FROM film;
+SELECT COUNT(film.rental_rate) FROM film;
+
+-- Exemple de sous-requête
+SELECT film.title, film.rental_rate FROM film WHERE 
+film.rental_rate = 
+(SELECT MAX(film.rental_rate) FROM film);
+
+
+
 
 
 
