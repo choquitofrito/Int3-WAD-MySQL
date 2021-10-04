@@ -82,7 +82,18 @@
         $unActeur = $resultat[$i];
         echo "<br>first_name : " . $unActeur['first_name'];  
         echo "<br>last_name : " .  $unActeur['last_name'];
+    }
+    // ex avec foreach (même chose)
+    foreach ($resultat as $val){
+        echo "<br>first_name : " . $val['first_name'];  
+        echo "<br>last_name : " .  $val['last_name'];
+    }
 
+    // ex avec foreach
+    foreach ($resultat as $arrayActeur){
+        foreach ($arrayActeur as $cleArrayActeur => $valeurArrayActeur){
+            echo "<br>". $cleArrayActeur . " : ". $valeurArrayActeur;
+        }
     }
 
 
