@@ -104,6 +104,14 @@
     echo "<br>Le nombre total d'acteurs est : " . $resultat[0]['totalActeurs'];
     var_dump ($resultat);
 
+
+    $sql = "SELECT release_year, count(film_id) as totalFilms FROM film GROUP BY release_year";
+    $requete = $bdd->prepare($sql);
+    $requete->execute();
+    $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+    // echo "<br>Le nombre total d'acteurs est : " . $resultat[0]['totalActeurs'];
+    var_dump ($resultat);
+
     ?>
 
 </body>
