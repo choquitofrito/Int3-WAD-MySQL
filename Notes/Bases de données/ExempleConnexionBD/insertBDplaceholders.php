@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    // requête sans placeholders
+    // requête avec placeholders
     include "./config/db.php";
 
     try {
@@ -25,6 +25,8 @@
 
 
     // $sql = "INSERT INTO `actor` (`actor_id`, `first_name`, `last_name`, `last_update`) VALUES (NULL, \'test\', \'test\', current_timestamp());";
+
+
 
     $sql = "INSERT INTO actor (first_name, last_name, last_update) " .
         "VALUES (:un_first_name, :un_last_name, current_timestamp())";

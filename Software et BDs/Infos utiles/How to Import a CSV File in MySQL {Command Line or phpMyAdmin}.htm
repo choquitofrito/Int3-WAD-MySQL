@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html class="wf-poppins-n5-active wf-poppins-n6-active wf-poppins-n7-active wf-roboto-n4-active wf-roboto-n5-active wf-roboto-n6-active wf-roboto-n7-active wf-roboto-n8-active wf-poppins-n1-active wf-poppins-n2-active wf-poppins-n3-active wf-poppins-n4-active wf-poppins-n8-active wf-poppins-n9-active wf-roboto-n3-active wf-roboto-n1-active wf-roboto-n2-active wf-active" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/webfont.js" async=""></script><script async="" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/gtm.js"></script><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+
+<script data-cfasync="false" data-pagespeed-no-defer="">//<![CDATA[
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+//]]>
+</script>
+
+	
+	<title>How to Import a CSV File in MySQL? {Command Line or phpMyAdmin}</title><link rel="preload" as="style" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/css_002.css"><link rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/css_002.css" media="all" onload="this.media='all'"><noscript><link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%7CRoboto%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&#038;display=swap" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" /></noscript>
+	<meta name="description" content="Learn how to import a CSV file into MySQL within minutes. The guide covers 2 different methods. Import a CSV from the command line or by using phpMyAdmin.">
+	<link rel="canonical" href="https://phoenixnap.com/kb/import-csv-file-into-mysql">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="How to Import a CSV File in MySQL? {Command Line or phpMyAdmin}">
+	<meta property="og:description" content="Learn how to import a CSV file into MySQL within minutes. The guide covers 2 different methods. Import a CSV from the command line or by using phpMyAdmin.">
+	<meta property="og:url" content="https://phoenixnap.com/kb/import-csv-file-into-mysql">
+	<meta property="og:site_name" content="Knowledge Base by phoenixNAP">
+	<meta property="article:publisher" content="https://www.facebook.com/phoenixnap">
+	<meta property="article:published_time" content="2020-06-28T19:34:18+00:00">
+	<meta property="article:modified_time" content="2021-06-30T17:08:03+00:00">
+	<meta property="og:image" content="https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-file-mysql-table.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@phoenixNAP">
+	<meta name="twitter:site" content="@phoenixNAP">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="Vladimir Kaplarevic">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="5 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://phoenixnap.com/kb/#organization","name":"phoenixNAP","url":"https://phoenixnap.com/kb/","sameAs":["https://www.facebook.com/phoenixnap","https://www.linkedin.com/company/phoenix-nap/","https://www.youtube.com/user/PhoenixNAPdatacenter","https://twitter.com/phoenixNAP"],"logo":{"@type":"ImageObject","@id":"https://phoenixnap.com/kb/#logo","inLanguage":"en-US","url":"https://phoenixnap.com/kb/wp-content/uploads/2021/04/pnap-authors.png","contentUrl":"https://phoenixnap.com/kb/wp-content/uploads/2021/04/pnap-authors.png","width":200,"height":200,"caption":"phoenixNAP"},"image":{"@id":"https://phoenixnap.com/kb/#logo"}},{"@type":"WebSite","@id":"https://phoenixnap.com/kb/#website","url":"https://phoenixnap.com/kb/","name":"Knowledge Base by phoenixNAP","description":"","publisher":{"@id":"https://phoenixnap.com/kb/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://phoenixnap.com/kb/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#primaryimage","inLanguage":"en-US","url":"https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-file-mysql-table.png","contentUrl":"https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-file-mysql-table.png","width":801,"height":402},{"@type":"WebPage","@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#webpage","url":"https://phoenixnap.com/kb/import-csv-file-into-mysql","name":"How to Import a CSV File in MySQL? {Command Line or phpMyAdmin}","isPartOf":{"@id":"https://phoenixnap.com/kb/#website"},"primaryImageOfPage":{"@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#primaryimage"},"datePublished":"2020-06-28T19:34:18+00:00","dateModified":"2021-06-30T17:08:03+00:00","description":"Learn how to import a CSV file into MySQL within minutes. The guide covers 2 different methods. Import a CSV from the command line or by using phpMyAdmin.","breadcrumb":{"@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://phoenixnap.com/kb/import-csv-file-into-mysql"]}]},{"@type":"BreadcrumbList","@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://phoenixnap.com/kb/"},{"@type":"ListItem","position":2,"name":"SysAdmin","item":"https://phoenixnap.com/kb/category/sysadmin"},{"@type":"ListItem","position":3,"name":"How to Import a CSV file into a MySQL database?"}]},{"@type":"Article","@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#article","isPartOf":{"@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#webpage"},"author":{"@id":"https://phoenixnap.com/kb/#/schema/person/b2222d173c272f397f13554c9ad989dd"},"headline":"How to Import a CSV file into a MySQL database?","datePublished":"2020-06-28T19:34:18+00:00","dateModified":"2021-06-30T17:08:03+00:00","mainEntityOfPage":{"@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#webpage"},"wordCount":629,"publisher":{"@id":"https://phoenixnap.com/kb/#organization"},"image":{"@id":"https://phoenixnap.com/kb/import-csv-file-into-mysql#primaryimage"},"thumbnailUrl":"https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-file-mysql-table.png","keywords":["mysql","phpmyadmin"],"articleSection":["MySQL","SysAdmin"],"inLanguage":"en-US"},{"@type":"Person","@id":"https://phoenixnap.com/kb/#/schema/person/b2222d173c272f397f13554c9ad989dd","name":"Vladimir Kaplarevic","image":{"@type":"ImageObject","@id":"https://phoenixnap.com/kb/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/8d4609e99e6aecc69ce049e18d45f033?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/8d4609e99e6aecc69ce049e18d45f033?s=96&d=mm&r=g","caption":"Vladimir Kaplarevic"},"description":"Vladimir is a resident Tech Writer at phoenixNAP. He has more than 7 years of experience in implementing e-commerce and online payment solutions with various global IT services providers. His articles aim to instill a passion for innovative technologies in others by providing practical advice and using an engaging writing style."}]}</script>
+	
+
+
+<title>How to Import a CSV file into a MySQL database? - Knowledge Base by phoenixNAP</title>
+<link rel="dns-prefetch" href="https://use.fontawesome.com/">
+<link rel="dns-prefetch" href="https://load.sumo.com/">
+<link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
+<link rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/style_002.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/main.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/oxygen.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/scriptlesssocialsharing-style.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<style id="scriptlesssocialsharing-inline-css" type="text/css">
+.scriptlesssocialsharing__buttons a.button { padding: 12px; flex: 1; }@media only screen and (max-width: 767px) { .scriptlesssocialsharing .sss-name { position: absolute; clip: rect(1px, 1px, 1px, 1px); height: 1px; width: 1px; border: 0; overflow: hidden; } }
+</style>
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/style.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/all.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all" crossorigin="anonymous">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/block-notice.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/ftoc.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<style id="fixedtoc-style-inline-css" type="text/css">
+.ftwp-in-post#ftwp-container-outer { height: auto; } #ftwp-container.ftwp-wrap #ftwp-contents { width: 250px; height: auto; } .ftwp-in-post#ftwp-container-outer #ftwp-contents { height: auto; } .ftwp-in-post#ftwp-container-outer.ftwp-float-none #ftwp-contents { width: 250px; } #ftwp-container.ftwp-wrap #ftwp-trigger { width: 56px; height: 56px; font-size: 33.6px; } #ftwp-container #ftwp-trigger.ftwp-border-thin { font-size: 33.1px; } #ftwp-container.ftwp-wrap #ftwp-header { font-size: 18px; font-family: inherit; } #ftwp-container.ftwp-wrap #ftwp-header-title { font-weight: bold; } #ftwp-container.ftwp-wrap #ftwp-list { font-size: 14px; font-family: inherit; } #ftwp-container #ftwp-list.ftwp-liststyle-decimal .ftwp-anchor::before { font-size: 14px; } #ftwp-container #ftwp-list.ftwp-strong-first>.ftwp-item>.ftwp-anchor .ftwp-text { font-size: 15.4px; } #ftwp-container #ftwp-list.ftwp-strong-first.ftwp-liststyle-decimal>.ftwp-item>.ftwp-anchor::before { font-size: 15.4px; } #ftwp-container.ftwp-wrap #ftwp-trigger { color: #af2028; background: rgba(255,255,255,0.95); } #ftwp-container.ftwp-wrap #ftwp-trigger { border-color: rgba(227,227,227,0.95); } #ftwp-container.ftwp-wrap #ftwp-contents { border-color: rgba(227,227,227,0.95); } #ftwp-container.ftwp-wrap #ftwp-header { color: #777777; background: rgba(255,255,255,0.95); } #ftwp-container.ftwp-wrap #ftwp-contents:hover #ftwp-header { background: #ffffff; } #ftwp-container.ftwp-wrap #ftwp-list { color: #999999; background: rgba(255,255,255,0.95); } #ftwp-container.ftwp-wrap #ftwp-contents:hover #ftwp-list { background: #ffffff; } #ftwp-container.ftwp-wrap #ftwp-list .ftwp-anchor:hover { color: #555555; } #ftwp-container.ftwp-wrap #ftwp-list .ftwp-anchor:focus, #ftwp-container.ftwp-wrap #ftwp-list .ftwp-active, #ftwp-container.ftwp-wrap #ftwp-list .ftwp-active:hover { color: #555555; } #ftwp-container.ftwp-wrap #ftwp-list .ftwp-text::before { background: rgba(227,227,227,0.95); } .ftwp-heading-target::before { background: rgba(85,85,85,0.95); } #ftwp-container #ftwp-list.ftwp-effect-fade .ftwp-anchor.ftwp-active, #ftwp-container #ftwp-list.ftwp-effect-fade .ftwp-anchor:focus { background: rgba(227,227,227,0.95); }
+.ftwp-in-post#ftwp-container-outer.ftwp-float-none #ftwp-contents { width: 100%; } #ftwp-container.ftwp-wrap #ftwp-header-title { text-align: left; } #ftwp-container #ftwp-list .ftwp-text { text-align: left; }
+</style>
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/v4-shims.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all" crossorigin="anonymous">
+<style id="font-awesome-official-v4shim-inline-css" type="text/css">
+@font-face {
+font-family: "FontAwesome";
+font-display: block;
+src: url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+font-display: block;
+src: url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.eot"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+font-display: block;
+src: url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;
+}
+</style>
+<script type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/jquery.js" id="jquery-core-js" defer="defer"></script>
+<link rel="shortlink" href="https://phoenixnap.com/kb/?p=115433">
+
+
+<script data-cfasync="false" data-pagespeed-no-defer="">//<![CDATA[
+	var dataLayer_content = {"pagePostType":"post","pagePostType2":"single-post","pageCategory":["mysql","sysadmin"],"pageAttributes":["mysql","phpmyadmin"],"pagePostAuthor":"Vladimir Kaplarevic"};
+	dataLayer.push( dataLayer_content );//]]>
+</script>
+<script data-cfasync="false">//<![CDATA[
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MLJ5W8M');//]]>
+</script>
+
+<style>
+.ai-viewports                 {--ai: 1;}
+.ai-viewport-3                { display: none !important;}
+.ai-viewport-2                { display: none !important;}
+.ai-viewport-1                { display: inherit !important;}
+.ai-viewport-0                { display: none !important;}
+@media (min-width: 768px) and (max-width: 979px) {
+.ai-viewport-1                { display: none !important;}
+.ai-viewport-2                { display: inherit !important;}
+}
+@media (max-width: 767px) {
+.ai-viewport-1                { display: none !important;}
+.ai-viewport-3                { display: inherit !important;}
+}
+</style>
+<script id="wpacu-google-fonts-async-load" type="text/javascript">
+WebFontConfig={google:{families:['Poppins:100,200,300,400,500,600,700,800,900','Roboto:100,200,300,400,500,600,700,800,900&display=fallback']}};(function(wpacuD){var wpacuWf=wpacuD.createElement('script'),wpacuS=wpacuD.scripts[0];wpacuWf.src=('https:'===document.location.protocol?'https':'http')+'://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';wpacuWf.async=!0;wpacuS.parentNode.insertBefore(wpacuWf,wpacuS)})(document);
+</script><link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/bottom-footer-156.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/main-footer-155.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/top-navigation-153.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/single-post-157.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/universal.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><script>
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script>
+<link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/jquery.js" rel="preload" as="script"><link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/hoverIntent.js" rel="preload" as="script"><link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/superfish.js" rel="preload" as="script"><link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/superfish_002.js" rel="preload" as="script"><link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/dropdown-menu.js" rel="preload" as="script"><link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/responsive-menus.js" rel="preload" as="script"><link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/script.js" rel="preload" as="script"><link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/q2w3-fixed-widget.js" rel="preload" as="script"><link rel="stylesheet" href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/css.css" media="all"><link href="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/ftoc.js" rel="preload" as="script"></head>
+<body class="post-template-default single single-post postid-115433 single-format-standard  wp-embed-responsive oxygen-body has-ftoc">
+
+
+
+						<section id="section-164-137" class="ct-section"><div class="ct-section-inner-wrap"><nav id="_nav_menu-9-7" class="oxy-nav-menu top-menu oxy-nav-menu-dropdowns oxy-nav-menu-dropdown-arrow"><div class="oxy-menu-toggle"><div class="oxy-nav-menu-hamburger-wrap"><div class="oxy-nav-menu-hamburger"><div class="oxy-nav-menu-hamburger-line"></div><div class="oxy-nav-menu-hamburger-line"></div><div class="oxy-nav-menu-hamburger-line"></div></div></div></div><div class="menu-top-menu-container"><ul id="menu-top-menu" class="oxy-nav-menu-list"><li id="menu-item-110108" class="bordered-top-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-110108"><a href="#">Call</a>
+<ul class="sub-menu">
+	<li id="menu-item-110091" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110091"><a href="tel:1-855-330-1509">Support</a></li>
+	<li id="menu-item-110092" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110092"><a href="tel:1-877-588-5918">Sales</a></li>
+</ul>
+</li>
+<li id="menu-item-110083" class="bordered-top-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-110083"><a href="#">Login</a>
+<ul class="sub-menu">
+	<li id="menu-item-110084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110084"><a href="https://bmc.phoenixnap.com/">Bare Metal Cloud</a></li>
+	<li id="menu-item-110085" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110085"><a href="https://partners.phoenixnap.com/">Channel Partners</a></li>
+	<li id="menu-item-110078" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110078"><a href="https://admin.phoenixnap.com/">Billing Portal</a></li>
+</ul>
+</li>
+<li id="menu-item-110079" class="bordered-top-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-110079"><a href="https://phoenixnap.com/partners">Partners</a></li>
+</ul></div></nav></div></section><section id="section-205-157" class="ct-section single-post-header"><div class="ct-section-inner-wrap"><div id="div_block-206-157" class="ct-div-block"><a id="link-207-157" class="ct-link" href="https://phoenixnap.com/kb" target="_self"><img id="image-208-157" alt="" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/phoenixnap-logo-white.png" class="ct-image lazyloaded" data-ll-status="loaded" width="200" height="44"><noscript><img width="200" height="44" id="image-208-157" alt="" src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/phoenixnap-logo-white.png" class="ct-image"/></noscript></a><div id="shortcode-209-157" class="ct-shortcode"><button class="menu-toggle hamburger hamburger--slider" aria-expanded="false" aria-pressed="false" id="genesis-mobile-nav-primary"><span class="hamburger-box"><span class="hamburger-inner"></span></span><span class="hamburger-label">Menu</span></button><nav class="nav-primary genesis-responsive-menu" aria-label="Main" itemscope="" itemtype="https://schema.org/SiteNavigationElement" id="genesis-nav-primary" style=""><ul id="menu-primary" class="menu genesis-nav-menu menu-primary js-superfish sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li id="menu-item-110093" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110093"><a href="https://phoenixnap.com/"><span itemprop="name">Phoenixnap home</span></a></li>
+<li id="menu-item-110094" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110094"><a href="https://phoenixnap.com/contact-us"><span itemprop="name">contact support</span></a></li>
+<li id="menu-item-110095" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110095"><a href="https://phoenixnap.com/blog"><span itemprop="name">blog</span></a></li>
+<li id="menu-item-110104" class="desktop-hidden nav-button menu-item menu-item-type-custom menu-item-object-custom menu-item-110104"><a href="tel:1-855-330-1509"><span itemprop="name">Support</span></a></li>
+<li id="menu-item-110105" class="desktop-hidden nav-button menu-item menu-item-type-custom menu-item-object-custom menu-item-110105"><a href="tel:1-877-588-5918"><span itemprop="name">Sales</span></a></li>
+<li id="menu-item-110106" class="desktop-hidden nav-button menu-item menu-item-type-custom menu-item-object-custom menu-item-110106"><a href="https://admin.phoenixnap.com/"><span itemprop="name">Login</span></a></li>
+<li id="menu-item-110107" class="desktop-hidden nav-button menu-item menu-item-type-custom menu-item-object-custom menu-item-110107"><a href="https://phoenixnap.com/partners"><span itemprop="name">Partners</span></a></li>
+<li id="menu-item-132765" class="desktop-hidden mobile-search menu-item menu-item-type-custom menu-item-object-custom menu-item-132765"><a href="#"><span itemprop="name"><form role="search" method="get" id="searchform" class="searchform" action="https://phoenixnap.com/kb/"> 				<div> 					<label class="screen-reader-text" for="s">Search for:</label> 					<input type="text" name="s" id="s"> 					<input type="submit" id="searchsubmit" value="Search"> 				</div></form></span></a></li>
+<li id="menu-item-132766" class="mobile-hidden menu-item menu-item-type-custom menu-item-object-custom menu-item-132766"><a href="#"><span itemprop="name"><i class="fas fa-search"></i></span></a></li>
+</ul></nav></div></div><div id="div_block-210-157" class="ct-div-block"><h1 id="headline-211-157" class="ct-headline"><span id="span-212-157" class="ct-span">How to Import a CSV file into a MySQL database?</span></h1><div id="div_block-213-157" class="ct-div-block"><div id="text_block-214-157" class="ct-text-block"><span id="span-215-157" class="ct-span">June 28, 2020</span></div><div id="text_block-216-157" class="ct-text-block tag-wrapper"><span id="span-217-157" class="ct-span"><a href="https://phoenixnap.com/kb/tag/mysql" rel="tag">mysql</a><a href="https://phoenixnap.com/kb/tag/phpmyadmin" rel="tag">phpmyadmin</a></span></div></div></div><div id="code_block-218-157" class="ct-code-block" style="background-image:url();background-size: auto;">
+<style type="text/css">
+		.single-post .single-post-header {
+		background-image: linear-gradient(rgba(0, 108, 168, 0.7) 50%, rgba(0, 108, 168, 0.7) 50%), url(https://phoenixnap.com/kb/wp-content/uploads/2021/04/system-admin-category-kb.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+	}
+		
+</style></div></div></section><section id="section-78-157" class="ct-section"><div class="ct-section-inner-wrap"><div id="new_columns-80-157" class="ct-new-columns"><div id="div_block-81-157" class="ct-div-block"></div><div id="div_block-82-157" class="ct-div-block"><div id="code_block-88-157" class="ct-code-block"><p id="breadcrumbs"><span><span><a href="https://phoenixnap.com/kb/">Home</a> » <span><a href="https://phoenixnap.com/kb/category/sysadmin">SysAdmin</a> » <span class="breadcrumb_last" aria-current="page">How to Import a CSV file into a MySQL database?</span></span></span></span></p></div><div id="shortcode-181-157" class="ct-shortcode"><div id="ftwp-container-outer" class="ftwp-in-post ftwp-float-none" style="height: 48.6px;"></div></div><div id="text_block-86-157" class="ct-text-block single-post-content"><span id="span-87-157" class="ct-span oxy-stock-content-styles"><div id="ftwp-container-outer" class="ftwp-in-post ftwp-float-none"><div id="ftwp-container" class="ftwp-wrap ftwp-hidden-state ftwp-maximize ftwp-middle-left"><button type="button" id="ftwp-trigger" class="ftwp-shape-round ftwp-border-thin" title="click To Maximize The Table Of Contents"><span class="ftwp-trigger-icon ftwp-icon-menu"></span></button><nav id="ftwp-contents" class="ftwp-shape-square ftwp-border-thin" data-colexp="collapse"><header id="ftwp-header"><span id="ftwp-header-control" class="ftwp-icon-menu"></span><button type="button" id="ftwp-header-minimize" class="ftwp-icon-collapse" aria-labelledby="ftwp-header-title"></button><span id="ftwp-header-title">Contents</span></header><ol id="ftwp-list" class="ftwp-liststyle-decimal ftwp-effect-fade ftwp-list-nest ftwp-strong-first ftwp-colexp ftwp-colexp-icon" style="display: none"><li class="ftwp-item ftwp-has-sub ftwp-expand"><button type="button" class="ftwp-icon-expand"></button><a class="ftwp-anchor" href="#ftoc-heading-1"><span class="ftwp-text">Import CSV File Using Command Line</span></a><ol class="ftwp-sub"><li class="ftwp-item"><a class="ftwp-anchor" href="#ftoc-heading-2"><span class="ftwp-text">Step 1: Access MySQL Shell</span></a></li><li class="ftwp-item"><a class="ftwp-anchor" href="#ftoc-heading-3"><span class="ftwp-text">Step 2: Create MySQL Table for CSV Import</span></a></li><li class="ftwp-item"><a class="ftwp-anchor" href="#ftoc-heading-4"><span class="ftwp-text">Step 3: Import CSV into MySQL Table</span></a></li></ol></li><li class="ftwp-item"><a class="ftwp-anchor" href="#ftoc-heading-5"><span class="ftwp-text">Import CSV File with phpMyAdmin</span></a></li></ol></nav></div></div>
+<div id="ftwp-postcontent">
+<p class="h3">Introduction</p>
+
+
+
+<p>A CSV (Comma Separated Values) file uses commas to separate different
+ values within the file. The CSV file is a standard format when 
+transferring a table to a different system or importing it to another 
+database application.</p>
+
+
+
+<p>This tutorial shows you <strong>how to import a CSV file into your MySQL database </strong>in a few short steps.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/import-csv-file-mysql-table.png" alt="tutorial on how to import csv file in mysql using command line in Linux ubuntu" class="wp-image-95232 lazyloaded" data-ll-status="loaded" width="801" height="402"><noscript><img width="801" height="402" src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-file-mysql-table.png" alt="tutorial on how to import csv file in mysql using command line in Linux ubuntu" class="wp-image-95232"/></noscript></figure></div>
+
+
+
+<div class="notice-note">
+<div class="note-icon-wrapper"><i class="fa fa-lightbulb"></i></div>
+<div class="notice-text"><p><strong>Note:</strong> If you need to export a table first, see our article on <a href="https://phoenixnap.com/kb/mysql-export-table-to-csv" target="_blank">How to Export a Table from MySQL to CSV</a>.</p>
+</div>
+</div>
+
+
+
+<p class="h3">Prerequisites</p>
+
+
+
+<ul><li>Access to a command line / terminal window</li><li>A CSV file containing the data you want to import</li><li>A <a href="https://phoenixnap.com/kb/how-to-create-new-mysql-user-account-grant-privileges" target="_blank" rel="noreferrer noopener">MySQL user account with FILE and INSERT privileges</a></li><li>Pre-configured phpMyAdmin account (optional)</li></ul>
+
+
+
+<h2 id="ftoc-heading-1" class="ftwp-heading">Import CSV File Using Command Line</h2>
+
+
+
+<h3 id="ftoc-heading-2" class="ftwp-heading">Step 1: Access MySQL Shell</h3>
+
+
+
+<p>Access your terminal window and log into MySQL using the following command:</p>
+
+
+
+<pre class="wp-block-code"><code>mysql –u username –p</code></pre>
+
+
+
+<p>Replace <strong><code>username</code></strong> with your actual 
+username. The system prompts you to enter the password for your MySQL 
+user. Entering the correct password gives you access to the MySQL 
+client.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/access-mysql-cleint-shell-ubutnu-import-csv.png" alt="example of a MySQL client shell used to import CSV file" class="wp-image-95250 lazyloaded" data-ll-status="loaded" width="800" height="244"><noscript><img width="800" height="244" src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/access-mysql-cleint-shell-ubutnu-import-csv.png" alt="example of a MySQL client shell used to import CSV file" class="wp-image-95250"/></noscript></figure></div>
+
+
+
+<h3 id="ftoc-heading-3" class="ftwp-heading">Step 2: Create MySQL Table for CSV Import</h3>
+
+
+
+<p>The <a href="https://phoenixnap.com/kb/how-to-rename-column-mysql" target="_blank" rel="noreferrer noopener">columns in your MySQL table</a>
+ need to match the data from the CSV file you plan to import. If you 
+already have a table ready for the CSV import, you can skip to <strong>Step 3</strong> of the tutorial.</p>
+
+
+
+<p>Select a database by entering the following command:</p>
+
+
+
+<pre class="wp-block-code"><code>USE database_name;</code></pre>
+
+
+
+<p>Replace <strong><code>database_name</code></strong> with the name of the database you are importing data into. Use the following command to create a new table:</p>
+
+
+
+<pre class="wp-block-code"><code>CREATE TABLE table_name (
+            id INT NOT NULL AUTO_INCREMENT,
+            column_1 VARCHAR(255) NOT NULL,
+            column_2 DATE NOT NULL,
+            column_3 DECIMAL(10 , 2 ) NULL,
+            column_4 INTEGER,
+            PRIMARY KEY (id)
+);
+</code></pre>
+
+
+
+<p>Replace the&nbsp;<strong><code>table_name</code></strong> value with the name you want to use for your table. The&nbsp;<strong><code>column_n</code></strong> variable represents the names for each column in your CSV file, and you should edit them accordingly.</p>
+
+
+
+<ul><li>In this example,&nbsp;<strong><code>column_1</code></strong> is formatted for text.</li><li><strong><code>column_2</code></strong> is formatted for dates.</li><li><strong><code>column_3</code></strong> is formatted for currencies. The numbers in the parentheses indicate the maximum size of the value and the decimal places.</li><li><strong><code>column_4</code></strong> is formatted for whole numbers.</li></ul>
+
+
+
+<p>You can add, delete, or modify the data types used in this example to fit your needs. Visit the official <a href="https://dev.mysql.com/doc/refman/5.7/en/data-types.html" target="_blank" rel="noreferrer noopener">MySQL documentation on data types</a> to find out more.</p>
+
+
+
+<h3 id="ftoc-heading-4" class="ftwp-heading">Step 3: Import CSV into MySQL Table</h3>
+
+
+
+<p>Import the data from the CSV file into the MySQL database, using the following lines:</p>
+
+
+
+<pre class="wp-block-code"><code>LOAD DATA INFILE '/home/export_file.csv'
+INTO TABLE table_name
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '/n'
+IGNORE 1 ROWS;</code></pre>
+
+
+
+<p>Let us, in turn, explore the actions behind each of these lines:</p>
+
+
+
+<ul><li><strong><code>LOAD DATA INFILE</code></strong> – Defines the 
+location of the CSV file to be imported. Change the path (between the 
+quotes) to match the path and filename of your CSV file. If the CSV file
+ is located on the local machine, you can use the <strong><code>LOAD DATA LOCAL INFILE</code></strong> statement instead.</li><li><strong><code>INTO TABLE</code></strong> – This indicates the destination table you are importing the CSV file into. Change the&nbsp;<strong><code>table_name</code></strong> to the name of your table.</li><li><strong><code>FIELDS TERMINATED BY</code></strong>
+ – By default, comma-separated value files use a comma to identify 
+individual data values. If your export file uses a different delimiter, 
+you can modify this value.</li><li><strong><code>ENCLOSED BY</code></strong> – This specifies that a double-quote mark <strong><code>"</code></strong> surrounds values.</li><li><strong><code>LINES TERMINATED BY</code></strong> – Use this line to specify the code for a line break.</li><li><strong><code>IGNORE 1 ROWS;</code></strong>
+ – Many CSV files export with the column labels as the first line. This 
+command tells MySQL to ignore the first row as you have already created 
+your table with the appropriate column headings. The semicolon at the 
+end specifies the end of the command for MySQL to execute.</li></ul>
+
+
+
+<h2 id="ftoc-heading-5" class="ftwp-heading">Import CSV File with phpMyAdmin</h2>
+
+
+
+<p>If your server or database uses phpMyAdmin, you can use the graphical interface to import a CSV file.</p>
+
+
+
+<p>1. Access cPanel and launch phpMyAdmin.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/access-phpmyadmin-cpanel-mysql-csv-import.png" alt="accessing phpMyAdmin from cPanel" class="wp-image-95276 lazyloaded" data-ll-status="loaded" width="800" height="470"><noscript><img width="800" height="470" src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/access-phpmyadmin-cpanel-mysql-csv-import.png" alt="accessing phpMyAdmin from cPanel" class="wp-image-95276"/></noscript></figure></div>
+
+
+
+<p>2. Use the left pane to select the database and table you are importing the CSV file into.</p>
+
+
+
+<p>3. Use the top menu to select <strong>Import</strong>.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20326'%3E%3C/svg%3E" alt="screenshot of import CSV file into MySQL using phpMyAdmin" class="wp-image-95277" data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-phpmyadmin-mysql.png" width="800" height="326"><noscript><img width="800" height="326" src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-phpmyadmin-mysql.png" alt="screenshot of import CSV file into MySQL using phpMyAdmin" class="wp-image-95277"/></noscript></figure></div>
+
+
+
+<p>4. Click <strong>Choose File </strong>and browse to the CSV file location.</p>
+
+
+
+<p>5. Use the <strong>Format </strong>drop-down menu to select&nbsp;<strong>CSV </strong>and the<strong> Format-specific options </strong>to define options for the individual columns.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20570'%3E%3C/svg%3E" alt="Select CSV Format and define column values" class="wp-image-95282" data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-phpmyadmin-mysql-format.png" width="800" height="570"><noscript><img width="800" height="570" src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/import-csv-phpmyadmin-mysql-format.png" alt="Select CSV Format and define column values" class="wp-image-95282"/></noscript></figure></div>
+
+
+
+<p>6. Select <strong>Go </strong>to initiate the CSV import.</p>
+
+
+
+<p class="h3">Conclusion</p>
+
+
+
+<p>You now know how to import CSV files into MySQL, both from the 
+command line or by using phpMyAdmin. The methods outlined in this 
+tutorial enable you to move data between systems and different database 
+applications.</p>
+</div><div id="was-this-helpful" data-post-id="115433" data-thank-text="Thank you for your feedback!"><div id="wthf-title">Was this article helpful?</div><div id="wthf-yes-no"><span data-value="1">Yes</span><span data-value="0">No</span></div></div></span></div><div id="code_block-182-157" class="ct-code-block"></div><div id="shortcode-109-157" class="ct-shortcode"><div class="scriptlesssocialsharing"><div class="scriptlesssocialsharing__buttons"><a class="button twitter" target="_blank" href="https://twitter.com/intent/tweet?text=How%20to%20Import%20a%20CSV%20file%20into%20a%20MySQL%20database%3F&amp;url=https%3A%2F%2Fphoenixnap.com%2Fkb%2Fimport-csv-file-into-mysql" rel="noopener noreferrer nofollow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="scriptlesssocialsharing__icon twitter" fill="currentcolor" height="1em" width="1em" aria-hidden="true" focusable="false" role="img"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+<span class="sss-name"><span class="screen-reader-text">Share on </span>Twitter</span></a><a class="button facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fphoenixnap.com%2Fkb%2Fimport-csv-file-into-mysql" rel="noopener noreferrer nofollow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="scriptlesssocialsharing__icon facebook" fill="currentcolor" height="1em" width="1em" aria-hidden="true" focusable="false" role="img"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
+<span class="sss-name"><span class="screen-reader-text">Share on </span>Facebook</span></a><a class="button linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=1&amp;url=https%3A%2F%2Fphoenixnap.com%2Fkb%2Fimport-csv-file-into-mysql&amp;title=How%20to%20Import%20a%20CSV%20file%20into%20a%20MySQL%20database%3F&amp;source=https%3A%2F%2Fphoenixnap.com%2Fkb&amp;summary=The%20article%20explains%20how%20to%20import%20a%20CSV%20file%20into%20a%20MySQL%20database%20using%20the%20command%20line%20or%20phpMyAdmin.%20Also%2C%20find%20out%20how%20to%20exclude%20the%20header%20row%20from%20the%20CSV%20and%20speed%20up%20the%20importation%20process." rel="noopener noreferrer nofollow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="scriptlesssocialsharing__icon linkedin" fill="currentcolor" height="1em" width="1em" aria-hidden="true" focusable="false" role="img"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+<span class="sss-name"><span class="screen-reader-text">Share on </span>LinkedIn</span></a><a class="button email" href="mailto:?body=I%20read%20this%20post%20and%20wanted%20to%20share%20it%20with%20you.%20Here%27s%20the%20link%3A%20https%3A%2F%2Fphoenixnap.com%2Fkb%2Fimport-csv-file-into-mysql&amp;subject=A%20post%20worth%20sharing%3A%20How%20to%20Import%20a%20CSV%20file%20into%20a%20MySQL%20database%3F" rel="noopener noreferrer nofollow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="scriptlesssocialsharing__icon email" fill="currentcolor" height="1em" width="1em" aria-hidden="true" focusable="false" role="img"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+<span class="sss-name"><span class="screen-reader-text">Share on </span>Email</span></a></div></div></div><div id="div_block-97-157" class="ct-div-block"><div id="div_block-219-157" class="ct-div-block"><img id="image-98-157" alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://secure.gravatar.com/avatar/8d4609e99e6aecc69ce049e18d45f033?s=96&amp;d=mm&amp;r=g"><noscript><img id="image-98-157" alt="" src="https://secure.gravatar.com/avatar/8d4609e99e6aecc69ce049e18d45f033?s=96&d=mm&r=g" class="ct-image"/></noscript></div><div id="div_block-101-157" class="ct-div-block"><div id="text_block-99-157" class="ct-text-block"><span id="span-100-157" class="ct-span">Vladimir Kaplarevic</span></div><div id="text_block-106-157" class="ct-text-block"><span id="span-107-157" class="ct-span">Vladimir
+ is a resident Tech Writer at phoenixNAP. He has more than 7 years of 
+experience in implementing e-commerce and online payment solutions with 
+various global IT services providers. His articles aim to instill a 
+passion for innovative technologies in others by providing practical 
+advice and using an engaging writing style.</span></div></div></div><div id="div_block-110-157" class="ct-div-block"><div id="text_block-154-157" class="ct-text-block">Next you should read</div><div id="div_block-172-157" class="ct-div-block"><div id="div_block-175-157" class="ct-div-block"><div id="code_block-166-157" class="ct-code-block"> 
+<div class="single-related-post">
+    <div class="srp-categories">
+                 <a target="_blank" href="https://phoenixnap.com/kb/category/sysadmin">SysAdmin</a>
+                   <a target="_blank" href="https://phoenixnap.com/kb/category/web-servers">Web Servers</a>
+            </div>
+	<a class="srp-title" target="_blank" href="https://phoenixnap.com/kb/install-phpmyadmin-on-centos-8">How to Install phpMyAdmin on CentOS 8</a>
+	<div class="srp-date">June 2, 2020</div>
+	<hr>
+	<div class="srp-excerpt">The phpMyAdmin software is used for working with MySQL databases through a graphical interface. It can be...</div>
+	<a class="srp-read-more" target="_blank" href="https://phoenixnap.com/kb/install-phpmyadmin-on-centos-8">Read more</a>
+</div></div></div><div id="div_block-177-157" class="ct-div-block"><div id="code_block-167-157" class="ct-code-block"> 
+<div class="single-related-post">
+    <div class="srp-categories">
+                 <a target="_blank" href="https://phoenixnap.com/kb/category/databases">Databases</a>
+                   <a target="_blank" href="https://phoenixnap.com/kb/category/sysadmin">SysAdmin</a>
+            </div>
+	<a class="srp-title" target="_blank" href="https://phoenixnap.com/kb/export-postgresql-table-to-csv">How to Export a PostgreSQL Table to CSV</a>
+	<div class="srp-date">March 17, 2020</div>
+	<hr>
+	<div class="srp-excerpt">Learn how to export a PostgreSQL table to a .csv file. This feature is especially helpful when transferring...</div>
+	<a class="srp-read-more" target="_blank" href="https://phoenixnap.com/kb/export-postgresql-table-to-csv">Read more</a>
+</div></div></div><div id="div_block-178-157" class="ct-div-block"><div id="code_block-168-157" class="ct-code-block"> 
+<div class="single-related-post">
+    <div class="srp-categories">      
+                 <a target="_blank" href="https://phoenixnap.com/kb/category/databases/mysql">MySQL</a>
+                   <a target="_blank" href="https://phoenixnap.com/kb/category/sysadmin">SysAdmin</a>
+        </div>
+	<a class="srp-title" target="_blank" href="https://phoenixnap.com/kb/improve-mysql-performance-tuning-optimization">How to Improve MySQL Performance With Tuning</a>
+	<div class="srp-date">January 15, 2020</div>
+	<hr>
+	<div class="srp-excerpt">The performance of MySQL databases is an essential factor in the optimal operation of your server...</div>
+	<a class="srp-read-more" target="_blank" href="https://phoenixnap.com/kb/improve-mysql-performance-tuning-optimization">Read more</a>
+</div></div></div><div id="div_block-179-157" class="ct-div-block"><div id="code_block-170-157" class="ct-code-block"> 
+<div class="single-related-post">
+    <div class="srp-categories">      
+                 <a target="_blank" href="https://phoenixnap.com/kb/category/databases/mysql">MySQL</a>
+                   <a target="_blank" href="https://phoenixnap.com/kb/category/sysadmin">SysAdmin</a>
+        </div>
+	<a class="srp-title" target="_blank" href="https://phoenixnap.com/kb/import-and-export-mysql-database">How to Import and Export MySQL Databases in Linux</a>
+	<div class="srp-date">April 25, 2019</div>
+	<hr>
+	<div class="srp-excerpt">MySQL is a versatile application. It can be used for something as simple as a product database, or as complex...</div>
+	<a class="srp-read-more" target="_blank" href="https://phoenixnap.com/kb/import-and-export-mysql-database">Read more</a>
+</div></div></div></div></div></div><div id="div_block-83-157" class="ct-div-block q2w3-fixed-widget-container" style="height: 5886px;"><li id="text-2_clone" class="widget widget_text q2w3-widget-clone-bsf-sb-single-post-right-sidebar" style="top: 10px; width: 0px; height: 0px; visibility: hidden;">			
+		</li><li id="text-2" class="widget widget_text" style="top: 10px; width: 0px; position: fixed;">			<div class="textwidget">
+</div>
+		</li>
+<li id="text-3_clone" class="widget widget_text q2w3-widget-clone-bsf-sb-single-post-right-sidebar" style="top: 10px; width: 0px; height: 0px; visibility: hidden;">			
+		</li><li id="text-3" class="widget widget_text" style="top: 10px; width: 0px; position: fixed;">			<div class="textwidget">
+</div>
+		</li>
+<li id="text-4_clone" class="widget widget_text q2w3-widget-clone-bsf-sb-single-post-right-sidebar" style="top: 10px; width: 160px; height: 623.2px; visibility: hidden;">			
+		</li><li id="text-4" class="widget widget_text" style="top: 10px; width: 160px; position: fixed;">			<div class="textwidget"><div class="code-block code-block-3 ai-viewport-1" style="margin: 8px 0; clear: both;">
+<a class="single-media-link" href="https://phoenixnap.com/disaster-recovery-as-a-service-draas?utm_source=banner-internal&amp;utm_medium=banner&amp;utm_campaign=disaster-recovery" target="_blank" rel="noopener"><img src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/disaster-recovery.jpg" class="lazyloaded" data-ll-status="loaded" width="160" height="600"><noscript><img width="160" height="600" src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/disaster-recovery.jpg"></noscript></a></div>
+
+</div>
+		</li>
+<li id="text-5_clone" class="widget widget_text q2w3-widget-clone-bsf-sb-single-post-right-sidebar" style="top: 633.2px; width: 0px; height: 0px; visibility: hidden;">			
+		</li><li id="text-5" class="widget widget_text" style="top: 633.2px; width: 0px; position: fixed;">			<div class="textwidget">
+</div>
+		</li>
+<li id="text-6_clone" class="widget widget_text q2w3-widget-clone-bsf-sb-single-post-right-sidebar" style="top: 633.2px; width: 0px; height: 0px; visibility: hidden;">			
+		</li><li id="text-6" class="widget widget_text" style="top: 633.2px; width: 0px; position: fixed;">			<div class="textwidget">
+</div>
+		</li>
+<li id="text-7_clone" class="widget widget_text q2w3-widget-clone-bsf-sb-single-post-right-sidebar" style="top: 633.2px; width: 0px; height: 0px; visibility: hidden;">			
+		</li><li id="text-7" class="widget widget_text" style="top: 633.2px; width: 0px; position: fixed;">			<div class="textwidget">
+</div>
+		</li>
+<li id="text-8_clone" class="widget widget_text q2w3-widget-clone-bsf-sb-single-post-right-sidebar" style="top: 633.2px; width: 0px; height: 0px; visibility: hidden;">			
+		</li><li id="text-8" class="widget widget_text" style="top: 633.2px; width: 0px; position: fixed;">			<div class="textwidget">
+</div>
+		</li>
+<li id="text-9_clone" class="widget widget_text q2w3-widget-clone-bsf-sb-single-post-right-sidebar" style="top: 633.2px; width: 0px; height: 0px; visibility: hidden;">			
+		</li><li id="text-9" class="widget widget_text" style="top: 633.2px; width: 0px; position: fixed;">			<div class="textwidget">
+</div>
+		</li>
+</div></div></div></section><footer id="section-115-7" class="ct-section"><div class="ct-section-inner-wrap"><div id="new_columns-118-7" class="ct-new-columns"><div id="div_block-119-7" class="ct-div-block"><li id="custom_html-5" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><span class="widgettitle">Recent Posts</span></div></li>
+<style>.rpwe-block ul{
+list-style: none !important;
+margin-left: 0 !important;
+padding-left: 0 !important;
+}
+
+.rpwe-block li{
+margin-bottom: 10px;
+padding-bottom: 10px;
+list-style-type: none;
+}
+
+.rpwe-block a{
+display: inline !important;
+text-decoration: none;
+    font-size: 12px;
+    padding: 0px 0px 5px 0px;
+    color: #fff;
+	font-family: 'Roboto';
+}
+
+.rpwe-block a:hover {
+color: #0074db;
+}
+
+.rpwe-block h3{
+background: none !important;
+clear: none;
+margin-bottom: 0 !important;
+margin-top: 0 !important;
+font-weight: 400;
+font-size: 12px !important;
+line-height: 1.5em;
+}
+
+.rpwe-thumb{
+border: 1px solid #eee !important;
+box-shadow: none !important;
+margin: 2px 10px 2px 0;
+padding: 3px !important;
+}
+
+.rpwe-summary{
+font-size: 12px;
+}
+
+.rpwe-time{
+color: #bbb;
+font-size: 11px;
+}
+
+.rpwe-comment{
+color: #bbb;
+font-size: 11px;
+padding-left: 5px;
+}
+
+.rpwe-alignleft{
+display: inline;
+float: left;
+}
+
+.rpwe-alignright{
+display: inline;
+float: right;
+}
+
+.rpwe-aligncenter{
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.rpwe-clearfix:before,
+.rpwe-clearfix:after{
+content: "";
+display: table !important;
+}
+
+.rpwe-clearfix:after{
+clear: both;
+}
+
+.rpwe-clearfix{
+zoom: 1;
+}
+</style><li id="rpwe_widget-2" class="widget rpwe_widget recent-posts-extended"><div class="rpwe-block"><ul class="rpwe-ul"><li class="rpwe-li rpwe-clearfix"><span class="rpwe-title"><a href="https://phoenixnap.com/kb/mysql-show-user-privileges" title="Permalink to MySQL Show User Privileges" rel="bookmark">MySQL Show User Privileges</a></span></li><li class="rpwe-li rpwe-clearfix"><span class="rpwe-title"><a href="https://phoenixnap.com/kb/nvidia-drivers-debian" title="Permalink to How to Install Nvidia Drivers on Debian" rel="bookmark">How to Install Nvidia Drivers on Debian</a></span></li><li class="rpwe-li rpwe-clearfix"><span class="rpwe-title"><a href="https://phoenixnap.com/kb/nsx-v-to-nsx-t-migration" title="Permalink to How to Migrate NSX-V to NSX-T" rel="bookmark">How to Migrate NSX-V to NSX-T</a></span></li><li class="rpwe-li rpwe-clearfix"><span class="rpwe-title"><a href="https://phoenixnap.com/kb/kubernetes-redis" title="Permalink to How to Deploy Redis Cluster on Kubernetes" rel="bookmark">How to Deploy Redis Cluster on Kubernetes</a></span></li><li class="rpwe-li rpwe-clearfix"><span class="rpwe-title"><a href="https://phoenixnap.com/kb/mysql-database-size" title="Permalink to How to Check MySQL Database and Table Size" rel="bookmark">How to Check MySQL Database and Table Size</a></span></li></ul></div></li>
+</div><div id="div_block-120-7" class="ct-div-block"><li id="custom_html-4" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><span class="widgettitle">Categories</span></div></li>
+<li id="nav_menu-2" class="widget widget_nav_menu"><div class="menu-categories-container"><ul id="menu-categories" class="menu"><li id="menu-item-131570" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-131570"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/sysadmin">SysAdmin</a></li>
+<li id="menu-item-131571" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131571"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/virtualization">Virtualization</a></li>
+<li id="menu-item-131566" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131566"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/devops-and-development">DevOps and Development</a></li>
+<li id="menu-item-131569" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131569"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/security">Security</a></li>
+<li id="menu-item-131563" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131563"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/backup-and-recovery">Backup and Recovery</a></li>
+<li id="menu-item-131564" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131564"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/bare-metal-servers">Bare Metal Servers</a></li>
+<li id="menu-item-131572" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131572"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/web-servers">Web Servers</a></li>
+<li id="menu-item-131567" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-131567"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/networking">Networking</a></li>
+<li id="menu-item-131565" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-131565"><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/category/databases">Databases</a></li>
+</ul></div></li>
+</div><div id="div_block-121-7" class="ct-div-block"><li id="custom_html-3" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><span class="widgettitle">Company</span></div></li>
+<li id="nav_menu-3" class="widget widget_nav_menu"><div class="menu-company-container"><ul id="menu-company" class="menu"><li id="menu-item-110086" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110086"><a target="_blank" rel="noopener" href="https://phoenixnap.com/company/about-us">About Us</a></li>
+<li id="menu-item-110118" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110118"><a target="_blank" rel="noopener" href="https://github.com/phoenixnap">GitHub</a></li>
+<li id="menu-item-110088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110088"><a target="_blank" rel="noopener" href="https://phoenixnap.com/blog">Blog</a></li>
+<li id="menu-item-110121" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110121"><a target="_blank" rel="noopener" href="https://phoenixnap.com/company/it-resources/data-center-rfp-template">RFP Template</a></li>
+<li id="menu-item-110120" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110120"><a target="_blank" rel="noopener" href="http://employment.ccbill.com/">Careers</a></li>
+</ul></div></li>
+</div><div id="div_block-122-7" class="ct-div-block"><li id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><span class="widgettitle">Products</span></div></li>
+<li id="nav_menu-4" class="widget widget_nav_menu"><div class="menu-products-container"><ul id="menu-products" class="menu"><li id="menu-item-110090" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110090"><a target="_blank" rel="noopener" href="https://phoenixnap.com/colocation">Colocation</a></li>
+<li id="menu-item-110080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110080"><a target="_blank" rel="noopener" href="https://phoenixnap.com/servers">Servers</a></li>
+<li id="menu-item-110081" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110081"><a target="_blank" rel="noopener" href="https://phoenixnap.com/cloud-services">Cloud Services</a></li>
+<li id="menu-item-110122" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110122"><a target="_blank" rel="noopener" href="https://phoenixnap.com/infrastructure-solutions">Solutions</a></li>
+<li id="menu-item-110123" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110123"><a target="_blank" rel="noopener" href="https://phoenixnap.com/network/locations">Locations</a></li>
+</ul></div></li>
+</div><div id="div_block-138-7" class="ct-div-block"><li id="custom_html-1" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><span class="widgettitle">Connect</span></div></li>
+<li id="nav_menu-5" class="widget widget_nav_menu"><div class="menu-connect-container"><ul id="menu-connect" class="menu"><li id="menu-item-110096" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110096"><a target="_blank" rel="noopener" href="https://phoenixnap.com/company/it-events">Events</a></li>
+<li id="menu-item-110119" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110119"><a target="_blank" rel="noopener" href="https://phoenixnap.com/company/press">Press</a></li>
+<li id="menu-item-110089" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110089"><a target="_blank" rel="noopener" href="https://phoenixnap.com/contact-us">Contact Us</a></li>
+</ul></div></li>
+</div></div><div id="div_block-139-7" class="ct-div-block"><div id="_rich_text-163-137" class="oxy-rich-text"><ul class="footer-icons-menu list-inline">
+ 	<li class="list-inline-item"><i class="far fa-comment fa-lg"></i><a href="https://phoenixnap.com/">&nbsp;Live Chat</a></li>
+ 	<li class="list-inline-item"><i class="fa fa-check-circle-o fa-lg"></i><a href="https://phoenixnap.com/contact-us">&nbsp;Get a Quote</a></li>
+ 	<li class="list-inline-item"><i class="fa fa-question-circle-o fa-lg"></i>&nbsp;Support |&nbsp;<a href="tel:1-855-330-1509">1-855-330-1509</a></li>
+ 	<li class="list-inline-item"><i class="fa fa-cart-plus fa-lg"></i>&nbsp;Sales |&nbsp;<a href="tel:1-877-588-5918">1-877-588-5918</a></li>
+</ul></div><div id="div_block-147-7" class="ct-div-block soc-menu-wrapper"><a id="link-149-7" class="ct-link" href="https://www.facebook.com/phoenixnap" target="_self"><div id="fancy_icon-148-7" class="ct-fancy-icon"><svg id="svg-fancy_icon-148-7"><use xlink:href="#FontAwesomeicon-facebook"></use></svg></div></a><a id="link-151-7" class="ct-link" href="https://www.linkedin.com/company/phoenix-nap/" target="_self"><div id="fancy_icon-152-7" class="ct-fancy-icon"><svg id="svg-fancy_icon-152-7"><use xlink:href="#FontAwesomeicon-linkedin"></use></svg></div></a><a id="link-153-7" class="ct-link" href="https://twitter.com/phoenixNAP" target="_self"><div id="fancy_icon-154-7" class="ct-fancy-icon"><svg id="svg-fancy_icon-154-7"><use xlink:href="#FontAwesomeicon-twitter"></use></svg></div></a><a id="link-155-7" class="ct-link" href="https://www.instagram.com/phoenixnap/" target="_self"><div id="fancy_icon-156-7" class="ct-fancy-icon"><svg id="svg-fancy_icon-156-7"><use xlink:href="#FontAwesomeicon-instagram"></use></svg></div></a><a id="link-157-7" class="ct-link" href="https://www.youtube.com/user/PhoenixNAPdatacenter" target="_self"><div id="fancy_icon-158-7" class="ct-fancy-icon"><svg id="svg-fancy_icon-158-7"><use xlink:href="#FontAwesomeicon-youtube"></use></svg></div></a></div></div></div></footer><section id="section-162-7" class="ct-section"><div class="ct-section-inner-wrap"><div id="div_block-159-7" class="ct-div-block"><nav id="_nav_menu-133-7" class="oxy-nav-menu oxy-nav-menu-dropdowns oxy-nav-menu-dropdown-arrow"><div class="oxy-menu-toggle"><div class="oxy-nav-menu-hamburger-wrap"><div class="oxy-nav-menu-hamburger"><div class="oxy-nav-menu-hamburger-line"></div><div class="oxy-nav-menu-hamburger-line"></div><div class="oxy-nav-menu-hamburger-line"></div></div></div></div><div class="menu-bottom-menu-container"><ul id="menu-bottom-menu" class="oxy-nav-menu-list"><li id="menu-item-110082" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110082"><a target="_blank" rel="noopener" href="https://phoenixnap.com/infrastructure-solutions/legal-it/privacy-shield-compliant-privacy-policy">Privacy Policy</a></li>
+<li id="menu-item-110097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110097"><a target="_blank" rel="noopener" href="https://phoenixnap.com/gdpr">GDPR</a></li>
+<li id="menu-item-110098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110098"><a target="_blank" rel="noopener" href="https://phoenixnap.com/sitemap">Sitemap</a></li>
+</ul></div></nav><div id="text_block-134-7" class="ct-text-block">© 2021 Copyright phoenixNAP | Global IT Services. All Rights Reserved.<br></div></div><div id="div_block-6-156" class="ct-div-block"><div id="code_block-7-156" class="ct-code-block"><button class="live-chat-btn" onclick="myFunction()">Live Chat ↗</button></div></div></div></section><div id="div_block-8-156" class="ct-div-block"><a id="link-9-156" class="ct-link topbutton" href="#"><div id="fancy_icon-10-156" class="ct-fancy-icon"><svg id="svg-fancy_icon-10-156"><use xlink:href="#FontAwesomeicon-chevron-circle-up"></use></svg></div></a></div>            <div tabindex="-1" class="oxy-modal-backdrop center" style="background-color: rgba(0,0,0,0.7);" data-trigger="user_clicks_element" data-trigger-selector="#menu-item-132766" data-trigger-time="5" data-trigger-time-unit="seconds" data-close-automatically="no" data-close-after-time="10" data-close-after-time-unit="seconds" data-trigger_scroll_amount="50" data-trigger_scroll_direction="down" data-scroll_to_selector="" data-time_inactive="60" data-time-inactive-unit="seconds" data-number_of_clicks="3" data-close_on_esc="on" data-number_of_page_views="3" data-close-after-form-submit="no" data-open-again="always_show" data-open-again-after-days="3">
+
+                <div id="modal-203-157" class="ct-modal"><div id="code_block-204-157" class="ct-code-block"><form class="searchform-wrapper-modal" id="searchform" method="get" action="https://phoenixnap.com/kb/">
+    <input type="text" class="search-field-modal" name="s" placeholder="Search...">
+    <button type="submit" id="submit-button" class="submit-button-modal" value="">
+    <div id="innericon" class="innericon-modal">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="22px" height="28px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+          <path id="magnifier-2-icon" d="M460.355,421.59L353.844,315.078c20.041-27.553,31.885-61.437,31.885-98.037                    C385.729,124.934,310.793,50,218.686,50C126.58,50,51.645,124.934,51.645,217.041c0,92.106,74.936,167.041,167.041,167.041                    c34.912,0,67.352-10.773,94.184-29.158L419.945,462L460.355,421.59z M100.631,217.041c0-65.096,52.959-118.056,118.055-118.056                    c65.098,0,118.057,52.959,118.057,118.056c0,65.096-52.959,118.056-118.057,118.056C153.59,335.097,100.631,282.137,100.631,217.041                    z"></path>
+       </svg>
+    </div>
+    </button>
+</form></div></div>
+            </div>
+        	
+<script type="text/javascript" id="ct_custom_js_9">window.addEventListener('DOMContentLoaded', function() {jQuery(document).ready(function($){
+    var offset = 100;
+    var speed = 250;
+    var duration = 750;
+        $(window).scroll(function(){
+            if ($(this).scrollTop() < offset) {
+                      $('.topbutton') .fadeOut(duration);
+            } else {
+                      $('.topbutton') .fadeIn(duration);
+            }
+        });
+     $('.topbutton').on('click', function(){
+            $('html, body').animate({scrollTop:0}, speed);
+            return false;
+            });
+});});</script>
+<style>.ct-FontAwesomeicon-twitter{width:0.92857142857143em}</style>
+<style>.ct-FontAwesomeicon-facebook{width:0.57142857142857em}</style>
+<style>.ct-FontAwesomeicon-linkedin{width:0.85714285714286em}</style>
+<style>.ct-FontAwesomeicon-chevron-circle-up{width:0.85714285714286em}</style>
+<style>.ct-FontAwesomeicon-youtube{width:0.85714285714286em}</style>
+<style>.ct-FontAwesomeicon-instagram{width:0.85714285714286em}</style>
+<!--?xml version="1.0"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"><defs><symbol id="FontAwesomeicon-twitter" viewBox="0 0 26 28"><title>twitter</title><path d="M25.312 6.375c-0.688 1-1.547 1.891-2.531 2.609 0.016 0.219 0.016 0.438 0.016 0.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-0.828-7.75-2.266 0.406 0.047 0.797 0.063 1.219 0.063 2.359 0 4.531-0.797 6.266-2.156-2.219-0.047-4.078-1.5-4.719-3.5 0.313 0.047 0.625 0.078 0.953 0.078 0.453 0 0.906-0.063 1.328-0.172-2.312-0.469-4.047-2.5-4.047-4.953v-0.063c0.672 0.375 1.453 0.609 2.281 0.641-1.359-0.906-2.25-2.453-2.25-4.203 0-0.938 0.25-1.797 0.688-2.547 2.484 3.062 6.219 5.063 10.406 5.281-0.078-0.375-0.125-0.766-0.125-1.156 0-2.781 2.25-5.047 5.047-5.047 1.453 0 2.766 0.609 3.687 1.594 1.141-0.219 2.234-0.641 3.203-1.219-0.375 1.172-1.172 2.156-2.219 2.781 1.016-0.109 2-0.391 2.906-0.781z"></path></symbol><symbol id="FontAwesomeicon-facebook" viewBox="0 0 16 28"><title>facebook</title><path d="M14.984 0.187v4.125h-2.453c-1.922 0-2.281 0.922-2.281 2.25v2.953h4.578l-0.609 4.625h-3.969v11.859h-4.781v-11.859h-3.984v-4.625h3.984v-3.406c0-3.953 2.422-6.109 5.953-6.109 1.687 0 3.141 0.125 3.563 0.187z"></path></symbol><symbol id="FontAwesomeicon-linkedin" viewBox="0 0 24 28"><title>linkedin</title><path d="M5.453 9.766v15.484h-5.156v-15.484h5.156zM5.781 4.984c0.016 1.484-1.109 2.672-2.906 2.672v0h-0.031c-1.734 0-2.844-1.188-2.844-2.672 0-1.516 1.156-2.672 2.906-2.672 1.766 0 2.859 1.156 2.875 2.672zM24 16.375v8.875h-5.141v-8.281c0-2.078-0.75-3.5-2.609-3.5-1.422 0-2.266 0.953-2.641 1.875-0.125 0.344-0.172 0.797-0.172 1.266v8.641h-5.141c0.063-14.031 0-15.484 0-15.484h5.141v2.25h-0.031c0.672-1.062 1.891-2.609 4.672-2.609 3.391 0 5.922 2.219 5.922 6.969z"></path></symbol><symbol id="FontAwesomeicon-chevron-circle-up" viewBox="0 0 24 28"><title>chevron-circle-up</title><path d="M18.203 17.797l1.594-1.594c0.391-0.391 0.391-1.016 0-1.406l-7.094-7.094c-0.391-0.391-1.016-0.391-1.406 0l-7.094 7.094c-0.391 0.391-0.391 1.016 0 1.406l1.594 1.594c0.391 0.391 1.016 0.391 1.406 0l4.797-4.797 4.797 4.797c0.391 0.391 1.016 0.391 1.406 0zM24 14c0 6.625-5.375 12-12 12s-12-5.375-12-12 5.375-12 12-12 12 5.375 12 12z"></path></symbol><symbol id="FontAwesomeicon-youtube" viewBox="0 0 24 28"><title>youtube</title><path d="M15.172 19.437v3.297c0 0.703-0.203 1.047-0.609 1.047-0.234 0-0.469-0.109-0.703-0.344v-4.703c0.234-0.234 0.469-0.344 0.703-0.344 0.406 0 0.609 0.359 0.609 1.047zM20.453 19.453v0.719h-1.406v-0.719c0-0.703 0.234-1.062 0.703-1.062s0.703 0.359 0.703 1.062zM5.359 16.047h1.672v-1.469h-4.875v1.469h1.641v8.891h1.563v-8.891zM9.859 24.938h1.391v-7.719h-1.391v5.906c-0.313 0.438-0.609 0.656-0.891 0.656-0.187 0-0.297-0.109-0.328-0.328-0.016-0.047-0.016-0.219-0.016-0.547v-5.688h-1.391v6.109c0 0.547 0.047 0.906 0.125 1.141 0.125 0.391 0.453 0.578 0.906 0.578 0.5 0 1.031-0.313 1.594-0.953v0.844zM16.562 22.625v-3.078c0-0.719-0.031-1.234-0.141-1.547-0.172-0.578-0.562-0.875-1.109-0.875-0.516 0-1 0.281-1.453 0.844v-3.391h-1.391v10.359h1.391v-0.75c0.469 0.578 0.953 0.859 1.453 0.859 0.547 0 0.938-0.297 1.109-0.859 0.109-0.328 0.141-0.844 0.141-1.563zM21.844 22.469v-0.203h-1.422c0 0.562-0.016 0.875-0.031 0.953-0.078 0.375-0.281 0.562-0.625 0.562-0.484 0-0.719-0.359-0.719-1.078v-1.359h2.797v-1.609c0-0.828-0.141-1.422-0.422-1.813-0.406-0.531-0.953-0.797-1.656-0.797-0.719 0-1.266 0.266-1.672 0.797-0.297 0.391-0.438 0.984-0.438 1.813v2.703c0 0.828 0.156 1.437 0.453 1.813 0.406 0.531 0.953 0.797 1.687 0.797s1.313-0.281 1.687-0.828c0.172-0.25 0.297-0.531 0.328-0.844 0.031-0.141 0.031-0.453 0.031-0.906zM12.344 8.203v-3.281c0-0.719-0.203-1.078-0.672-1.078-0.453 0-0.672 0.359-0.672 1.078v3.281c0 0.719 0.219 1.094 0.672 1.094 0.469 0 0.672-0.375 0.672-1.094zM23.578 19.938c0 1.797-0.016 3.719-0.406 5.469-0.297 1.234-1.297 2.141-2.5 2.266-2.875 0.328-5.781 0.328-8.672 0.328s-5.797 0-8.672-0.328c-1.203-0.125-2.219-1.031-2.5-2.266-0.406-1.75-0.406-3.672-0.406-5.469v0c0-1.813 0.016-3.719 0.406-5.469 0.297-1.234 1.297-2.141 2.516-2.281 2.859-0.313 5.766-0.313 8.656-0.313s5.797 0 8.672 0.313c1.203 0.141 2.219 1.047 2.5 2.281 0.406 1.75 0.406 3.656 0.406 5.469zM7.984 0h1.594l-1.891 6.234v4.234h-1.563v-4.234c-0.141-0.766-0.453-1.859-0.953-3.313-0.344-0.969-0.688-1.953-1.016-2.922h1.656l1.109 4.109zM13.766 5.203v2.734c0 0.828-0.141 1.453-0.438 1.844-0.391 0.531-0.938 0.797-1.656 0.797-0.703 0-1.25-0.266-1.641-0.797-0.297-0.406-0.438-1.016-0.438-1.844v-2.734c0-0.828 0.141-1.437 0.438-1.828 0.391-0.531 0.938-0.797 1.641-0.797 0.719 0 1.266 0.266 1.656 0.797 0.297 0.391 0.438 1 0.438 1.828zM19 2.672v7.797h-1.422v-0.859c-0.562 0.656-1.094 0.969-1.609 0.969-0.453 0-0.781-0.187-0.922-0.578-0.078-0.234-0.125-0.609-0.125-1.172v-6.156h1.422v5.734c0 0.328 0 0.516 0.016 0.547 0.031 0.219 0.141 0.344 0.328 0.344 0.281 0 0.578-0.219 0.891-0.672v-5.953h1.422z"></path></symbol><symbol id="FontAwesomeicon-instagram" viewBox="0 0 24 28"><title>instagram</title><path d="M16 14c0-2.203-1.797-4-4-4s-4 1.797-4 4 1.797 4 4 4 4-1.797 4-4zM18.156 14c0 3.406-2.75 6.156-6.156 6.156s-6.156-2.75-6.156-6.156 2.75-6.156 6.156-6.156 6.156 2.75 6.156 6.156zM19.844 7.594c0 0.797-0.641 1.437-1.437 1.437s-1.437-0.641-1.437-1.437 0.641-1.437 1.437-1.437 1.437 0.641 1.437 1.437zM12 4.156c-1.75 0-5.5-0.141-7.078 0.484-0.547 0.219-0.953 0.484-1.375 0.906s-0.688 0.828-0.906 1.375c-0.625 1.578-0.484 5.328-0.484 7.078s-0.141 5.5 0.484 7.078c0.219 0.547 0.484 0.953 0.906 1.375s0.828 0.688 1.375 0.906c1.578 0.625 5.328 0.484 7.078 0.484s5.5 0.141 7.078-0.484c0.547-0.219 0.953-0.484 1.375-0.906s0.688-0.828 0.906-1.375c0.625-1.578 0.484-5.328 0.484-7.078s0.141-5.5-0.484-7.078c-0.219-0.547-0.484-0.953-0.906-1.375s-0.828-0.688-1.375-0.906c-1.578-0.625-5.328-0.484-7.078-0.484zM24 14c0 1.656 0.016 3.297-0.078 4.953-0.094 1.922-0.531 3.625-1.937 5.031s-3.109 1.844-5.031 1.937c-1.656 0.094-3.297 0.078-4.953 0.078s-3.297 0.016-4.953-0.078c-1.922-0.094-3.625-0.531-5.031-1.937s-1.844-3.109-1.937-5.031c-0.094-1.656-0.078-3.297-0.078-4.953s-0.016-3.297 0.078-4.953c0.094-1.922 0.531-3.625 1.937-5.031s3.109-1.844 5.031-1.937c1.656-0.094 3.297-0.078 4.953-0.078s3.297-0.016 4.953 0.078c1.922 0.094 3.625 0.531 5.031 1.937s1.844 3.109 1.937 5.031c0.094 1.656 0.078 3.297 0.078 4.953z"></path></symbol></defs></svg>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLJ5W8M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        
+		
+		<script type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+			jQuery(document).ready(function() {
+				jQuery('body').on('click', '.oxy-menu-toggle', function() {
+					jQuery(this).parent('.oxy-nav-menu').toggleClass('oxy-nav-menu-open');
+					jQuery('body').toggleClass('oxy-nav-menu-prevent-overflow');
+					jQuery('html').toggleClass('oxy-nav-menu-prevent-overflow');
+				});
+				var selector = '.oxy-nav-menu-open .menu-item a[href*="#"]';
+				jQuery('body').on('click', selector, function(){
+					jQuery('.oxy-nav-menu-open').removeClass('oxy-nav-menu-open');
+					jQuery('body').removeClass('oxy-nav-menu-prevent-overflow');
+					jQuery('html').removeClass('oxy-nav-menu-prevent-overflow');
+					jQuery(this).click();
+				});
+			});
+		});</script>
+
+	
+		<script type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+
+            // Initialize Oxygen Modals
+            jQuery(document).ready(function() {
+
+                function showModal( modal ) {
+                    var $modal = jQuery( modal );
+                    $modal.addClass("live");
+                    var modalId = $modal[0].querySelector('.ct-modal').id;
+                    
+                    var focusable = modal.querySelector('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+
+                    if(focusable) {
+                        setTimeout(() => {
+                            focusable.focus();    
+                        }, 500);
+                        
+                        console.log(focusable);
+                    }
+
+                    setTimeout(() => {
+                        $modal.focus();
+                    }, 500)
+
+                    // Check if this modal can be shown according to settings and last shown time
+                    // Current and last time in milliseconds
+                    var currentTime = new Date().getTime();
+                    var lastShownTime = localStorage && localStorage['oxy-' + modalId + '-last-shown-time'] ? JSON.parse( localStorage['oxy-' + modalId + '-last-shown-time'] ) : false;
+                    // manual triggers aren't affected by last shown time
+                    if( $modal.data( 'trigger' ) != 'user_clicks_element' ) {
+                        switch( $modal.data( 'open-again' ) ) {
+                            case 'never_show_again':
+                                // if it was shown at least once, don't show it again
+                                if( lastShownTime !== false ) return;
+                                break;
+                            case 'show_again_after':
+                                var settingDays = parseInt( $modal.data( 'open-again-after-days' ) );
+                                var actualDays = ( currentTime - lastShownTime ) / ( 60*60*24*1000 );
+                                if( actualDays < settingDays ) return;
+                                break;
+                            default:
+                                //always show
+                                break;
+                        }
+                    }
+                    // save current time as last shown time
+                    if( localStorage ) localStorage['oxy-' + modalId + '-last-shown-time'] = JSON.stringify( currentTime );
+
+                    // trick to make jQuery fadeIn with flex
+                    $modal.css("display", "flex");
+                    $modal.hide();
+                    // trick to force AOS trigger on elements inside the modal
+                    $modal.find(".aos-animate").removeClass("aos-animate").addClass("aos-animate-disabled");
+
+                    // show the modal
+                    $modal.fadeIn(250, function(){
+                        // trick to force AOS trigger on elements inside the modal
+                        $modal.find(".aos-animate-disabled").removeClass("aos-animate-disabled").addClass("aos-animate");
+                    });
+
+
+                    if( $modal.data( 'close-automatically' ) == 'yes' ) {
+                        var time = parseInt( $modal.data( 'close-after-time' ) );
+                        if( $modal.data( 'close-after-time-unit' ) == 'seconds' ) {
+                            time = parseInt( parseFloat( $modal.data( 'close-after-time' ) ) * 1000 );
+                        }
+                        setTimeout( function(){
+                            hideModal(modal);
+                        }, time );
+                    }
+
+                    // close modal automatically after form submit (Non-AJAX)
+                    if( $modal.data( 'close-after-form-submit' ) == 'yes' && $modal.data("trigger") == "after_specified_time" ) {
+
+                        // WPForms
+                        // WPForms replaces the form with a confirmation message on page refresh
+                        if( $modal.find(".wpforms-confirmation-container-full").length > 0 ) {
+                            setTimeout(function () {
+                                hideModal(modal);
+                            }, 3000);
+                        }
+
+                        // Formidable Forms
+                        // Formidable Forms replaces the form with a confirmation message on page refresh
+                        if( $modal.find(".frm_message").length > 0 ) {
+                            setTimeout(function () {
+                                hideModal(modal);
+                            }, 3000);
+                        }
+
+                        // Caldera Forms
+                        // Caldera Forms replaces the form with a confirmation message on page refresh
+                        if( $modal.find(".caldera-grid .alert-success").length > 0 ) {
+                            setTimeout(function () {
+                                hideModal(modal);
+                            }, 3000);
+                        }
+
+                    }
+                }
+
+                var hideModal = function ( modal ) {
+
+                    // The function may be called by third party code, without argument, so we must close the first visible modal
+                    if( typeof modal === 'undefined' ) {
+                        var openModals = jQuery(".oxy-modal-backdrop.live");
+                        if( openModals.length == 0 ) return;
+                        modal = openModals[0];
+                    }
+
+                    var $modal = jQuery( modal );
+                    // refresh any iframe so media embedded this way is stopped
+                    $modal.find( 'iframe').each(function(index){
+                        this.src = this.src;
+                    });
+                    // HTML5 videos can be stopped easily
+                    $modal.find( 'video' ).each(function(index){
+                        this.pause();
+                    });
+                    // If there are any forms in the modal, reset them
+                    $modal.find("form").each(function(index){
+                        this.reset();
+                    });
+
+                    $modal.fadeOut(400, function(){
+                        $modal.removeClass("live");
+                    });
+                };
+
+                window.oxyCloseModal = hideModal;
+
+                jQuery( ".oxy-modal-backdrop" ).each(function( index ) {
+
+                    var modal = this;
+
+                    (function( modal ){
+                        var $modal = jQuery( modal );
+						
+						var exitIntentFunction = function( e ){
+							if( e.clientY <= 0 ) {
+								showModal( modal );
+								document.removeEventListener( "mouseleave", exitIntentFunction );
+								document.removeEventListener( "mouseout", exitIntentFunction );
+							}
+						}
+
+                        switch ( jQuery( modal ).data("trigger") ) {
+
+                            case "on_exit_intent":
+                                document.addEventListener( "mouseleave", exitIntentFunction, false);
+								document.addEventListener( "mouseout", exitIntentFunction, false);
+                                break;
+
+                            case "user_clicks_element":
+                                jQuery( jQuery( modal ).data( 'trigger-selector' ) ).click( function( event ) {
+                                    showModal( modal );
+                                    event.preventDefault();
+                                } );
+                                break;
+
+                            case "after_specified_time":
+                                var time = parseInt( jQuery( modal ).data( 'trigger-time' ) );
+                                if( jQuery( modal ).data( 'trigger-time-unit' ) == 'seconds' ) {
+                                    time = parseInt( parseFloat( jQuery( modal ).data( 'trigger-time' ) ) * 1000 );
+                                }
+                                setTimeout( function(){
+                                    showModal( modal );
+                                }, time );
+                                break;
+
+                            case "after_scrolled_amount":
+                                window.addEventListener("scroll", function scrollDetection(){
+                                    var winheight= window.innerHeight || (document.documentElement || document.body).clientHeight;
+                                    var docheight = jQuery(document).height();
+                                    var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+                                    var isScrollUp = false;
+                                    var oxyPreviousScrollTop = parseInt( jQuery( modal ).data( 'previous_scroll_top' ) );
+                                    if( !isNaN( oxyPreviousScrollTop ) ) {
+                                        if( oxyPreviousScrollTop > scrollTop) isScrollUp = true;
+                                    }
+                                    jQuery( modal ).data( 'previous_scroll_top', scrollTop );
+                                    var trackLength = docheight - winheight;
+                                    var pctScrolled = Math.floor(scrollTop/trackLength * 100);
+                                    if( isNaN( pctScrolled ) ) pctScrolled = 0;
+
+                                    if(
+                                        ( isScrollUp && jQuery( modal ).data( 'trigger_scroll_direction' ) == 'up' ) ||
+                                        ( !isScrollUp && jQuery( modal ).data( 'trigger_scroll_direction' ) == 'down' && pctScrolled >= parseInt( jQuery( modal ).data( 'trigger_scroll_amount' ) ) )
+                                    ) {
+                                        showModal( modal );
+                                        window.removeEventListener( "scroll", scrollDetection );
+                                    }
+                                }, false);
+                                break;
+                            case "on_scroll_to_element":
+                                window.addEventListener("scroll", function scrollDetection(){
+                                    var $element = jQuery( jQuery( modal ).data( 'scroll_to_selector' ) );
+                                    if( $element.length == 0 ) {
+                                        window.removeEventListener( "scroll", scrollDetection );
+                                        return;
+                                    }
+
+                                    var top_of_element = $element.offset().top;
+                                    var bottom_of_element = $element.offset().top + $element.outerHeight();
+                                    var bottom_of_screen = jQuery(window).scrollTop() + jQuery(window).innerHeight();
+                                    var top_of_screen = jQuery(window).scrollTop();
+
+                                    if ((bottom_of_screen > bottom_of_element - $element.outerHeight() /2 ) && (top_of_screen < top_of_element + $element.outerHeight() /2 )){
+                                        showModal( modal );
+                                        window.removeEventListener( "scroll", scrollDetection );
+                                    }
+                                }, false);
+                                break;
+                            case "after_number_of_clicks":
+                                document.addEventListener("click", function clickDetection(){
+                                    var number_of_clicks = parseInt( jQuery( modal ).data( 'number_of_clicks' ) );
+
+                                    var clicks_performed = isNaN( parseInt( jQuery( modal ).data( 'clicks_performed' ) ) ) ? 1 :  parseInt( jQuery( modal ).data( 'clicks_performed' ) ) + 1;
+
+                                    jQuery( modal ).data( 'clicks_performed', clicks_performed );
+
+                                    if ( clicks_performed == number_of_clicks ){
+                                        showModal( modal );
+                                        document.removeEventListener( "click", clickDetection );
+                                    }
+                                }, false);
+                                break;
+                            case "after_time_inactive":
+                                var time = parseInt( jQuery( modal ).data( 'time_inactive' ) );
+                                if( jQuery( modal ).data( 'time-inactive-unit' ) == 'seconds' ) {
+                                    time = parseInt( parseFloat( jQuery( modal ).data( 'time_inactive' ) ) * 1000 );
+                                }
+                                var activityDetected = function(){
+                                    jQuery( modal ).data( 'millis_idle', 0 );
+                                };
+                                document.addEventListener( "click", activityDetected);
+                                document.addEventListener( "mousemove", activityDetected);
+                                document.addEventListener( "keypress", activityDetected);
+                                document.addEventListener( "scroll", activityDetected);
+
+                                var idleInterval = setInterval(function(){
+                                    var millis_idle = isNaN( parseInt( jQuery( modal ).data( 'millis_idle' ) ) ) ? 100 :  parseInt( jQuery( modal ).data( 'millis_idle' ) ) + 100;
+                                    jQuery( modal ).data( 'millis_idle', millis_idle );
+                                    if( millis_idle > time ){
+                                        clearInterval( idleInterval );
+                                        document.removeEventListener( "click", activityDetected );
+                                        document.removeEventListener( "mousemove", activityDetected );
+                                        document.removeEventListener( "keypress", activityDetected );
+                                        document.removeEventListener( "scroll", activityDetected );
+                                        showModal( modal );
+                                    }
+                                }, 100);
+                                break;
+
+                            case "after_number_of_page_views":
+                                var modalId = modal.querySelector('.ct-modal').id;
+                                var pageViews = localStorage && localStorage['oxy-' + modalId + '-page-views'] ? parseInt( localStorage['oxy-' + modalId + '-page-views'] ) : 0;
+                                pageViews++;
+                                if( localStorage ) localStorage['oxy-' + modalId + '-page-views'] = pageViews;
+                                if( parseInt( jQuery( modal ).data( 'number_of_page_views' ) ) == pageViews ) {
+                                    if( localStorage ) localStorage['oxy-' + modalId + '-page-views'] = 0;
+                                    showModal( modal );
+                                }
+                                break;
+
+                        }
+
+                        // add event handler to close modal automatically after AJAX form submit
+                        if( $modal.data( 'close-after-form-submit' ) == 'yes' ) {
+
+                            // Contact Form 7
+                            if (typeof wpcf7 !== 'undefined') {
+                                $modal.find('div.wpcf7').each(function () {
+                                    var $form = jQuery(this).find('form');
+                                    this.addEventListener('wpcf7submit', function (event) {
+                                        if (event.detail.contactFormId == $form.attr("id")) {
+                                            setTimeout(function () {
+                                                hideModal(modal);
+                                            }, 3000);
+                                        }
+                                    }, false);
+                                });
+                            }
+
+                            // Caldera Forms
+                            document.addEventListener( "cf.submission", function(event){
+                                // Pending, Caldera AJAX form submissions aren't working since Oxygen 2.2, see: https://github.com/soflyy/oxygen/issues/1638
+                                console.log( event );
+                            });
+
+                            // Ninja Forms
+                            jQuery(document).on("nfFormSubmitResponse", function(event, response){
+                                // Only close the modal if the event was triggered from a Ninja Form inside the modal
+                                if( $modal.find("#nf-form-" + response.id + "-cont").length > 0 ) {
+                                    setTimeout(function () {
+                                        hideModal(modal);
+                                    }, 3000);
+                                }
+                            });
+
+                        }
+
+                    })( modal );
+
+                });
+
+                // handle clicks on modal backdrop and on .oxy-close-modal
+                jQuery("body").on('click touchend', '.oxy-modal-backdrop, .oxy-close-modal', function( event ) {
+
+                    var $this = jQuery( this );
+                    var $target = jQuery( event.target );
+
+                    // Click event in the modal div and it's children is propagated to the backdrop
+                    if( !$target.hasClass( 'oxy-modal-backdrop' ) && !$this.hasClass( 'oxy-close-modal' ) ) {
+                        event.stopPropagation();
+                        return;
+                    }
+
+                    if( $target.hasClass( 'oxy-modal-backdrop' ) && $this.hasClass( 'oxy-not-closable' ) ) {
+                        return;
+                    }
+
+                    if( $this.hasClass( 'oxy-close-modal' ) ) event.preventDefault();
+
+                    var $modal = $this.hasClass( 'oxy-close-modal' ) ? $this.closest('.oxy-modal-backdrop') : $this;
+                    hideModal( $modal[0] );
+                });
+
+                jQuery(document).keyup( function(e){
+                    if( e.key == 'Escape' ){
+                        jQuery(".oxy-modal-backdrop:visible").each(function(index){
+                            if( jQuery(this).data("close_on_esc") == 'on' ) hideModal(this);
+                        });
+                    }
+                } );
+
+            });
+
+		});</script>
+
+	<script type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/hoverIntent.js" id="hoverIntent-js" defer="defer"></script>
+<script type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/superfish.js" id="superfish-js" defer="defer"></script>
+<script type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/superfish_002.js" id="superfish-args-js" defer="defer"></script>
+<script type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/dropdown-menu.js" id="dropdown-menu-js" defer="defer"></script>
+<script type="text/javascript" id="genesis-responsive-menu-js-extra">
+/* <![CDATA[ */
+var genesis_responsive_menu = {"mainMenu":"<span class=\"hamburger-box\"><span class=\"hamburger-inner\"><\/span><\/span><span class=\"hamburger-label\">Menu<\/span>","menuIconClass":"hamburger hamburger--slider","subMenu":"Submenu","subMenuIconClass":"dashicons-before dashicons-arrow-down-alt2","menuClasses":{"combine":[".nav-primary"],"others":[]}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/responsive-menus.js" id="genesis-responsive-menu-js" defer="defer"></script>
+<script type="text/javascript" id="wthf-script-js-before">
+var nonce_wthf = "df7d8bb98d";var ajaxurl = "https://phoenixnap.com/kb/wp-admin/admin-ajax.php";
+</script>
+<script data-minify="1" type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/script.js" id="wthf-script-js" defer="defer"></script>
+<script type="text/javascript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/kb(\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$))|\/wp-admin|\/logout|\/wp-login.php","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/phoenixnap.com\/kb","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="text/javascript" id="q2w3_fixed_widget-js-extra">
+/* <![CDATA[ */
+var q2w3_sidebar_options = [{"sidebar":"bsf-sb-single-post-right-sidebar","margin_top":10,"margin_bottom":0,"stop_id":"section-115-7","screen_max_width":0,"screen_max_height":0,"width_inherit":false,"refresh_interval":1500,"window_load_hook":false,"disable_mo_api":false,"widgets":["text-2","text-3","text-4","text-5","text-6","text-7","text-8","text-9"]}];
+/* ]]> */
+</script>
+<script type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/q2w3-fixed-widget.js" id="q2w3_fixed_widget-js" defer="defer"></script>
+<script type="text/javascript" id="fixedtoc-js-js-extra">
+/* <![CDATA[ */
+var fixedtocOption = {"showAdminbar":"","inOutEffect":"fade","isNestedList":"1","isColExpList":"1","showColExpIcon":"1","isAccordionList":"","isQuickMin":"1","isEscMin":"1","isEnterMax":"1","fixedMenu":"","scrollOffset":"10","fixedOffsetX":"20","fixedOffsetY":"0","fixedPosition":"middle-left","contentsFixedHeight":"","inPost":"1","contentsFloatInPost":"none","contentsWidthInPost":"250","contentsHeightInPost":"","contentsColexpInitMobile":"1","inWidget":"","fixedWidget":"","triggerBorder":"thin","contentsBorder":"thin","triggerSize":"56","isClickableHeader":"","debug":"","contentsColexpInit":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/ftoc.js" id="fixedtoc-js-js" defer="defer"></script>
+<script type="text/javascript" id="flying-scripts">const loadScriptsTimer=setTimeout(loadScripts,5*1000);const userInteractionEvents=["mouseover","keydown","touchstart","touchmove","wheel"];userInteractionEvents.forEach(function(event){window.addEventListener(event,triggerScriptLoader,{passive:!0})});function triggerScriptLoader(){loadScripts();clearTimeout(loadScriptsTimer);userInteractionEvents.forEach(function(event){window.removeEventListener(event,triggerScriptLoader,{passive:!0})})}
+function loadScripts(){document.querySelectorAll("script[data-type='lazy']").forEach(function(elem){elem.setAttribute("src",elem.getAttribute("data-src"))})}</script>
+    <script type="text/javascript" id="ct-footer-js"></script><style type="text/css" id="ct_code_block_css_182">.comment-body .aligncenter, .oxy-stock-content-styles .aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+.notice-note {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 2px solid #006ca8;
+    border-bottom: 2px solid #006ca8;
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.notice-warning {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 2px solid #c52127 ;
+    border-bottom: 2px solid #c52127 ;
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.note-icon-wrapper {
+    position: relative;
+    display: inline-block;
+	width: 96px;
+    height: 96px;
+    line-height: 104px;
+    vertical-align: middle;
+    border: 2px solid #006ca8;
+    text-align: center;
+	background-color: #006ca8;
+	border-radius: 3px;
+}
+
+.warning-icon-wrapper {
+    position: relative;
+    display: inline-block;
+	width: 96px;
+    height: 96px;
+    line-height: 104px;
+    vertical-align: middle;
+    border: 2px solid #c52127;
+    text-align: center;
+	background-color: #c52127;
+	border-radius: 3px;
+}
+
+.notice-text {
+    margin-left: 20px;
+    width: 84%;
+}
+
+.fa-lightbulb:before, .fa-exclamation-triangle:before {
+    font-size: 32px;
+    color: #fff;
+}
+
+#was-this-helpful {
+  background-color: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 3px 3px 0px rgb(50 50 50 / 30%);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.3);
+  box-shadow: 0px 3px 3px 0px rgb(50 50 50 / 30%);
+  border: 1px solid #f7f7f7;
+  justify-content: flex-start;
+}
+
+#wthf-yes-no span:first-child {
+    margin-right: 0.4em;
+    border: 1px solid #006ca8;
+    color: #006ca8;
+}
+
+#wthf-yes-no span:last-child {
+    margin-left: 0.4em;
+    border: 1px solid #d12121;
+    color: #d12121;
+}</style>
+<style type="text/css" id="ct_code_block_css_166">.single-related-post {
+  list-style: none;
+  width: 100%;
+  max-width: 188px;
+  text-align: left;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  word-break: break-word;
+}
+
+.srp-categories a:after {
+    content: ",";
+}
+
+.srp-categories a:last-child:after {
+    content: "";
+}
+
+.srp-title {
+  font-size: 20px;
+  letter-spacing: 0em;
+  font-weight: 900;
+  font-family: Roboto,Sans-Serif;
+  color: #006ca8;
+}
+
+.srp-date {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.single-related-post hr {
+  display: block; 
+  height: 1px;
+  border: 0; 
+  border-top: 1px solid #eaeaea;
+  margin: 1em 0; 
+  padding: 0;
+}
+
+a.srp-read-more {
+  font-weight: 600;
+  font-family: Poppins;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 12px;
+}
+
+a.srp-read-more:hover {
+  color: #006ca8;
+}
+
+@media only screen and (max-width: 600px) {
+ .related-posts {
+	flex-direction: column;
+  }
+.single-related-post {
+    width: 100%;
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+}</style>
+<script type="text/javascript" id="ct_code_block_js_7">function myFunction() {
+  window.open("https://secure.livechatinc.com/licence/7436521/v2/open_chat.cgi?groups=4", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+}</script>
+<style type="text/css" id="ct_code_block_css_7">.live-chat-btn {
+    background-color: rgb(198, 32, 32);
+    border: 1px solid rgb(209, 33, 33);
+    color: #fff;
+    border-radius: 3px;
+    padding: 10px 50px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 1.6;
+  font-family: 'Open Sans';
+}
+
+.live-chat-btn:hover {
+  cursor: pointer;
+  background-color: rgb(209, 33, 33);;
+}</style>
+<style type="text/css" id="ct_code_block_css_204">.searchform-wrapper-modal {
+  margin: 0;
+  padding: 8px;
+  height: 96px;
+  background-color: transparent;
+  border-bottom: 2px solid #fff;
+  border-radius: 0 0 0 0;
+  box-shadow: 0 0 0 0 #b5b5b5 inset;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: auto;
+  overflow: hidden;
+}
+
+.search-field-modal {
+  font-weight: normal;
+  font-family: Open Sans;
+  color: #fff;
+  font-size: 24px;
+  line-height: normal;
+  text-shadow: 0 0 0 rgba(255,255,255,0);
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  z-index: 10;
+  position: relative;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.search-field-modal:focus, .search-field-modal:active {
+  background: transparent;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+.innericon-modal {
+width: 64px;
+height: 64px;
+cursor:pointer;
+}
+
+.innericon-modal svg {
+  fill: #fff;
+  height: 64px;
+  width: 64px;
+  vertical-align: baseline;
+  display: inline-block;
+}
+
+.submit-button-modal {
+  background: transparent;
+  border: none;
+}
+
+
+@media only screen and (min-width: 1025px) {
+  .searchform-wrapper-modal {
+    width: 960px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .searchform-wrapper-modal {
+    width: 360px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .searchform-wrapper-modal {
+    width: 320px;
+  }
+}</style>
+<noscript></noscript>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="How%20to%20Import%20a%20CSV%20File%20in%20MySQL%20%7BCommand%20Line%20or%20phpMyAdmin%7D_files/lazyload.js"></script> 
+<script>"use strict";var wprRemoveCPCSS=function wprRemoveCPCSS(){var elem;document.querySelector('link[data-rocket-async="style"][rel="preload"]')?setTimeout(wprRemoveCPCSS,200):(elem=document.getElementById("rocket-critical-css"))&&"remove"in elem&&elem.remove()};window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%7CRoboto%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&#038;display=swap" /><link rel='stylesheet' id='wp-block-library-css'  href='https://phoenixnap.com/kb/wp-includes/css/dist/block-library/style.min.css?ver=5.8.1' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='oxygen-responsive-menu-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/plugins/oxygen-responsive-menu-master/assets/css/main.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='oxygen-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/plugins/oxygen/component-framework/oxygen.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='scriptlesssocialsharing-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/plugins/scriptless-social-sharing/includes/css/scriptlesssocialsharing-style.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='wthf-style-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/plugins/was-this-article-helpful/css/style.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='font-awesome-official-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/releases/v5.15.3/css/all.css?ver=1632407771' type='text/css' media='all' crossorigin="anonymous" /><link data-minify="1" rel='stylesheet' id='block-lab__block-notice-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/plugins/oxygen-block-lab-support-master/block_lab_templates/blocks/block-notice.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='fixedtoc-style-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/plugins/fixed-toc/frontend/assets/css/ftoc.min.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='font-awesome-official-v4shim-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/releases/v5.15.3/css/v4-shims.css?ver=1632407771' type='text/css' media='all' crossorigin="anonymous" /><link data-minify="1" rel='stylesheet' id='oxygen-cache-156-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/uploads/oxygen/css/bottom-footer-156.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='oxygen-cache-155-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/uploads/oxygen/css/main-footer-155.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='oxygen-cache-153-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/uploads/oxygen/css/top-navigation-153.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='oxygen-cache-157-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/uploads/oxygen/css/single-post-157.css?ver=1632407771' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='oxygen-universal-styles-css'  href='https://phoenixnap.com/kb/wp-content/cache/min/1/kb/wp-content/uploads/oxygen/css/universal.css?ver=1632407771' type='text/css' media='all' /></noscript>
+
+<div id="ftwp-container" class="ftwp-wrap ftwp-maximize ftwp-middle-left ftwp-fixed-to-post ftwp-animate-fade-in" style=""><button type="button" id="ftwp-trigger" class="ftwp-shape-round ftwp-border-thin ftwp-transform-right-center" title="click To Maximize The Table Of Contents" style="right: 1172.4px; left: auto;"><span class="ftwp-trigger-icon ftwp-icon-menu"></span></button><nav id="ftwp-contents" class="ftwp-shape-square ftwp-border-thin ftwp-transform-right-center" data-colexp="collapse" style="right: 1172.4px; left: auto; top: 0px; height: 739px;"><header id="ftwp-header"><span id="ftwp-header-control" class="ftwp-icon-menu"></span><button type="button" id="ftwp-header-minimize" class="ftwp-icon-minimize" aria-labelledby="ftwp-header-title"></button><span id="ftwp-header-title">Contents</span></header><ol id="ftwp-list" class="ftwp-liststyle-decimal ftwp-effect-fade ftwp-list-nest ftwp-strong-first ftwp-colexp ftwp-colexp-icon" style="height: 690px;"><li class="ftwp-item ftwp-has-sub ftwp-expand"><button type="button" class="ftwp-icon-expand"></button><a class="ftwp-anchor" href="#ftoc-heading-1"><span class="ftwp-text">Import CSV File Using Command Line</span></a><ol class="ftwp-sub"><li class="ftwp-item"><a class="ftwp-anchor" href="#ftoc-heading-2"><span class="ftwp-text">Step 1: Access MySQL Shell</span></a></li><li class="ftwp-item"><a class="ftwp-anchor ftwp-active" href="#ftoc-heading-3"><span class="ftwp-text">Step 2: Create MySQL Table for CSV Import</span></a></li><li class="ftwp-item"><a class="ftwp-anchor" href="#ftoc-heading-4"><span class="ftwp-text">Step 3: Import CSV into MySQL Table</span></a></li></ol></li><li class="ftwp-item"><a class="ftwp-anchor" href="#ftoc-heading-5"><span class="ftwp-text">Import CSV File with phpMyAdmin</span></a></li></ol></nav></div></body></html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1633443615 -->
