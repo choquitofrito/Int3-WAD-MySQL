@@ -34,7 +34,7 @@ JS peut utiliser les données genérées en PHP car on génére les données en 
 **Note** : Juste pour l'info, la requête pour créer la vue a été
 
 ```sql
-CREATE VIEW covidView as SELECT covid_table.Country, CountryCode, covid_table.WHORegion, year(DateReported), max(covid_table.CumulativeCases) as LastCumulativeCases, max(covid_table.CumulativeDeaths) as LastCumulativeDeaths, NewCases, NewDeaths FROM `covid_table` GROUP BY covid_table.Country; 
+CREATE VIEW covid_view as SELECT covid_table.Country, CountryCode, covid_table.WHORegion, year(DateReported), max(covid_table.CumulativeCases) as LastCumulativeCases, max(covid_table.CumulativeDeaths) as LastCumulativeDeaths, NewCases, NewDeaths FROM `covid_table` GROUP BY covid_table.Country; 
 ```
 Travaillez sur cette view au lieu de sur le tableau **covid_table** pour faire les requêtes.
  
