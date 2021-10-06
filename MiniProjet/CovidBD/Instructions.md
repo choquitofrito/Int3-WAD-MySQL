@@ -29,11 +29,23 @@ Observez le code de **bar.php** pour avoir une idée du fonctionnement de la lib
 JS peut utiliser les données genérées en PHP car on génére les données en JSON grâce à **echo (json_encode ($arrayPHP))**.
 
 
+- Une **vue** (**VIEW**, résultat d'une requête stockée dans un objet de la BD et accéssible de la même manière qu'une table) a été créée pour faciliter l'extractions de données. La vue s'appelle covidView et contient uniquement les données (cas, décés, etc... ) les plus récentes.
+
+**Note** : Juste pour l'info, la requête pour créer la vue a été
+
+```sql
+CREATE VIEW covidView as SELECT covid_table.Country, CountryCode, covid_table.WHORegion, year(DateReported), max(covid_table.CumulativeCases) as LastCumulativeCases, max(covid_table.CumulativeDeaths) as LastCumulativeDeaths, NewCases, NewDeaths FROM `covid_table` GROUP BY covid_table.Country; 
+```
+Travaillez sur cette view au lieu de sur le tableau **covid_table** pour faire les requêtes.
+ 
 <br>
 
 # Actions à implementer
 
 <br>
+
+
+
 
 ### Sans graphiques
 
@@ -45,19 +57,11 @@ JS peut utiliser les données genérées en PHP car on génére les données en 
 
 3. Trouvez vous même des requêtes qui puissent afficher des informations intéressantes à partir de la BD
 
-Les actions qui suivent démandent l'utilisation de sous-requêtes et sont rélativement difficiles : 
-
 4. Formulaire où on peut choisir plusieurs pays (select multiple) pour comparer leur proportion de cas/déces
    
 5. Formulaire pour rechercher, à partir d'une liste déroulante de regions, le nombre de cas accumulé pour cette région
 
 6. Formulaire pour rechercher le nombre d'infections par région et par année (choisir la région et l'année, on affichera les résultats pour tous les pays de la région) 
-
-La fonction YEAR de MySQL extrait l'année d'un colonne du type DateTime.
-
-```sql
-SELECT YEAR(who_covid_19_global_data.DateReported) FROM who_covid_19_global_data; 
-```
 
 7. Formulaire pour obtenir la proportion entre les infections et le déces pour chaque pays. Triez le résultat et affichez-le en utilisant de pourcentages. Vous devez faire le calcul dans la requête
    
