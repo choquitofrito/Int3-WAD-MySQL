@@ -39,19 +39,34 @@ JS peut utiliser les données genérées en PHP car on génére les données en 
 
 <br>
 
-1. Formulaire pour rechercher, à partir d'une liste déroulante de pays, le nombre de cas accumulé du pays choisi. Obtenir uniquement le chiffre le plus récent (LIMIT 1 et tri doivent vous aider...)
+1. Formulaire pour rechercher, à partir d'une liste déroulante de pays, le nombre de cas accumulé du pays choisi. Obtenir uniquement le chiffre le plus récent (LIMIT 1 et ORDER BY doivent vous aider...)
    
-2. Formulaire pour rechercher les pays qui depassent un certain nombre d'infections accummulées (input dans le form)
+2. Formulaire pour rechercher les pays qui depassent un certain nombre d'infections accummulées (input dans le form, ou on specifiera ce nombre minimum)
 
-3. Formulaire pour obtenir la proportion entre les infections et le déces pour chaque pays. Triez le résultat
+3. Trouvez vous même des requêtes qui puissent afficher des informations intéressantes à partir de la BD
+
+Les actions qui suivent démandent l'utilisation de sous-requêtes et sont rélativement difficiles : 
+
+4. Formulaire où on peut choisir plusieurs pays (select multiple) pour comparer leur proportion de cas/déces
    
-4. Formulaire pour rechercher le nombre de decés par année d'un pays (choisir l'année et le pays d'une liste déroulante) 
+5. Formulaire pour rechercher, à partir d'une liste déroulante de regions, le nombre de cas accumulé pour cette région
 
-5. Formulaire pour rechercher le nombre d'infections par région et par année (choisir la région et l'année, on affichera les résultats pour tous les pays de la région) 
+6. Formulaire pour rechercher le nombre d'infections par région et par année (choisir la région et l'année, on affichera les résultats pour tous les pays de la région) 
 
-6. Formulaire pour rechercher, à partir d'une liste déroulante de regions, le nombre de cas accumulé pour cette région
+La fonction YEAR de MySQL extrait l'année d'un colonne du type DateTime.
 
-7. Inventez vous mêmes de requêtes qui pourraient s'avérer utiles dans une recherche
+```sql
+SELECT YEAR(who_covid_19_global_data.DateReported) FROM who_covid_19_global_data; 
+```
+
+7. Formulaire pour obtenir la proportion entre les infections et le déces pour chaque pays. Triez le résultat et affichez-le en utilisant de pourcentages. Vous devez faire le calcul dans la requête
+   
+8. Formulaire pour rechercher le nombre de decés par année d'un pays (choisir l'année et le pays d'une liste déroulante).
+
+
+
+
+
 
 <br>
 
@@ -63,11 +78,11 @@ Le but de cette section est de savoir utiliser un minimum CanvasJS. Profitez des
 
 <br>
 
-1. Nombre d'infections par région (graphique à barres)
-
-2. Nombre d'infections par année dans tout le monde (graphique à barres)
+1. Nombre d'infections de deux pays choisis dans un formulaire (deux listes déroulantes). Une barre pour visualiser les infections de chaque pays
 
 3. Dix premiers pays par nombre d'infections. Pour une utilisation réelle, cela devrait être calculé en pourcentage, mais nous n'avons pas la population de chaque pays
+
+3. Nombre d'infections par année dans tout le monde (graphique à barres)
    
 4. Choisir un pays et voir l''evolution des infections par année
    
