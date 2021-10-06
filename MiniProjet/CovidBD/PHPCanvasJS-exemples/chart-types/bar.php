@@ -12,19 +12,19 @@
 	array("y" => 1118, "label" => "USA")
     );
     
-    $dataPoints_2 = array(
-	array("y" => 272, "label" => "France"),
-	array("y" => 299, "label" => "Great Britain"),
-	array("y" => 419, "label" => "Soviet Union"),
-	array("y" => 896, "label" => "USA")
-    );
+    // $dataPoints_2 = array(
+	// array("y" => 272, "label" => "France"),
+	// array("y" => 299, "label" => "Great Britain"),
+	// array("y" => 419, "label" => "Soviet Union"),
+	// array("y" => 896, "label" => "USA")
+    // );
     
-    $dataPoints_3 = array(
-	array("y" => 307, "label" => "France"),
-	array("y" => 301, "label" => "Great Britain"),
-	array("y" => 392, "label" => "Soviet Union"),
-	array("y" => 788, "label" => "USA")
-    );
+    // $dataPoints_3 = array(
+	// array("y" => 307, "label" => "France"),
+	// array("y" => 301, "label" => "Great Britain"),
+	// array("y" => 392, "label" => "Soviet Union"),
+	// array("y" => 788, "label" => "USA")
+    // );
     
 ?>
 
@@ -82,21 +82,26 @@
                 name: "Gold",
                 color: "gold",
                 dataPoints: <?php echo json_encode($dataPoints_1, JSON_NUMERIC_CHECK); ?>
-            },
-            {
-                type: "bar",
-                showInLegend: true,
-                name: "Silver",
-                color: "silver",
-                dataPoints: <?php echo json_encode($dataPoints_2, JSON_NUMERIC_CHECK); ?>
-            },
-            {
-                type: "bar",
-                showInLegend: true,
-                name: "Bronze",
-                color: "#A57164",
-                dataPoints: <?php echo json_encode($dataPoints_3, JSON_NUMERIC_CHECK); ?>
             }
+            // ,
+            // {
+            //     type: "bar",
+            //     showInLegend: true,
+            //     name: "Silver",
+            //     color: "silver",
+            //     dataPoints: <?php 
+                                    echo json_encode($dataPoints_2, JSON_NUMERIC_CHECK); 
+                                ?>
+            // },
+            // {
+            //     type: "bar",
+            //     showInLegend: true,
+            //     name: "Bronze",
+            //     color: "#A57164",
+            //     dataPoints: <?php 
+                                // echo json_encode($dataPoints_3, JSON_NUMERIC_CHECK); 
+                                ?>
+            // }
 
             ]
         });
