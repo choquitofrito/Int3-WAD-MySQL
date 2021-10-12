@@ -12,7 +12,8 @@
     <form action="./insertionTraitement.php" method="POST">
         Prénom:<input type="text" name="first_name"><br>
         Nom:<input type="text" name="last_name"><br>
-        Last update:<input type="date" name="last_update"><br>
+        Last update:<input type="date" name="last_update" max="<?php echo date("Y-m-d");
+                                                                ?>"><br>
         <input type="submit" value="Envoyer">
     </form>
 </body>

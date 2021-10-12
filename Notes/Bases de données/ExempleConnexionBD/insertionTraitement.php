@@ -11,6 +11,9 @@
 <body>
     On va insérer un acteur.
     <?php
+
+    
+
     // importer la config de la BD
     include_once "./config/db.php";
     // connecter à la BD
@@ -46,7 +49,7 @@
     $requete->bindValue(":last_update", $last_update);
     var_dump ($requete->errorInfo());
     var_dump ($bdd->errorInfo());
-    $requete->execute();
+//    $requete->execute();
    
 
 
