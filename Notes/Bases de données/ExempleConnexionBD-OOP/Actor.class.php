@@ -1,7 +1,6 @@
 <?php
 
-
-
+// classe qui réprésente un Actor, pas de méthodes d'accés à la BD
 class Actor {
 
     public int $id;
@@ -15,7 +14,6 @@ class Actor {
         $this->last_name = $last_name;
         $this->last_update = $last_update;
     }
-
 
     /**
      * Get the value of id

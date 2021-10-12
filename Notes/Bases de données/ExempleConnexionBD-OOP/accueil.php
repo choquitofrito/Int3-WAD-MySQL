@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-<?php
-    include "./Actor.class.php";
-    var_dump (new Actor ("aa","bb", "2016-07-09"));
 
-?>
+<body>
+    <?php
+    // var_dump(new Actor("aa", "bb", "2016-07-09"));
+    
+    // importer la config de la BD
+    include_once "./config/db.php";
+    // connecter à la BD
+    try {
+        $bdd = new PDO(DBDRIVER . ':host=' . DBHOST . ';port=' . DBPORT .
+        ';dbname=' . DBNAME . ';charset='
+        . DBCHARSET, DBUSER, DBPASS);
+    } catch (Exception $e) {
+        // en mode dev, on veut connaitre toutes les infos
+        echo $e->getMessage();
+        die();
+    }
+
+    include_once "./Actor.class.php";
+    include_once "./ActorManager.class.php";
+    $actor1 = new Actor ("Laurie", "Hugh", "2016-06-09");
+    $actor2 = new Actor ("Laurie Jr.", "Hugh", "2016-06-09");
+    
+    $actorManager = new ActorManager($bdd); // cet objet gére le CRUD des acteurs
+    
+    $actorManager->insert($actor1);
+    $actorManager->insert($actor2);
+
+
+
+    ?>
 </body>
+
 </html>
