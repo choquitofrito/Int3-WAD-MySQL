@@ -27,8 +27,8 @@
 
     include_once "./Actor.class.php";
     include_once "./ActorManager.class.php";
-    $actor1 = new Actor ("Laurie", "Hugh", "2016-06-09");
-    $actor2 = new Actor ("Laurie Jr.", "Hugh", "2016-06-09");
+    $actor1 = new Actor (0,"Laurie", "Hugh", "2016-06-09");
+    $actor2 = new Actor (0,"Laurie Jr.", "Hugh", "2016-06-09");
     
     $actorManager = new ActorManager($bdd); // cet objet gére le CRUD des acteurs
     
