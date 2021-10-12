@@ -49,7 +49,8 @@
 
     $actorManager->insert($actor1);
     $actorManager->insert($actor2);
-
+    echo "<br>actor 2 après l'insertion:";
+    var_dump ($actor2);
 
 
     ?>

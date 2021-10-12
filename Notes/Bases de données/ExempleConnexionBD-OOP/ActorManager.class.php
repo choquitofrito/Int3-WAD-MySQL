@@ -22,6 +22,10 @@ class ActorManager
         // var_dump($requete->errorInfo());
         // var_dump($this->bdd->errorInfo());
         $requete->execute();
+        // on donne un id à l'objet
+        $unActeur->hydrate (['id' => $this->bdd->lastInsertId()]);
+        // c'est pareil si on n'utilise pas le hydrate:
+        // $unActeur->setId($this->bdd->lastInsertId());
     }
     // public function select ($id = "", $first_name = "" , $last_name = "", $last_update="" ) {
 
