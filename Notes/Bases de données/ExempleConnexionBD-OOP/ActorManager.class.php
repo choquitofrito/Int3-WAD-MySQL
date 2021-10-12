@@ -27,11 +27,19 @@ class ActorManager
         // c'est pareil si on n'utilise pas le hydrate:
         // $unActeur->setId($this->bdd->lastInsertId());
     }
+    public function delete (Actor $unActeur){
+        $sql = "DELETE FROM actor WHERE actor_id=:id";
+        $requete = $this->bdd->prepare($sql);
+        $requete->bindValue (":id", $unActeur->getId());
+        $requete->execute();
+        var_dump($requete->errorInfo());
+        var_dump($this->bdd->errorInfo());
+    }
+
     // public function select ($id = "", $first_name = "" , $last_name = "", $last_update="" ) {
 
     //     // $sql = "SELECT  ........ :last_update = .....";
 
     // }
-    // public function delete ()
     // public function update()
 }

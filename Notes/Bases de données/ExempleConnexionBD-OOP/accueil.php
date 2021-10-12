@@ -28,12 +28,12 @@
     include_once "./Actor.class.php";
     include_once "./ActorManager.class.php";
     $actor1 = new Actor([
-        "first_name" => "Laurie",
+        "first_name" => "Lula",
         "last_name" => "Hugh",
         "last_update" => "2016-06-09"
     ]);
     $actor2 = new Actor([
-        "first_name" => "Geena",
+        "first_name" => "Lili",
         "last_name" => "Davis",
         "last_update" => "2016-06-09"
     ]);
@@ -52,6 +52,7 @@
     echo "<br>actor 2 après l'insertion:";
     var_dump ($actor2);
 
+    $actorManager->delete ($actor2);
 
     ?>
 </body>
