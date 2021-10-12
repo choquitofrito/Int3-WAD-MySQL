@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    
+<?php
+    include "./Actor.class.php";
+    var_dump (new Actor ("aa","bb", "2016-07-09"));
+
+?>
 </body>
 </html>

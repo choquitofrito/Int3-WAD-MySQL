@@ -9,7 +9,8 @@ class Actor {
     public string $last_name;
     public string $last_update;
 
-    public function __construct ($first_name = "" , $last_name = "", $last_update =""){
+    public function __construct ($id ="", $first_name = "" , $last_name = "", $last_update =""){
+        $this->id = $id;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->last_update = $last_update;
