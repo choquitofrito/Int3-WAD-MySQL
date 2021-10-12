@@ -12,7 +12,7 @@
     On va insérer un acteur.
     <?php
 
-    
+
 
     // importer la config de la BD
     include_once "./config/db.php";
@@ -40,17 +40,17 @@
 
 
     // créer la requête, dans ce cas un insert
-    $sql = "INSERT INTO actor (first_name, last_name, last_update) ".
+    $sql = "INSERT INTO actor (first_name, last_name, last_update) " .
         "VALUES (:first_name, :last_name, :last_update)";
-    
+
     $requete = $bdd->prepare($sql); // renvoie un PDOStatement
     $requete->bindValue(":first_name", $first_name);
     $requete->bindValue(":last_name", $last_name);
     $requete->bindValue(":last_update", $last_update);
-    var_dump ($requete->errorInfo());
-    var_dump ($bdd->errorInfo());
-//    $requete->execute();
-   
+    var_dump($requete->errorInfo());
+    var_dump($bdd->errorInfo());
+    $requete->execute();
+
 
 
 
