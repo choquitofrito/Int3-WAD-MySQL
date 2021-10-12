@@ -16,7 +16,7 @@
     try {
         $bdd = new PDO(DBDRIVER . ':host=' . DBHOST . ';port=' . DBPORT .
             ';dbname=' . DBNAME . ';charset='
-            . DBCHARSET, DBUSER, DBPASS. "k");
+            . DBCHARSET, DBUSER, DBPASS);
     }
     catch (PDOException $e){
         echo "Une erreur de connexion s'est produite <a href='./accueil.php'>Accueil</a>";
