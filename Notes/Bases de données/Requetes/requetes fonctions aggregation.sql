@@ -1,7 +1,7 @@
 -- fonctions d'aggregation (COUNT, SUM, AVG, MAX, MIN...)
 
 -- count compte si le champ choisi n'est pas null
-SELECT COUNT(actor.actor_id) FROM actor;
+SELECT COUNT(actor.id) FROM actor;
 
 SELECT COUNT(customer.customer_id) FROM customer;
 -- si on compte les emails on obtient moins

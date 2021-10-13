@@ -29,7 +29,7 @@ class ActorManager
     }
     public function delete(Actor $unActeur)
     {
-        $sql = "DELETE FROM actor WHERE actor_id=:id";
+        $sql = "DELETE FROM actor WHERE id=:id";
         $requete = $this->bdd->prepare($sql);
         $requete->bindValue(":id", $unActeur->getId());
         $requete->execute();

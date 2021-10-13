@@ -24,7 +24,7 @@
     }
 
 
-    // $sql = "INSERT INTO `actor` (`actor_id`, `first_name`, `last_name`, `last_update`) VALUES (NULL, \'test\', \'test\', current_timestamp());";
+    // $sql = "INSERT INTO `actor` (`id`, `first_name`, `last_name`, `last_update`) VALUES (NULL, \'test\', \'test\', current_timestamp());";
 
 
 

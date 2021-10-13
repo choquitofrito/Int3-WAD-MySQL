@@ -20,13 +20,13 @@ SELECT actor.last_name,film.title FROM film
 INNER JOIN film_actor
 ON film.film_id = film_actor.film_id
 INNER JOIN actor
-ON film_actor.actor_id = actor.actor_id
+ON film_actor.id = actor.id
 WHERE actor.last_name = "COSTNER"
 
 SELECT actor.last_name,film.title 
 FROM film, film_actor, actor
 WHERE film.film_id = film_actor.film_id AND
-film_actor.actor_id = actor.actor_id AND 
+film_actor.id = actor.id AND 
 actor.last_name = "COSTNER"
 
 

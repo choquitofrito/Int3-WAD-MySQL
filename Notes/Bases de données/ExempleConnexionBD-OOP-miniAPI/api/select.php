@@ -22,7 +22,7 @@ $actorManager = new ActorManager($bdd); // cet objet gére le CRUD des acteurs
 
 // prendre l'id de l'URL. Cette API n'a pas d'autre filtres, juste l'id
 if (isset($_GET['id'])) {
-    $res = $actorManager->select(['actor_id'=>$_GET['id']]); // un array contenant un seul acteur, mias un array 
+    $res = $actorManager->select(['id'=>$_GET['id']]); // un array contenant un seul acteur, mias un array 
                                                     // On peut implementer la selection de plusieurs manières
                                                     // Ex: faire un selectId qui renvoie un seul objet
 }
