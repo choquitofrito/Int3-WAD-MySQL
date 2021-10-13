@@ -7,7 +7,7 @@ class ActorManager
 
     public function __construct(PDO $objetBD)
     {
-        $this->bdd = $objetBD;   
+        $this->bdd = $objetBD;
     }
 
     public function insert(Actor $unActeur): void
@@ -23,17 +23,32 @@ class ActorManager
         // var_dump($this->bdd->errorInfo());
         $requete->execute();
         // on donne un id à l'objet
-        $unActeur->hydrate (['id' => $this->bdd->lastInsertId()]);
+        $unActeur->hydrate(['id' => $this->bdd->lastInsertId()]);
         // c'est pareil si on n'utilise pas le hydrate:
         // $unActeur->setId($this->bdd->lastInsertId());
     }
-    public function delete (Actor $unActeur){
+    public function delete(Actor $unActeur)
+    {
         $sql = "DELETE FROM actor WHERE actor_id=:id";
         $requete = $this->bdd->prepare($sql);
-        $requete->bindValue (":id", $unActeur->getId());
+        $requete->bindValue(":id", $unActeur->getId());
         $requete->execute();
         var_dump($requete->errorInfo());
         var_dump($this->bdd->errorInfo());
+    }
+
+    // select reçoit un array de filtres et renvoie un array d'objets Actor
+    // c'est possible que l'array soit vide ou 
+    // qu'il y ait un seul objet dans l'array
+    public function select(array $filtres): array
+    {
+        $sql = "SELECT * FROM actor";
+        $requete = $this->bdd->prepare($sql);
+        $requete->execute();
+        $res = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        var_dump($res);
+        die();
     }
 
     // public function select ($id = "", $first_name = "" , $last_name = "", $last_update="" ) {

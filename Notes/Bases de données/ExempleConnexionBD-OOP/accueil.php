@@ -27,32 +27,40 @@
 
     include_once "./Actor.class.php";
     include_once "./ActorManager.class.php";
-    $actor1 = new Actor([
-        "first_name" => "Lula",
-        "last_name" => "Hugh",
-        "last_update" => "2016-06-09"
-    ]);
-    $actor2 = new Actor([
-        "first_name" => "Lili",
-        "last_name" => "Davis",
-        "last_update" => "2016-06-09"
-    ]);
-    var_dump($actor1);
-    var_dump($actor2);
-    // changer les valeurs sans set, tous d'un coup!!!
-    $actor2->hydrate([
-        "last_name" => "Stallone",
-        "last_update" => "2020-07-09"
-    ]);
-    var_dump($actor2);
+    // $actor1 = new Actor([
+    //     "first_name" => "Lula",
+    //     "last_name" => "Hugh",
+    //     "last_update" => "2016-06-09"
+    // ]);
+    // $actor2 = new Actor([
+    //     "first_name" => "Lili",
+    //     "last_name" => "Davis",
+    //     "last_update" => "2016-06-09"
+    // ]);
+    // var_dump($actor1);
+    // var_dump($actor2);
+    // // changer les valeurs sans set, tous d'un coup!!!
+    // $actor2->hydrate([
+    //     "last_name" => "Stallone",
+    //     "last_update" => "2020-07-09"
+    // ]);
+    // var_dump($actor2);
+    // $actorManager = new ActorManager($bdd); // cet objet gére le CRUD des acteurs
+
+    // $actorManager->insert($actor1);
+    // $actorManager->insert($actor2);
+    // echo "<br>actor 2 après l'insertion:";
+    // var_dump($actor2);
+
+
+    // $actorManager->delete($actor2);
+
     $actorManager = new ActorManager($bdd); // cet objet gére le CRUD des acteurs
+    $arrayObjetsActeurs = $actorManager->select([
+        'first_name' => 'Julie',
+        'last_name' => 'De Deken'
+    ]);
 
-    $actorManager->insert($actor1);
-    $actorManager->insert($actor2);
-    echo "<br>actor 2 après l'insertion:";
-    var_dump ($actor2);
-
-    $actorManager->delete ($actor2);
 
     ?>
 </body>
