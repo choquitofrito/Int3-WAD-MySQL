@@ -45,7 +45,23 @@ class ActorManager
         $sql = "SELECT * FROM actor";
         $requete = $this->bdd->prepare($sql);
         $requete->execute();
+        
         $res = $requete->fetchAll(PDO::FETCH_ASSOC);
+        // on crée un array d'objets maintenant à partir de l'array 
+        // d'arrays
+        var_dump ($res[0]);
+        $acteurTemp = new Actor($res[0]);
+        var_dump ($acteurTemp);
+        die();
+
+        // $arrayObjetsActor = [];
+        // foreach ($res as $unActorArray){
+        //     $arrayObjetsActor[] = $unActorArray;
+        // }
+        // var_dump ($arrayObjetsActor);
+        // die();
+
+
 
         var_dump($res);
         die();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 01 oct. 2021 à 15:53
+-- Généré le : mer. 13 oct. 2021 à 09:37
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.10
 
@@ -30,7 +30,7 @@ USE `sakila`;
 --
 
 CREATE TABLE `actor` (
-  `actor_id` smallint(5) UNSIGNED NOT NULL,
+  `id` smallint(5) UNSIGNED NOT NULL,
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -40,7 +40,7 @@ CREATE TABLE `actor` (
 -- Déchargement des données de la table `actor`
 --
 
-INSERT INTO `actor` (`actor_id`, `first_name`, `last_name`, `last_update`) VALUES
+INSERT INTO `actor` (`id`, `first_name`, `last_name`, `last_update`) VALUES
 (1, 'PENELOPE', 'GUINESS', '2006-02-15 03:34:33'),
 (2, 'NICK', 'WAHLBERG', '2006-02-15 03:34:33'),
 (3, 'ED', 'CHASE', '2006-02-15 03:34:33'),
@@ -240,7 +240,136 @@ INSERT INTO `actor` (`actor_id`, `first_name`, `last_name`, `last_update`) VALUE
 (197, 'REESE', 'WEST', '2006-02-15 03:34:33'),
 (198, 'MARY', 'KEITEL', '2006-02-15 03:34:33'),
 (199, 'JULIA', 'FAWCETT', '2006-02-15 03:34:33'),
-(200, 'THORA', 'TEMPLE', '2006-02-15 03:34:33');
+(200, 'THORA', 'TEMPLE', '2006-02-15 03:34:33'),
+(201, 'test', 'test', '2021-10-04 13:24:29'),
+(202, 'test', 'test', '2021-10-04 13:25:54'),
+(203, 'LOLO', 'LAURE', '2021-10-04 13:32:04'),
+(204, 'LOLO', 'LAURE', '2021-10-04 13:33:52'),
+(205, 'LOLO', 'LAURE', '2021-10-04 13:34:41'),
+(206, 'LOLO', 'LAURE', '2021-10-04 13:36:11'),
+(207, 'LOLO', 'LAURE', '2021-10-04 13:36:12'),
+(208, 'LOLO', 'LAURE', '2021-10-04 13:36:12'),
+(209, 'LOLO', 'LAURE', '2021-10-04 13:36:16'),
+(210, 'LOLO', 'LAURE', '2021-10-04 13:48:28'),
+(211, 'LOLO', 'LAURE', '2021-10-04 13:48:29'),
+(212, 'JUDY', 'GARCÍA', '2021-10-04 13:55:03'),
+(213, 'LOLA', 'GARCÍA', '2021-10-04 13:59:27'),
+(214, 'STEFFI', 'GRAFF', '2021-10-04 13:59:27'),
+(215, '', '', '2021-10-08 22:00:00'),
+(216, '', '', '2021-10-08 22:00:00'),
+(217, 'lolo', 'lola', '2021-10-08 22:00:00'),
+(218, 'lolo', 'lola', '2021-10-08 22:00:00'),
+(219, 'lolo', 'lola', '2021-10-08 22:00:00'),
+(220, 'lolo', 'lola', '2021-10-25 22:00:00'),
+(221, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(222, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(223, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(224, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(225, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(226, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(227, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(228, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(229, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(230, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(231, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(232, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(233, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(234, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(235, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(236, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(237, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(238, 'Laurie Jr.', 'Hugh', '2016-06-08 22:00:00'),
+(239, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(240, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(241, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(242, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(243, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(244, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(245, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(246, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(247, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(248, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(249, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(250, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(251, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(252, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(253, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(254, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(255, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(256, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(257, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(258, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(259, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(260, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(261, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(262, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(263, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(264, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(265, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(266, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(267, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(268, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(269, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(270, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(271, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(272, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(273, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(274, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(275, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(276, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(277, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(278, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(279, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(280, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(281, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(282, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(283, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(284, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(285, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(286, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(287, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(288, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(289, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(290, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(291, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(292, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(293, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(294, 'Geena', 'Stallona', '2021-10-12 20:06:56'),
+(295, 'Laurie', 'Hugh', '2016-06-08 22:00:00'),
+(296, 'Geena', 'Stallone', '2020-07-08 22:00:00'),
+(297, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(298, 'Lili', 'Stallone', '2020-07-08 22:00:00'),
+(299, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(301, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(303, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(305, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(307, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(309, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(311, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(313, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(315, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(317, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(319, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(321, 'Lulo', 'Hugh', '2021-10-12 20:06:35'),
+(323, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(325, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(327, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(329, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(331, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(333, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(335, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(337, 'Lula', 'Hugh', '2016-06-08 22:00:00'),
+(339, 'lol', 'lil', '2030-10-09 22:00:00'),
+(340, 'lol', 'lil', '2030-10-09 22:00:00'),
+(341, 'lol', 'lil', '2030-10-09 22:00:00'),
+(342, 'lol', 'lil', '2030-10-09 22:00:00'),
+(343, 'lol', 'lil', '2030-10-09 22:00:00'),
+(344, 'lol', 'lil', '2030-10-09 22:00:00'),
+(345, 'lol', 'lil', '2030-10-09 22:00:00'),
+(346, 'lol', 'lil', '2030-10-09 22:00:00'),
+(347, 'lol', 'lil', '2030-10-09 22:00:00'),
+(348, 'lol', 'lil', '2030-10-09 22:00:00'),
+(349, 'Lula', 'Hugh', '2016-06-08 22:00:00');
 
 -- --------------------------------------------------------
 
@@ -912,7 +1041,7 @@ CREATE TABLE `country` (
 --
 
 INSERT INTO `country` (`country_id`, `country`, `last_update`) VALUES
-(1, 'Afghanistan', '2006-02-15 03:44:00'),
+(1, 'Afganisthan', '2021-10-04 12:07:00'),
 (2, 'Algeria', '2006-02-15 03:44:00'),
 (3, 'American Samoa', '2006-02-15 03:44:00'),
 (4, 'Angola', '2006-02-15 03:44:00'),
@@ -1045,8 +1174,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `store_id`, `first_name`, `last_name`, `email`, `address_id`, `active`, `create_date`, `last_update`) VALUES
-(1, 1, 'MARY', 'WHITE', 'MARY.SMITH@sakilacustomer.org', 5, 1, '2006-02-14 22:04:36', '2021-10-01 08:54:12'),
-(2, 1, 'BETTY', 'JOHNSON', 'PATRICIA.JOHNSON@sakilacustomer.org', 6, 1, '2006-02-14 22:04:36', '2021-10-01 08:56:22'),
+(1, 1, 'MARY', 'WHITE', NULL, 5, 1, '2006-02-14 22:04:36', '2021-10-04 10:00:43'),
+(2, 1, 'BETTY', 'JOHNSON', NULL, 6, 1, '2006-02-14 22:04:36', '2021-10-04 10:01:19'),
 (3, 1, 'BETTY', 'WHITE', 'LINDA.WILLIAMS@sakilacustomer.org', 7, 1, '2006-02-14 22:04:36', '2021-10-01 08:56:44'),
 (4, 2, 'BARBARA', 'JONES', 'BARBARA.JONES@sakilacustomer.org', 8, 1, '2006-02-14 22:04:36', '2006-02-15 03:57:20'),
 (5, 1, 'ELIZABETH', 'BROWN', 'ELIZABETH.BROWN@sakilacustomer.org', 9, 1, '2006-02-14 22:04:36', '2006-02-15 03:57:20'),
@@ -1468,9 +1597,9 @@ INSERT INTO `customer` (`customer_id`, `store_id`, `first_name`, `last_name`, `e
 (421, 1, 'LEE', 'HAWKS', 'LEE.HAWKS@sakilacustomer.org', 426, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20'),
 (422, 1, 'MELVIN', 'ELLINGTON', 'MELVIN.ELLINGTON@sakilacustomer.org', 427, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20'),
 (423, 2, 'ALFRED', 'CASILLAS', 'ALFRED.CASILLAS@sakilacustomer.org', 428, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20'),
-(424, 2, 'KYLE', 'SPURLOCK', 'KYLE.SPURLOCK@sakilacustomer.org', 429, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20');
+(424, 2, 'KYLE', 'SPURLOCK', 'KYLE.SPURLOCK@sakilacustomer.org', 429, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20'),
+(425, 2, 'FRANCIS', 'SIKES', 'FRANCIS.SIKES@sakilacustomer.org', 430, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20');
 INSERT INTO `customer` (`customer_id`, `store_id`, `first_name`, `last_name`, `email`, `address_id`, `active`, `create_date`, `last_update`) VALUES
-(425, 2, 'FRANCIS', 'SIKES', 'FRANCIS.SIKES@sakilacustomer.org', 430, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20'),
 (426, 1, 'BRADLEY', 'MOTLEY', 'BRADLEY.MOTLEY@sakilacustomer.org', 431, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20'),
 (427, 2, 'JESUS', 'MCCARTNEY', 'JESUS.MCCARTNEY@sakilacustomer.org', 432, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20'),
 (428, 2, 'HERBERT', 'KRUGER', 'HERBERT.KRUGER@sakilacustomer.org', 433, 1, '2006-02-14 22:04:37', '2006-02-15 03:57:20'),
@@ -1683,11 +1812,11 @@ CREATE TABLE `film` (
 INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language_id`, `original_language_id`, `rental_duration`, `rental_rate`, `length`, `replacement_cost`, `rating`, `special_features`, `last_update`) VALUES
 (1, 'ACADEMY DINOSAUR', 'A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies', 2006, 1, NULL, 6, '0.99', 86, '20.99', 'PG', 'Deleted Scenes,Behind the Scenes', '2006-02-15 04:03:42'),
 (2, 'ACE GOLDFINGER', 'A Astounding Epistle of a Database Administrator And a Explorer who must Find a Car in Ancient China', 2006, 1, NULL, 3, '4.99', 48, '12.99', 'G', 'Trailers,Deleted Scenes', '2006-02-15 04:03:42'),
-(3, 'ADAPTATION HOLES', 'A Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory', 2006, 1, NULL, 7, '2.99', 50, '18.99', 'NC-17', 'Trailers,Deleted Scenes', '2006-02-15 04:03:42'),
-(4, 'AFFAIR PREJUDICE', 'A Fanciful Documentary of a Frisbee And a Lumberjack who must Chase a Monkey in A Shark Tank', 2006, 1, NULL, 5, '2.99', 117, '26.99', 'G', 'Commentaries,Behind the Scenes', '2006-02-15 04:03:42'),
+(3, 'ADAPTATION HOLES', 'A Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory', 2006, 5, NULL, 7, '2.99', 50, '18.99', 'NC-17', 'Trailers,Deleted Scenes', '2021-10-04 11:51:28'),
+(4, 'AFFAIR PREJUDICE', 'A Fanciful Documentary of a Frisbee And a Lumberjack who must Chase a Monkey in A Shark Tank', 2006, 5, NULL, 5, '2.99', 117, '26.99', 'G', 'Commentaries,Behind the Scenes', '2021-10-04 11:51:21'),
 (5, 'AFRICAN EGG', 'A Fast-Paced Documentary of a Pastry Chef And a Dentist who must Pursue a Forensic Psychologist in The Gulf of Mexico', 2006, 1, NULL, 6, '2.99', 130, '22.99', 'G', 'Deleted Scenes', '2006-02-15 04:03:42'),
-(6, 'AGENT TRUMAN', 'A Intrepid Panorama of a Robot And a Boy who must Escape a Sumo Wrestler in Ancient China', 2006, 1, NULL, 3, '2.99', 169, '17.99', 'PG', 'Deleted Scenes', '2006-02-15 04:03:42'),
-(7, 'AIRPLANE SIERRA', 'A Touching Saga of a Hunter And a Butler who must Discover a Butler in A Jet Boat', 2006, 1, NULL, 6, '4.99', 62, '28.99', 'PG-13', 'Trailers,Deleted Scenes', '2006-02-15 04:03:42'),
+(6, 'AGENT TRUMAN', 'A Intrepid Panorama of a Robot And a Boy who must Escape a Sumo Wrestler in Ancient China', 2006, 5, NULL, 3, '2.99', 169, '17.99', 'PG', 'Deleted Scenes', '2021-10-04 11:51:34'),
+(7, 'AIRPLANE SIERRA', 'A Touching Saga of a Hunter And a Butler who must Discover a Butler in A Jet Boat', 2006, 4, NULL, 6, '4.99', 62, '28.99', 'PG-13', 'Trailers,Deleted Scenes', '2021-10-04 11:51:46'),
 (8, 'AIRPORT POLLOCK', 'A Epic Tale of a Moose And a Girl who must Confront a Monkey in Ancient India', 2006, 1, NULL, 6, '4.99', 54, '15.99', 'R', 'Trailers', '2006-02-15 04:03:42'),
 (9, 'ALABAMA DEVIL', 'A Thoughtful Panorama of a Database Administrator And a Mad Scientist who must Outgun a Mad Scientist in A Jet Boat', 2006, 1, NULL, 3, '2.99', 114, '21.99', 'PG-13', 'Trailers,Deleted Scenes', '2006-02-15 04:03:42'),
 (10, 'ALADDIN CALENDAR', 'A Action-Packed Tale of a Man And a Lumberjack who must Reach a Feminist in Ancient China', 2006, 1, NULL, 6, '4.99', 63, '24.99', 'NC-17', 'Trailers,Deleted Scenes', '2006-02-15 04:03:42'),
@@ -31015,7 +31144,7 @@ CREATE TABLE `store` (
 -- Index pour la table `actor`
 --
 ALTER TABLE `actor`
-  ADD PRIMARY KEY (`actor_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `idx_actor_last_name` (`last_name`);
 
 --
@@ -31133,7 +31262,7 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT pour la table `actor`
 --
 ALTER TABLE `actor`
-  MODIFY `actor_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
 
 --
 -- AUTO_INCREMENT pour la table `category`
@@ -31222,7 +31351,7 @@ ALTER TABLE `film`
 -- Contraintes pour la table `film_actor`
 --
 ALTER TABLE `film_actor`
-  ADD CONSTRAINT `film_actor_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`actor_id`),
+  ADD CONSTRAINT `film_actor_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`),
   ADD CONSTRAINT `film_actor_ibfk_2` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`);
 
 --
