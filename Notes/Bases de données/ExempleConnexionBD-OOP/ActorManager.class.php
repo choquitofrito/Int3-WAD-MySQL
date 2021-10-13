@@ -19,8 +19,13 @@ class ActorManager
         $requete->bindValue(":first_name", $unActeur->first_name);
         $requete->bindValue(":last_name", $unActeur->last_name);
         $requete->bindValue(":last_update", $unActeur->last_update);
+
+        // si la requête a une erreur on pourra l'afficher avec errorInfo de PDOStatement ($requete)
+        // ou de PDO ($bdd) 
+
         // var_dump($requete->errorInfo());
         // var_dump($this->bdd->errorInfo());
+        
         $requete->execute();
         // on donne un id à l'objet
         $unActeur->hydrate(['id' => $this->bdd->lastInsertId()]);
