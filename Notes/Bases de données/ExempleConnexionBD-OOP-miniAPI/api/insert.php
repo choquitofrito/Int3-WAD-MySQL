@@ -41,6 +41,7 @@ $objetStdClass = json_decode(file_get_contents("php://input"));
 
 
 
+
 // faire un casting vers un array. On prend les propriétés (et leurs valeurs) de l'objet 
 // et on crée un array associatif (clé => val)
 
