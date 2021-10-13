@@ -75,6 +75,10 @@
     // ex. utilisation selectId
     var_dump ($actorManager->selectParId(52));
 
+    
+    $actorManager->update
+
+
     ?>
 </body>
 
