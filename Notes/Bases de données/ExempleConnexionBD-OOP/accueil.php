@@ -84,6 +84,7 @@
     // le changement se fait uniquement au niveau d'objet, pas dans la BD
     $actorManager->update ($unActeur);
 
+    
 
 
     ?>
