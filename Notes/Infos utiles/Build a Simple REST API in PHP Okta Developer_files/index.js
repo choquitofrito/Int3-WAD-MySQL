@@ -1,0 +1,8 @@
+/**
+ * Minified by jsDelivr using Terser v5.3.5.
+ * Original file: /npm/details-polyfill@1.2.0/index.js
+ *
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+!function(e,t){"function"==typeof define&&define.amd?define(t):"object"==typeof exports?module.exports=t():t()}(0,(function(){var e="details";(function(){var t=document.createElement(e);if(!("open"in t))return!1;t.innerHTML="<summary>a</summary>b",document.body.appendChild(t);var n=t.offsetHeight;t.open=!0;var o=n!=t.offsetHeight;return document.body.removeChild(t),o})()||(document.documentElement.className+=" no-details",window.addEventListener("click",(function(e){if("summary"===e.target.nodeName.toLowerCase()){var t=e.target.parentNode;if(!t)return;t.getAttribute("open")?(t.open=!1,t.removeAttribute("open")):(t.open=!0,t.setAttribute("open","open"))}})),function(e,t){if(document.getElementById(e))return;var n=document.createElement("style");n.id=e,n.innerHTML=t,document.getElementsByTagName("head")[0].appendChild(n)}("details-polyfill-style",'html.no-details details { display: block; }\nhtml.no-details details:not([open]) > :not(summary) { display: none; }\nhtml.no-details details > summary:before { content: "▶"; display: inline-block; font-size: .8em; width: 1.5em; }\nhtml.no-details details[open] > summary:before { content: "▼"; }'))}));
+//# sourceMappingURL=/sm/5ae9c415198ea3eebf607bd13382342b8974507a49fc8dd827ca82f4b7318bec.map

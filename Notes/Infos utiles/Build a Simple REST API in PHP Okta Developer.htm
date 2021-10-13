@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6 no-flexbox"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 no-flexbox"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 no-flexbox"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9 no-flexbox"> <![endif]-->
+<!--[if IE 10 ]>    <html class="ie10 no-flexbox"> <![endif]-->
+<!--[if (gt IE 10)|!(IE)]><!-->
+<html class="modern wf-active" lang="en"><!--<![endif]--><head>
+  <link rel="preload" href="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/osg6paw.css" as="style" crossorigin="">
+  <link rel="stylesheet" href="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/osg6paw.css" crossorigin="">
+
+  <script async="" src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/gtm.js"></script><script>
+    var searchDomain = 'https://developer.okta.com';
+    var isProduction = window.location.hostname === 'developer.okta.com';
+    if (isProduction) {
+
+      // START Google Tag Manager
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KXMLV58');
+      // END Google Tag Manager
+
+    }
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+
+  <link rel="stylesheet" href="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/CoveoFullSearch.css" integrity="sha512-c6ZA0d3XVIG36GHJHX+TRBINlF4+k4cDAngeqQmWzEcPys5FWvLCD/IVaUJsdmNchM+4YuCcYpaXsNsb2B8bWQ==" crossorigin="anonymous">
+
+  <link type="text/css" rel="stylesheet" href="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/animate-ec43d72c3ed45e08a460b8a2966d8dba6006aebfa0530935c397.css">
+  <link type="text/css" rel="stylesheet" href="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/okta-f374ce86f92989beb3961787c17e1fe448d1570a6c68d9891b2a7e7.css">
+  
+  
+  <title>Build a Simple REST API in PHP | Okta Developer</title>
+  <meta name="description" content="Learn how to build a simple REST API with authentication in PHP.">
+  <link rel="alternate" type="application/rss+xml" title="Okta Developer" href="https://developer.okta.com/feed.xml"><!-- GA -->
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://developer.okta.com/assets-jekyll/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://developer.okta.com/assets-jekyll/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://developer.okta.com/assets-jekyll/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://developer.okta.com/assets-jekyll/favicon/manifest.json">
+  <link rel="mask-icon" href="https://developer.okta.com/assets-jekyll/favicon/safari-pinned-tab.svg" color="#21313a">
+  <meta name="msapplication-config" content="/assets-jekyll/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://developer.okta.com/blog/2019/03/08/simple-rest-api-php">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://developer.okta.com/blog/2019/03/08/simple-rest-api-php">
+  <meta property="og:title" content="Build a Simple REST API in PHP">
+  <meta property="og:description" content="Learn how to build a simple REST API with authentication in PHP.">
+
+  <!-- Add BlogPosting schema -->
+  
+    
+    
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Build a Simple REST API in PHP",
+      "genre": "Technology",
+      "publisher": {
+        "@type": "Organization",
+        "url": "https://www.okta.com",
+        "name": "Okta Inc.",
+        "logo": {
+          "@type": "imageObject",
+          "url": "https://www.okta.com/sites/all/themes/Okta/images/okta-logo-lg.png"
+        }
+      },
+      "url": "https://developer.okta.com/blog/2019/03/08/simple-rest-api-php",
+      "datePublished": "2019-03-08",
+      "dateCreated": "2019-03-08",
+      "dateModified": "2019-03-08",
+      "articleBody": "Learn how to build a simple REST API with authentication in PHP.",
+      "author": {
+        "@type": "Person",
+        "name": "Krasimir Hristozov"
+      },
+      "image": "https://developer.okta.com/assets-jekyll/blog/featured/okta-php-headphones-c6f0e7e833178e4b70e79a88d9f92b1ec41b2ec6b8c9792f014cdb6c7db56f86.jpg",
+      "mainEntityOfPage": "BlogPost-content"
+    }
+     </script>
+  <!-- End BlogPosting schema -->
+  <meta property="og:image" content="https://developer.okta.com/assets-jekyll/blog/featured/okta-php-headphones-c6f0e7e833178e4b70e79a88d9f92b1ec41b2ec6b8c9792f014cdb6c7db56f86.jpg">
+  
+  <meta property="og:site_name" content="Okta Developer">
+  <!-- twitter will use the og: tags to show a preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@oktadev">
+  <meta name="twitter:creator" content="@oktadev">
+  
+  <!-- START VWO Tracking -->
+  <script type="text/javascript">
+  var _vwo_code=(function(){
+    var account_id=342490,
+    settings_tolerance=2000,
+    library_tolerance=2500,
+    use_existing_jquery=false,
+    /* DO NOT EDIT BELOW THIS LINE */
+    f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+  </script><script src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/j" type="text/javascript"></script>
+  <!-- END VWO Tracking -->
+<script async="" type="text/javascript" src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/embed.js"></script><script type="text/javascript" charset="utf-8" async="" src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/Omnibox.js"></script><script type="text/javascript" charset="utf-8" async="" src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/SearchButton.js"></script></head>
+
+  
+    <body id="blog" class="">
+	
+
+
+
+
+
+<nav class="navigation is-fixed">
+
+    <div class="nav-wrapper flex-row align-center">
+        <a class="logo" href="https://developer.okta.com/">
+            <svg viewBox="0 0 157 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M56.0156 0.407593H61.1882C65.9798 0.407593 69.0472 3.65742 69.0472 8.65403C69.0472 13.7725 66.1802 16.9817 61.0879 16.9817H56.0357V0.407593H56.0156ZM60.727 15.4177C65.1177 15.4177 67.303 13.0007 67.303 8.65403C67.303 4.59174 65.1578 1.97157 60.8473 1.97157H57.6396V15.4177H60.727Z" fill="white"></path>
+                <path d="M71.25 11.0711C71.25 7.25254 73.4554 4.97766 76.2421 4.97766C79.4499 4.97766 81.4948 7.69939 81.134 11.4367H72.7937C72.894 14.8287 74.6182 15.9052 76.4025 15.9052C78.4074 15.9052 79.4098 14.3818 79.7506 13.4475L81.1941 13.9959C80.4724 16.0068 78.668 17.2864 76.3624 17.2864C73.2749 17.2864 71.25 15.174 71.25 11.0711ZM79.5702 10.1164C79.5702 7.55721 77.9863 6.2979 76.2421 6.2979C74.3776 6.2979 72.9541 7.86188 72.8138 10.1164H79.5702Z" fill="white"></path>
+                <path d="M82.6992 5.30261H84.3432L86.6087 11.9851L87.8316 15.5396L89.0346 12.0054L91.1998 5.30261H92.8037L88.794 16.9817H86.8292L82.6992 5.30261Z" fill="white"></path>
+                <path d="M94.3281 11.0711C94.3281 7.25254 96.5335 4.97766 99.3202 4.97766C102.528 4.97766 104.573 7.69939 104.212 11.4367H95.8719C95.9721 14.8287 97.6963 15.9052 99.4606 15.9052C101.465 15.9052 102.468 14.3818 102.809 13.4475L104.252 13.9959C103.53 16.0068 101.726 17.2864 99.4205 17.2864C96.3731 17.2864 94.3281 15.174 94.3281 11.0711ZM102.648 10.1164C102.648 7.55721 101.064 6.2979 99.3202 6.2979C97.4557 6.2979 96.0323 7.86188 95.8919 10.1164H102.648Z" fill="white"></path>
+                <path d="M108.802 0.407593H107.238V16.9817H108.802V0.407593Z" fill="white"></path>
+                <path d="M111.688 11.1523C111.688 7.41503 114.093 4.97766 117.02 4.97766C119.947 4.97766 122.353 7.41503 122.353 11.1523C122.353 14.8896 119.867 17.2864 117.02 17.2864C114.174 17.2864 111.688 14.8896 111.688 11.1523ZM120.729 11.1726C120.729 8.00406 119.065 6.39946 117.02 6.39946C114.955 6.39946 113.311 8.00406 113.311 11.1726C113.311 14.3412 114.975 15.8849 117.02 15.8849C119.085 15.8849 120.729 14.3615 120.729 11.1726Z" fill="white"></path>
+                <path d="M125.242 5.30269H126.766V7.33383C127.327 6.19639 128.57 4.9574 130.595 4.9574C133.141 4.9574 135.307 7.0901 135.307 11.1118C135.307 15.1334 133.141 17.2661 130.595 17.2661C128.49 17.2661 127.327 16.0068 126.806 14.9303V17.2052V21.5924H125.242V5.30269ZM133.743 11.1118C133.743 7.69944 132.199 6.39951 130.294 6.39951C128.29 6.39951 126.746 7.88224 126.746 11.1118C126.746 14.3413 128.29 15.8849 130.294 15.8849C132.199 15.8849 133.743 14.5444 133.743 11.1118Z" fill="white"></path>
+                <path d="M137.395 11.0711C137.395 7.25254 139.6 4.97766 142.387 4.97766C145.594 4.97766 147.639 7.69939 147.278 11.4367H138.938C139.039 14.8287 140.763 15.9052 142.547 15.9052C144.552 15.9052 145.554 14.3818 145.895 13.4475L147.339 13.9959C146.617 16.0068 144.813 17.2864 142.507 17.2864C139.439 17.2864 137.395 15.174 137.395 11.0711ZM145.715 10.1164C145.715 7.55721 144.131 6.2979 142.387 6.2979C140.522 6.2979 139.099 7.86188 138.958 10.1164H145.715Z" fill="white"></path>
+                <path d="M150.305 5.30263H151.848V7.88218C152.189 6.78536 153.432 5.14014 155.618 5.14014C156.279 5.14014 156.7 5.24169 157.001 5.30263V6.90723C156.66 6.82598 156.179 6.76505 155.598 6.76505C152.931 6.76505 151.868 8.75557 151.868 11.6195V16.9614H150.325V5.30263H150.305Z" fill="white"></path>
+                <path d="M6.0341 4.83545C2.70604 4.83545 0.0195312 7.55718 0.0195312 10.9289C0.0195312 14.3006 2.70604 17.0223 6.0341 17.0223C9.36216 17.0223 12.0487 14.3006 12.0487 10.9289C12.0487 7.57749 9.36216 4.83545 6.0341 4.83545ZM6.0341 13.9756C4.37007 13.9756 3.02681 12.6147 3.02681 10.9289C3.02681 9.24303 4.37007 7.88216 6.0341 7.88216C7.69813 7.88216 9.04138 9.24303 9.04138 10.9289C9.04138 12.6147 7.69813 13.9756 6.0341 13.9756Z" fill="white"></path>
+                <path d="M16.5987 12.9804C16.5987 12.4929 17.1801 12.2695 17.5009 12.5945C19.0045 14.1585 21.4905 16.7989 21.5106 16.8193C21.5507 16.8599 21.5707 16.9208 21.7311 16.9614C21.7913 16.9818 21.8915 16.9818 21.9917 16.9818H24.6983C25.1795 16.9818 25.3399 16.413 25.0993 16.1287L20.6084 11.457L20.3678 11.2133C19.8666 10.604 19.9067 10.3602 20.4881 9.73058L24.0768 5.70891C24.3174 5.42456 24.157 4.85584 23.6558 4.85584H21.1898C21.0896 4.85584 21.0094 4.85584 20.9492 4.87615C20.8089 4.91677 20.7487 4.9777 20.7086 5.01833C20.6886 5.03864 18.7238 7.19165 17.5009 8.51189C17.16 8.8775 16.5786 8.63376 16.5786 8.14628V1.2404C16.5786 0.89511 16.298 0.75293 16.0574 0.75293H14.0525C13.7117 0.75293 13.5312 0.996667 13.5312 1.19978V16.5349C13.5312 16.8802 13.832 16.9818 14.0525 16.9818H16.0574C16.3781 16.9818 16.5786 16.7583 16.5786 16.5146V16.3521V12.9804H16.5987Z" fill="white"></path>
+                <path d="M32.9993 16.4537L32.7787 14.4225C32.7587 14.1382 32.498 13.9553 32.2174 13.996C32.057 14.0163 31.9166 14.0366 31.7562 14.0366C30.1524 14.0366 28.8492 12.757 28.769 11.1524C28.769 11.0914 28.769 11.0508 28.769 10.9899V8.49158C28.769 8.1666 29.0096 7.90255 29.3304 7.90255H32.0169C32.2174 7.90255 32.498 7.74006 32.498 7.37445V5.44487C32.498 5.07926 32.2575 4.87615 32.057 4.87615H29.3504C29.0296 4.87615 28.7891 4.65272 28.7891 4.32774V1.2404C28.7891 1.0576 28.6487 0.75293 28.2678 0.75293H26.2629C26.0023 0.75293 25.7617 0.915421 25.7617 1.22009C25.7617 1.22009 25.7617 11.0914 25.7617 11.1321C25.8419 14.4225 28.5084 17.063 31.7763 17.063C32.057 17.063 32.3176 17.0427 32.5782 17.0021C32.8389 16.9817 33.0393 16.7177 32.9993 16.4537Z" fill="white"></path>
+                <path d="M47.4939 13.8944C45.7898 13.8944 45.5291 13.285 45.5291 10.9695V10.9492V5.4042C45.5291 5.22139 45.3888 4.89641 45.0079 4.89641H43.003C42.7424 4.89641 42.4818 5.09952 42.4818 5.4042V5.66824C41.5996 5.16046 40.5972 4.8761 39.5146 4.8761C36.1865 4.8761 33.5 7.59783 33.5 10.9695C33.5 14.3412 36.1865 17.0629 39.5146 17.0629C40.9982 17.0629 42.3615 16.5145 43.424 15.6005C43.9854 16.4739 44.9076 17.0426 46.311 17.0629C46.5516 17.0629 47.8347 17.1036 47.8347 16.4942V14.3006C47.8347 14.0975 47.6944 13.8944 47.4939 13.8944ZM39.5146 13.9756C37.8505 13.9756 36.5073 12.6147 36.5073 10.9289C36.5073 9.24305 37.8505 7.88219 39.5146 7.88219C41.1786 7.88219 42.5218 9.24305 42.5218 10.9289C42.5218 12.6147 41.1786 13.9756 39.5146 13.9756Z" fill="white"></path>
+            </svg>
+        </a>
+
+        <div class="menu--slideout">
+            
+                <div class="search-wrapper" data-search-bar="">
+                    <!-- Search box  -->
+                    <div class="SearchBox search-box flex CoveoSearchInterface Coveostate CoveoComponentState CoveoComponentOptions CoveoQueryController CoveoDebug coveo-after-initialization" data-pipeline="developer-okta-com" style="display: block;">
+                        <div class="search--form">
+                            <div class="CoveoOmnibox magic-box" aria-expanded="false" role="combobox" aria-owns="coveo-magicbox-suggestions" aria-haspopup="listbox"><div class="magic-box-input"><div class="magic-box-underlay"><span class="magic-box-highlight-container"><span data-id="start" data-success="true"><span data-id="Start" data-success="true"><span data-id="Empty" data-success="true" data-value=""></span></span></span></span><span class="magic-box-ghost-text"></span></div><input type="text" role="searchbox" form="coveo-dummy-form" aria-autocomplete="list" title="Insert a query. Press enter to send" aria-controls="coveo-magicbox-suggestions" aria-label="Submit search" placeholder="Search our content"><div class="magic-box-clear coveo-accessible-button" role="button" aria-label="Clear" tabindex="-1" aria-hidden="true"><div class="magic-box-icon"></div></div></div><div class="magic-box-suggestions"><div class="coveo-magicbox-suggestions" id="coveo-magicbox-suggestions" role="listbox"><div role="option"></div></div></div></div>
+                            <div class="CoveoSearchButton hide-for-medium coveo-accessible-button" role="button" aria-label="Search" tabindex="0">Search</div>
+                        </div>
+                        <div class="CoveoAnalytics"></div>
+
+                        
+
+
+
+
+
+
+
+    <svg class="search-icon " width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.47328 8.65339C6.81369 9.09025 6.02272 9.34466 5.17233 9.34466C2.86802 9.34466 1 7.47665 1 5.17233C1 2.86802 2.86802 1 5.17233 1C7.47665 1 9.34466 2.86802 9.34466 5.17233C9.34466 6.02272 9.09025 6.81369 8.65339 7.47328L10.7556 9.57548C11.0815 9.90136 11.0815 10.4297 10.7556 10.7556C10.4297 11.0815 9.90136 11.0815 9.57548 10.7556L7.47328 8.65339ZM7.67573 5.17233C7.67573 6.55492 6.55492 7.67573 5.17233 7.67573C3.78974 7.67573 2.66893 6.55492 2.66893 5.17233C2.66893 3.78974 3.78974 2.66893 5.17233 2.66893C6.55492 2.66893 7.67573 3.78974 7.67573 5.17233Z" fill="#14222A" stroke="white" stroke-width="0.25"></path>
+    </svg>
+
+
+
+                    <div aria-live="polite" class="coveo-visible-to-screen-reader-only"></div></div>
+                    <!-- end Search box  -->
+                </div>
+            
+
+            <div class="flex-row space-between align-center full-width">
+                <ul class="menu flex-row align-center flex-auto">
+                    <li class="menu-item has-children">
+                        <span class="nav-link">Community <i class="fa fa-angle-down"></i></span>
+
+                        <ul class="sub-menu">
+                            <li class="menu-item">
+                                <a href="https://devforum.okta.com/" class="nav-link">Forum</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://toolkit.okta.com/" class="nav-link">Toolkit</a>
+                            </li>
+                            <li class="menu-item">
+                                <div class="social-links flex-row space-between align-center">
+                                    <a href="http://github.com/oktadev" class="social">
+                                        
+    <!-- Github icon -->
+    <svg class="" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.9406 6.21364C19.937 4.45098 18.5757 3.05547 16.8563 2.02682C15.1367 0.99811 13.2593 0.483887 11.2229 0.483887C9.18683 0.483887 7.30888 0.998267 5.58959 2.02682C3.87005 3.05542 2.50879 4.45098 1.50519 6.21364C0.501747 7.97625 0 9.90103 0 11.9879C0 14.4948 0.713491 16.749 2.14083 18.7512C3.56802 20.7535 5.41173 22.139 7.67182 22.9079C7.9349 22.958 8.12965 22.9228 8.25628 22.8032C8.38295 22.6835 8.44622 22.5335 8.44622 22.354C8.44622 22.324 8.44371 22.0545 8.43885 21.5451C8.43383 21.0357 8.43148 20.5913 8.43148 20.2121L8.09536 20.2717C7.88105 20.312 7.61071 20.329 7.28431 20.3242C6.95807 20.3195 6.61939 20.2845 6.26874 20.2193C5.91793 20.1547 5.59164 20.005 5.28961 19.7703C4.98773 19.5356 4.77343 19.2284 4.64675 18.8492L4.50062 18.5045C4.40322 18.275 4.24988 18.02 4.04039 17.7406C3.83089 17.4609 3.61905 17.2713 3.40474 17.1715L3.30243 17.0964C3.23425 17.0465 3.17099 16.9863 3.11249 16.9165C3.05404 16.8466 3.01028 16.7767 2.98105 16.7068C2.95177 16.6367 2.97603 16.5793 3.05409 16.5342C3.13214 16.4891 3.2732 16.4673 3.47788 16.4673L3.77004 16.512C3.96489 16.552 4.20591 16.6716 4.49341 16.8715C4.78075 17.0711 5.01696 17.3307 5.20209 17.6502C5.42627 18.0597 5.69636 18.3718 6.01313 18.5865C6.32965 18.8013 6.64877 18.9085 6.9702 18.9085C7.29163 18.9085 7.56925 18.8835 7.80315 18.8338C8.0368 18.7839 8.25602 18.7088 8.4607 18.609C8.54838 17.9396 8.7871 17.4254 9.17665 17.0659C8.62142 17.0061 8.12223 16.916 7.67883 16.7963C7.23569 16.6763 6.77775 16.4817 6.30533 16.2118C5.83266 15.9423 5.44055 15.6076 5.12889 15.2083C4.81719 14.8088 4.56138 14.2844 4.36181 13.6354C4.16215 12.9862 4.06229 12.2373 4.06229 11.3885C4.06229 10.1799 4.44719 9.15149 5.21683 8.30259C4.85629 7.39397 4.89033 6.37539 5.31904 5.24694C5.60157 5.15696 6.02055 5.22449 6.57579 5.4491C7.13112 5.67381 7.53772 5.86631 7.79599 6.02591C8.05426 6.18546 8.26119 6.32067 8.41709 6.43032C9.32329 6.17077 10.2585 6.04097 11.2228 6.04097C12.1872 6.04097 13.1226 6.17077 14.0288 6.43032L14.5841 6.07098C14.9639 5.83121 15.4123 5.61148 15.9283 5.41174C16.4446 5.21211 16.8395 5.15712 17.1124 5.2471C17.5506 6.3756 17.5896 7.39413 17.229 8.30274C17.9986 9.15165 18.3836 10.1804 18.3836 11.3887C18.3836 12.2375 18.2834 12.9887 18.0841 13.6429C17.8845 14.2972 17.6264 14.8212 17.3099 15.2158C16.9931 15.6104 16.5984 15.9425 16.126 16.2119C15.6535 16.4816 15.1954 16.6763 14.7523 16.7962C14.3089 16.9162 13.8097 17.0063 13.2545 17.0662C13.7609 17.5154 14.0142 18.2245 14.0142 19.1931V22.3536C14.0142 22.5331 14.0751 22.683 14.197 22.8028C14.3187 22.9223 14.511 22.9576 14.7741 22.9074C17.0345 22.1387 18.8782 20.7531 20.3054 18.7507C21.7323 16.7486 22.4461 14.4944 22.4461 11.9875C22.4456 9.90087 21.9436 7.97625 20.9406 6.21364Z" fill="#DD2864"></path>
+    </svg>
+
+
+
+
+
+
+
+
+
+
+                                    </a>
+                                    <a href="http://twitter.com/OktaDev" class="social">
+                                        
+
+
+    <!-- Twitter icon -->
+    <svg class="" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.223 0.483887C5.02568 0.483887 0 5.50956 0 11.7069C0 17.9043 5.02568 22.93 11.223 22.93C17.4204 22.93 22.4461 17.9043 22.4461 11.7069C22.4461 5.50956 17.4204 0.483887 11.223 0.483887ZM16.3474 9.23442C16.3523 9.34488 16.3547 9.45585 16.3547 9.56734C16.3547 12.9713 13.7637 16.8965 9.02539 16.8967C7.57062 16.8967 6.21689 16.4703 5.07688 15.7395C5.27844 15.7633 5.4836 15.7752 5.69133 15.7752C6.8983 15.7752 8.00902 15.3635 8.89079 14.6725C7.76311 14.6516 6.81233 13.9068 6.48421 12.8833C6.64125 12.9134 6.80274 12.9298 6.96834 12.9298C7.20346 12.9298 7.43123 12.8981 7.64769 12.8391C6.46897 12.6031 5.58104 11.5614 5.58104 10.314C5.58104 10.3023 5.58104 10.2919 5.58138 10.2811C5.92851 10.4741 6.32547 10.5902 6.74811 10.6032C6.05643 10.1417 5.60176 9.35276 5.60176 8.459C5.60176 7.98704 5.72934 7.54487 5.9506 7.16418C7.22093 8.7229 9.11941 9.748 11.2604 9.85572C11.2162 9.667 11.1934 9.47041 11.1934 9.26833C11.1934 7.84627 12.3471 6.69256 13.7697 6.69256C14.5107 6.69256 15.18 7.00578 15.65 7.50651C16.2369 7.39075 16.788 7.17634 17.2858 6.88128C17.0932 7.48254 16.6849 7.98704 16.153 8.30608C16.6741 8.24374 17.1707 8.10554 17.6323 7.90039C17.2875 8.41705 16.8503 8.87086 16.3474 9.23442Z" fill="#DD2864"></path>
+    </svg>
+
+
+
+
+
+
+
+
+                                    </a>
+                                    <a href="https://www.youtube.com/channel/UC5AMiWqFVFxF1q9Ya1FuZ_Q/featured" class="social">
+                                        
+
+
+
+
+
+    <!-- Youtube icon -->
+    <svg class="" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.35156 13.8143L13.0376 11.6913L9.35156 9.56836V13.8143Z" fill="#DD2864"></path>
+        <path d="M11.223 0.484375C5.02568 0.484375 0 5.51005 0 11.7074C0 17.9048 5.02568 22.9305 11.223 22.9305C17.4204 22.9305 22.4461 17.9048 22.4461 11.7074C22.4461 5.51005 17.4204 0.484375 11.223 0.484375ZM18.2357 11.7189C18.2357 11.7189 18.2357 13.995 17.947 15.0925C17.7852 15.6933 17.3115 16.1669 16.7108 16.3286C15.6132 16.6175 11.223 16.6175 11.223 16.6175C11.223 16.6175 6.84435 16.6175 5.73534 16.3171C5.13459 16.1555 4.66091 15.6816 4.49908 15.0809C4.21018 13.995 4.21018 11.7074 4.21018 11.7074C4.21018 11.7074 4.21018 9.43151 4.49908 8.33397C4.66074 7.73322 5.14607 7.2479 5.73534 7.08624C6.83288 6.79734 11.223 6.79734 11.223 6.79734C11.223 6.79734 15.6132 6.79734 16.7108 7.09771C17.3115 7.25937 17.7852 7.73322 17.947 8.33397C18.2474 9.43151 18.2357 11.7189 18.2357 11.7189Z" fill="#DD2864"></path>
+    </svg>
+
+
+
+
+
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="https://developer.okta.com/blog" class="nav-link">Blog</a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="https://developer.okta.com/pricing/" class="nav-link external-link">
+                            Pricing
+
+
+
+
+
+
+
+
+
+    <!-- External link icon -->
+    <svg fill="none" height="11" viewBox="0 0 10 11" width="10" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#fff" opacity=".3">
+            <path d="m9.38307.75h-3.3122c-.33988 0-.71428.37444-.71428.71429 0 .33984.3744.71428.71428.71428h1.78572l-3.21507 3.05766c-.11648.11641-.18058.27117-.18058.43586 0 .1647.06406.31942.18051.43572.11644.11655.27116.18069.43585.18069.16463 0 .31942-.06411.4359-.18058l3.05767-3.21506v1.78571c0 .33985.37444.71429.71429.71429s.71428-.37444.71428-.71429v-3.3122c0-.33985-.27652-.61637-.61637-.61637z"></path><path d="m7.14289 9.32144h-5.71432v-5.71428h2.14286l1.42857-1.42857h-4.285714c-.29177 0-.714286.42251-.714286.71429v7.14282c0 .3572.357143.7143.714286.7143h7.142894c.35714 0 .71429-.3571.71429-.7143l-.00004-4.28568-1.42854 1.42857z"></path>
+        </g>
+    </svg>
+
+                        </a>
+                    </li>
+                </ul>
+                <ul class="menu external-links flex-row align-center">
+                    <li class="menu-item">
+                        <a href="https://www.okta.com/" class="nav-link" target="_blank" rel="noopener noreferrer">
+                            Okta.com
+
+
+
+
+
+
+
+
+
+    <!-- External link icon -->
+    <svg fill="none" height="11" viewBox="0 0 10 11" width="10" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#fff" opacity=".3">
+            <path d="m9.38307.75h-3.3122c-.33988 0-.71428.37444-.71428.71429 0 .33984.3744.71428.71428.71428h1.78572l-3.21507 3.05766c-.11648.11641-.18058.27117-.18058.43586 0 .1647.06406.31942.18051.43572.11644.11655.27116.18069.43585.18069.16463 0 .31942-.06411.4359-.18058l3.05767-3.21506v1.78571c0 .33985.37444.71429.71429.71429s.71428-.37444.71428-.71429v-3.3122c0-.33985-.27652-.61637-.61637-.61637z"></path><path d="m7.14289 9.32144h-5.71432v-5.71428h2.14286l1.42857-1.42857h-4.285714c-.29177 0-.714286.42251-.714286.71429v7.14282c0 .3572.357143.7143.714286.7143h7.142894c.35714 0 .71429-.3571.71429-.7143l-.00004-4.28568-1.42854 1.42857z"></path>
+        </g>
+    </svg>
+
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://login.okta.com/" class="nav-link" target="_blank" rel="noopener noreferrer">
+                            Admin Console
+
+
+
+
+
+
+
+
+
+    <!-- External link icon -->
+    <svg fill="none" height="11" viewBox="0 0 10 11" width="10" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#fff" opacity=".3">
+            <path d="m9.38307.75h-3.3122c-.33988 0-.71428.37444-.71428.71429 0 .33984.3744.71428.71428.71428h1.78572l-3.21507 3.05766c-.11648.11641-.18058.27117-.18058.43586 0 .1647.06406.31942.18051.43572.11644.11655.27116.18069.43585.18069.16463 0 .31942-.06411.4359-.18058l3.05767-3.21506v1.78571c0 .33985.37444.71429.71429.71429s.71428-.37444.71428-.71429v-3.3122c0-.33985-.27652-.61637-.61637-.61637z"></path><path d="m7.14289 9.32144h-5.71432v-5.71428h2.14286l1.42857-1.42857h-4.285714c-.29177 0-.714286.42251-.714286.71429v7.14282c0 .3572.357143.7143.714286.7143h7.142894c.35714 0 .71429-.3571.71429-.7143l-.00004-4.28568-1.42854 1.42857z"></path>
+        </g>
+    </svg>
+
+                        </a>
+                    </li>
+                    <li class="menu-item signup-btn">
+                        <a href="https://developer.okta.com/signup/" class="cta flex align-center justify-center">
+                            Sign Up
+                        </a>
+                    </li>
+                </ul>
+                <ul class="menu show-for-medium">
+                    <li class="menu-item">
+                        <a href="https://developer.okta.com/docs/guides/" class="nav-link" target="_blank" rel="noopener noreferrer">Guides</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://developer.okta.com/docs/concepts/" class="nav-link" target="_blank" rel="noopener noreferrer">Concept</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://developer.okta.com/docs/reference/" class="nav-link" target="_blank" rel="noopener noreferrer">Reference</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://developer.okta.com/code/" class="nav-link" target="_blank" rel="noopener noreferrer">Languages &amp; SDKs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex-row space-between align-center full-width show-for-medium">
+            <div class="mobile-controls flex-row align-center">
+                <a href="https://developer.okta.com/signup/" class="cta flex align-center justify-center">
+                    Sign Up
+                </a>
+
+                <div class="hamburger">
+                    <div class="lines">
+                        <div class="lines_part"></div>
+                        <div class="lines_part"></div>
+                        <div class="lines_part"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<!-- START Promo banner -->
+
+
+
+
+
+<!-- END Promo banner -->
+
+	<div class="page-content">
+		
+		
+
+
+
+
+
+<section class="Blog is-single">
+  <div class="Blog-social">
+  <a href="https://twitter.com/oktadev" target="_blank"><i class="fa fa-twitter"></i></a>
+  </div>
+  
+
+<article class="BlogPost">
+
+    <header class="BlogPost-header">
+
+        <time class="BlogPost-date" datetime="2019-03-08">March 8, 2019</time>
+        <h1 class="BlogPost-title">
+            
+            Build a Simple REST API in PHP
+            
+        </h1>
+        <div class="BlogPost-attribution">
+            
+                <a href="https://developer.okta.com/blog/authors/krasimir-hristozov/"><img src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/avatar-krasimir-bbf72ddf03b6a341e87759ba84c56aebe845f6948cf9.jpg" alt="avatar-krasimir.jpg" class="BlogPost-avatar"></a>
+                
+                <span class="BlogPost-author"><a href="https://developer.okta.com/blog/authors/krasimir-hristozov/">Krasimir Hristozov</a></span>
+            
+        </div>
+    </header>
+
+    <div class="BlogPost-content">
+        
+        
+  <p>REST APIs are the backbone of modern web development. Most web 
+applications these days are developed as single-page applications on the
+ frontend, connected to backend APIs written in various languages. There
+ are many great frameworks that can help you build REST APIs quickly. 
+Laravel/Lumen and Symfony’s API platform are the most often used 
+examples in the PHP ecosystem. They provide great tools to process 
+requests and generate JSON responses with the correct HTTP status codes.
+ They also make it easy to handle common issues like 
+authentication/authorization, request validation, data transformation, 
+pagination, filters, rate throttling, complex endpoints with 
+sub-resources, and API documentation.</p>
+
+<p>You certainly don’t need a complex framework to build a simple but 
+secure API though. In this article, I’ll show you how to build a simple 
+REST API in PHP from scratch. We’ll make the API secure by using Okta as
+ our authorization provider and implementing the Client Credentials 
+Flow. Okta is an API service that allows you to create, edit, and 
+securely store user accounts and user account data, and connect them 
+with one or more applications.</p>
+
+<p>There are different authentication flows in OAuth 2.0, depending on 
+if the client application is public or private and if there is a user 
+involved or the communication is machine-to-machine only. The Client 
+Credentials Flow is best suited for machine-to-machine communication 
+where the client application is private (and can be trusted to hold a 
+secret). At the end of the post, I’ll show you how to build a test 
+client application as well.</p>
+
+<p><strong class="hide">Table of Contents</strong></p>
+<ul id="markdown-toc">
+  <li><a href="#create-the-php-project-skeleton-for-your-rest-api" id="markdown-toc-create-the-php-project-skeleton-for-your-rest-api">Create the PHP Project Skeleton for Your REST API</a></li>
+  <li><a href="#configure-a-database-for-your-php-rest-api" id="markdown-toc-configure-a-database-for-your-php-rest-api">Configure a Database for Your PHP REST API</a></li>
+  <li><a href="#add-a-gateway-class-for-the-person-table" id="markdown-toc-add-a-gateway-class-for-the-person-table">Add a Gateway Class for the Person Table</a></li>
+  <li><a href="#implement-the-php-rest-api" id="markdown-toc-implement-the-php-rest-api">Implement the PHP REST API</a></li>
+  <li><a href="#secure-your-php-rest-api-with-oauth-20" id="markdown-toc-secure-your-php-rest-api-with-oauth-20">Secure Your PHP REST API with OAuth 2.0</a></li>
+  <li><a href="#add-authentication-to-your-php-rest-api" id="markdown-toc-add-authentication-to-your-php-rest-api">Add Authentication to Your PHP REST API</a></li>
+  <li><a href="#build-a-sample-client-application-command-line-script-to-test-the-php-rest-api" id="markdown-toc-build-a-sample-client-application-command-line-script-to-test-the-php-rest-api">Build a Sample Client Application (Command Line Script) to Test the PHP REST API</a></li>
+  <li><a href="#learn-more-about-php-secure-rest-apis-and-oauth-20-client-credentials-flow" id="markdown-toc-learn-more-about-php-secure-rest-apis-and-oauth-20-client-credentials-flow">Learn More About PHP, Secure REST APIs, and OAuth 2.0 Client Credentials Flow</a></li>
+</ul>
+
+<h2 id="create-the-php-project-skeleton-for-your-rest-api"><a href="#create-the-php-project-skeleton-for-your-rest-api">Create the PHP Project Skeleton for Your REST API</a></h2>
+
+<p>We’ll start by creating a <code class="language-plaintext highlighter-rouge">/src</code> directory and a simple <code class="language-plaintext highlighter-rouge">composer.json</code>
+ file in the top directory with just one dependency (for now): the 
+DotEnv library which will allow us to keep our Okta authentication 
+details in a <code class="language-plaintext highlighter-rouge">.env</code> file outside our code repository:</p>
+
+<p><code class="language-plaintext highlighter-rouge">composer.json</code></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"vlucas/phpdotenv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2.4"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"autoload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"psr-4"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Src\\"</span><span class="p">:</span><span class="w"> </span><span class="s2">"src/"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>We’ve also configured a PSR-4 autoloader which will automatically look for PHP classes in the <code class="language-plaintext highlighter-rouge">/src</code> directory.</p>
+
+<p>We can install our dependencies now:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>We now have a <code class="language-plaintext highlighter-rouge">/vendor</code> directory, and the DotEnv dependency is installed (we can also use our autoloader to load our classes from <code class="language-plaintext highlighter-rouge">/src</code> with no <code class="language-plaintext highlighter-rouge">include()</code> calls).</p>
+
+<p>Let’s create a <code class="language-plaintext highlighter-rouge">.gitignore</code> file for our project with two lines in it, so the <code class="language-plaintext highlighter-rouge">/vendor</code> directory and our local <code class="language-plaintext highlighter-rouge">.env</code> file will be ignored:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vendor/
+.env
+</code></pre></div></div>
+
+<p>Next we’ll create a <code class="language-plaintext highlighter-rouge">.env.example</code> file for our Okta authentication variables:</p>
+
+<p><code class="language-plaintext highlighter-rouge">.env.example</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">OKTAAUDIENCE</span><span class="o">=</span>api://default
+<span class="nv">OKTAISSUER</span><span class="o">=</span>
+<span class="nv">SCOPE</span><span class="o">=</span>
+<span class="nv">OKTACLIENTID</span><span class="o">=</span>
+<span class="nv">OKTASECRET</span><span class="o">=</span>
+</code></pre></div></div>
+
+<p>and a <code class="language-plaintext highlighter-rouge">.env</code> 
+file where we’ll fill in our actual details from our Okta account later 
+(it will be ignored by Git so it won’t end up in our repository).</p>
+
+<p>We’ll need a <code class="language-plaintext highlighter-rouge">bootstrap.php</code> file which loads our environment variables (later it will also do some additional bootstrapping for our project).</p>
+
+<p><code class="language-plaintext highlighter-rouge">bootstrap.php</code></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Dotenv\Dotenv</span><span class="p">;</span>
+
+<span class="nv">$dotenv</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DotEnv</span><span class="p">(</span><span class="k">__DIR__</span><span class="p">);</span>
+<span class="nv">$dotenv</span><span class="o">-&gt;</span><span class="nf">load</span><span class="p">();</span>
+
+<span class="c1">// test code, should output:</span>
+<span class="c1">// api://default</span>
+<span class="c1">// when you run $ php bootstrap.php</span>
+<span class="k">echo</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'OKTAAUDIENCE'</span><span class="p">);</span>
+</code></pre></div></div>
+<h2 id="configure-a-database-for-your-php-rest-api"><a href="#configure-a-database-for-your-php-rest-api">Configure a Database for Your PHP REST API</a></h2>
+<p>We will use MySQL to power our simple API. We’ll create a new database and user for our app:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mysql</span> <span class="o">-</span><span class="n">uroot</span> <span class="o">-</span><span class="n">p</span>
+<span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">api_example</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="n">utf8mb4</span> <span class="k">COLLATE</span> <span class="n">utf8mb4_unicode_ci</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'api_user'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="n">identified</span> <span class="k">by</span> <span class="s1">'api_password'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">on</span> <span class="n">api_example</span><span class="p">.</span><span class="o">*</span> <span class="k">to</span> <span class="s1">'api_user'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+<span class="n">quit</span>
+</code></pre></div></div>
+
+<p>Our rest API will deal with just a single entity: Person, with the following fields: <code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">firstname</code>, <code class="language-plaintext highlighter-rouge">lastname</code>, <code class="language-plaintext highlighter-rouge">firstparent_id</code>, <code class="language-plaintext highlighter-rouge">secondparent_id</code>.
+ It will allow us to define people and up to two parents for each person
+ (linking to other records in our database). Let’s create the database 
+table in MySQL:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mysql</span> <span class="o">-</span><span class="n">uapi_user</span> <span class="o">-</span><span class="n">papi_password</span> <span class="n">api_example</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">person</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">firstname</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">lastname</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">firstparent_id</span> <span class="nb">INT</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">secondparent_id</span> <span class="nb">INT</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">firstparent_id</span><span class="p">)</span>
+        <span class="k">REFERENCES</span> <span class="n">person</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+        <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">SET</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">secondparent_id</span><span class="p">)</span>
+        <span class="k">REFERENCES</span> <span class="n">person</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+        <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">SET</span> <span class="k">NULL</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">INNODB</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>We’ll add the database connection variables to our <code class="language-plaintext highlighter-rouge">.env.example</code> file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">.env.example</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">DB_HOST</span><span class="o">=</span>localhost
+<span class="nv">DB_PORT</span><span class="o">=</span>3306
+<span class="nv">DB_DATABASE</span><span class="o">=</span>
+<span class="nv">DB_USERNAME</span><span class="o">=</span>
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>
+</code></pre></div></div>
+
+<p>Then we’ll input our local credentials in the .env file (which is not stored in the repo, remember?):</p>
+
+<p><code class="language-plaintext highlighter-rouge">.env</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">DB_HOST</span><span class="o">=</span>localhost
+<span class="nv">DB_PORT</span><span class="o">=</span>3306
+<span class="nv">DB_DATABASE</span><span class="o">=</span>api_example
+<span class="nv">DB_USERNAME</span><span class="o">=</span>api_user
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>api_password
+</code></pre></div></div>
+
+<p>We can now create a class to hold our database connection and add the
+ initialization of the connection to our bootstrap.php file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">src/System/DatabaseConnector.php</code></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">Src\System</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">DatabaseConnector</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="nv">$dbConnection</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$host</span> <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'DB_HOST'</span><span class="p">);</span>
+        <span class="nv">$port</span> <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'DB_PORT'</span><span class="p">);</span>
+        <span class="nv">$db</span>   <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'DB_DATABASE'</span><span class="p">);</span>
+        <span class="nv">$user</span> <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'DB_USERNAME'</span><span class="p">);</span>
+        <span class="nv">$pass</span> <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'DB_PASSWORD'</span><span class="p">);</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">dbConnection</span> <span class="o">=</span> <span class="k">new</span> <span class="err">\</span><span class="nf">PDO</span><span class="p">(</span>
+                <span class="s2">"mysql:host=</span><span class="nv">$host</span><span class="s2">;port=</span><span class="nv">$port</span><span class="s2">;charset=utf8mb4;dbname=</span><span class="nv">$db</span><span class="s2">"</span><span class="p">,</span>
+                <span class="nv">$user</span><span class="p">,</span>
+                <span class="nv">$pass</span>
+            <span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">exit</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">getConnection</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">dbConnection</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">bootstrap.php</code> (full version)</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Dotenv\Dotenv</span><span class="p">;</span>
+
+<span class="kn">use</span> <span class="nc">Src\System\DatabaseConnector</span><span class="p">;</span>
+
+<span class="nv">$dotenv</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DotEnv</span><span class="p">(</span><span class="k">__DIR__</span><span class="p">);</span>
+<span class="nv">$dotenv</span><span class="o">-&gt;</span><span class="nf">load</span><span class="p">();</span>
+
+<span class="nv">$dbConnection</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nc">DatabaseConnector</span><span class="p">())</span><span class="o">-&gt;</span><span class="nf">getConnection</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Let’s create a <code class="language-plaintext highlighter-rouge">dbseed.php</code> file which creates our <code class="language-plaintext highlighter-rouge">Person</code> table and inserts some records in it for testing:</p>
+
+<p><code class="language-plaintext highlighter-rouge">dbseed.php</code></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="s1">'bootstrap.php'</span><span class="p">;</span>
+
+<span class="nv">$statement</span> <span class="o">=</span> <span class="sh">&lt;&lt;&lt;EOS
+    CREATE TABLE IF NOT EXISTS person (
+        id INT NOT NULL AUTO_INCREMENT,
+        firstname VARCHAR(100) NOT NULL,
+        lastname VARCHAR(100) NOT NULL,
+        firstparent_id INT DEFAULT NULL,
+        secondparent_id INT DEFAULT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY (firstparent_id)
+            REFERENCES person(id)
+            ON DELETE SET NULL,
+        FOREIGN KEY (secondparent_id)
+            REFERENCES person(id)
+            ON DELETE SET NULL
+    ) ENGINE=INNODB;
+
+    INSERT INTO person
+        (id, firstname, lastname, firstparent_id, secondparent_id)
+    VALUES
+        (1, 'Krasimir', 'Hristozov', null, null),
+        (2, 'Maria', 'Hristozova', null, null),
+        (3, 'Masha', 'Hristozova', 1, 2),
+        (4, 'Jane', 'Smith', null, null),
+        (5, 'John', 'Smith', null, null),
+        (6, 'Richard', 'Smith', 4, 5),
+        (7, 'Donna', 'Smith', 4, 5),
+        (8, 'Josh', 'Harrelson', null, null),
+        (9, 'Anna', 'Harrelson', 7, 8);
+EOS;</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$createTable</span> <span class="o">=</span> <span class="nv">$dbConnection</span><span class="o">-&gt;</span><span class="nb">exec</span><span class="p">(</span><span class="nv">$statement</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="s2">"Success!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">exit</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Our database is all set! If you want to reset it, just drop the <code class="language-plaintext highlighter-rouge">person</code> table in MySQL and then run <code class="language-plaintext highlighter-rouge">php dbseed.php</code> (I didn’t add the drop statement to the seeder as a precaution against running it by mistake).</p>
+<h2 id="add-a-gateway-class-for-the-person-table"><a href="#add-a-gateway-class-for-the-person-table">Add a Gateway Class for the Person Table</a></h2>
+<p>There are many patterns for working with databases in an 
+object-oriented context, ranging from simple execution of direct SQL 
+statements when needed (in a procedural way)  to complex ORM systems 
+(two of the most popular ORM choices in PHP are Eloquent and Doctrine). 
+For our simple API, it makes sense to use a simple pattern as well so 
+we’ll go with a Table Gateway. We’ll even skip creating a <code class="language-plaintext highlighter-rouge">Person</code> class (as the classical pattern would require) and just go with the <code class="language-plaintext highlighter-rouge">PersonGateway</code> class. We’ll implement methods to return all records, return a specific person and add/update/delete a person.</p>
+
+<p><code class="language-plaintext highlighter-rouge">src/TableGateways/PersonGateway.php</code></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">Src\TableGateways</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">PersonGateway</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="nv">$db</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">(</span><span class="nv">$db</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">db</span> <span class="o">=</span> <span class="nv">$db</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">findAll</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="s2">"
+            SELECT 
+                id, firstname, lastname, firstparent_id, secondparent_id
+            FROM
+                person;
+        "</span><span class="p">;</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$statement</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">db</span><span class="o">-&gt;</span><span class="nf">query</span><span class="p">(</span><span class="nv">$statement</span><span class="p">);</span>
+            <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">fetchAll</span><span class="p">(</span><span class="err">\</span><span class="no">PDO</span><span class="o">::</span><span class="no">FETCH_ASSOC</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">exit</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="s2">"
+            SELECT 
+                id, firstname, lastname, firstparent_id, secondparent_id
+            FROM
+                person
+            WHERE id = ?;
+        "</span><span class="p">;</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$statement</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">db</span><span class="o">-&gt;</span><span class="nf">prepare</span><span class="p">(</span><span class="nv">$statement</span><span class="p">);</span>
+            <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">execute</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$id</span><span class="p">));</span>
+            <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">fetchAll</span><span class="p">(</span><span class="err">\</span><span class="no">PDO</span><span class="o">::</span><span class="no">FETCH_ASSOC</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">exit</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>    
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">insert</span><span class="p">(</span><span class="kt">Array</span> <span class="nv">$input</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="s2">"
+            INSERT INTO person 
+                (firstname, lastname, firstparent_id, secondparent_id)
+            VALUES
+                (:firstname, :lastname, :firstparent_id, :secondparent_id);
+        "</span><span class="p">;</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$statement</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">db</span><span class="o">-&gt;</span><span class="nf">prepare</span><span class="p">(</span><span class="nv">$statement</span><span class="p">);</span>
+            <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">execute</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+                <span class="s1">'firstname'</span> <span class="o">=&gt;</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'firstname'</span><span class="p">],</span>
+                <span class="s1">'lastname'</span>  <span class="o">=&gt;</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'lastname'</span><span class="p">],</span>
+                <span class="s1">'firstparent_id'</span> <span class="o">=&gt;</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'firstparent_id'</span><span class="p">]</span> <span class="o">??</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="s1">'secondparent_id'</span> <span class="o">=&gt;</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'secondparent_id'</span><span class="p">]</span> <span class="o">??</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="p">));</span>
+            <span class="k">return</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">rowCount</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">exit</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>    
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">update</span><span class="p">(</span><span class="nv">$id</span><span class="p">,</span> <span class="kt">Array</span> <span class="nv">$input</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="s2">"
+            UPDATE person
+            SET 
+                firstname = :firstname,
+                lastname  = :lastname,
+                firstparent_id = :firstparent_id,
+                secondparent_id = :secondparent_id
+            WHERE id = :id;
+        "</span><span class="p">;</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$statement</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">db</span><span class="o">-&gt;</span><span class="nf">prepare</span><span class="p">(</span><span class="nv">$statement</span><span class="p">);</span>
+            <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">execute</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+                <span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nv">$id</span><span class="p">,</span>
+                <span class="s1">'firstname'</span> <span class="o">=&gt;</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'firstname'</span><span class="p">],</span>
+                <span class="s1">'lastname'</span>  <span class="o">=&gt;</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'lastname'</span><span class="p">],</span>
+                <span class="s1">'firstparent_id'</span> <span class="o">=&gt;</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'firstparent_id'</span><span class="p">]</span> <span class="o">??</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="s1">'secondparent_id'</span> <span class="o">=&gt;</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'secondparent_id'</span><span class="p">]</span> <span class="o">??</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="p">));</span>
+            <span class="k">return</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">rowCount</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">exit</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>    
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">delete</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$statement</span> <span class="o">=</span> <span class="s2">"
+            DELETE FROM person
+            WHERE id = :id;
+        "</span><span class="p">;</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$statement</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">db</span><span class="o">-&gt;</span><span class="nf">prepare</span><span class="p">(</span><span class="nv">$statement</span><span class="p">);</span>
+            <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">execute</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">));</span>
+            <span class="k">return</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="nf">rowCount</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">exit</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>    
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Obviously, in a production system, you would want to handle the 
+exceptions more gracefully instead of just exiting with an error 
+message.</p>
+
+<p>Here are some examples of using the gateway:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$personGateway</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PersonGateway</span><span class="p">(</span><span class="nv">$dbConnection</span><span class="p">);</span>
+
+
+<span class="c1">// return all records</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$personGateway</span><span class="o">-&gt;</span><span class="nf">findAll</span><span class="p">();</span>
+
+<span class="c1">// return the record with id = 1</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$personGateway</span><span class="o">-&gt;</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// insert a new record</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$personGateway</span><span class="o">-&gt;</span><span class="nf">insert</span><span class="p">([</span>
+    <span class="s1">'firstname'</span> <span class="o">=&gt;</span> <span class="s1">'Doug'</span><span class="p">,</span>
+    <span class="s1">'lastname'</span> <span class="o">=&gt;</span> <span class="s1">'Ellis'</span>
+<span class="p">]);</span>
+
+<span class="c1">// update the record with id = 10</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$personGateway</span><span class="o">-&gt;</span><span class="nf">update</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'firstname'</span> <span class="o">=&gt;</span> <span class="s1">'Doug'</span><span class="p">,</span>
+    <span class="s1">'lastname'</span> <span class="o">=&gt;</span> <span class="s1">'Ellis'</span><span class="p">,</span>
+    <span class="s1">'secondparent_id'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="p">]);</span>
+
+<span class="c1">// delete the record with id = 10</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$personGateway</span><span class="o">-&gt;</span><span class="nb">delete</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+<h2 id="implement-the-php-rest-api"><a href="#implement-the-php-rest-api">Implement the PHP REST API</a></h2>
+<p>We will implement a REST API now with the following endpoints:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// return all records
+GET /person
+
+// return a specific record
+GET /person/{id}
+
+// create a new record
+POST /person
+
+// update an existing record
+PUT /person/{id}
+
+// delete an existing record
+DELETE /person/{id}
+</code></pre></div></div>
+
+<p>We’ll create a <code class="language-plaintext highlighter-rouge">/public/index.php</code> file to serve as our front controller and process the requests, and a <code class="language-plaintext highlighter-rouge">src/Controller/PersonController.php</code> to handle the API endpoints (called from the front controller after validating the URI).</p>
+
+<p><code class="language-plaintext highlighter-rouge">public/index.php</code></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="s2">"../bootstrap.php"</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Src\Controller\PersonController</span><span class="p">;</span>
+
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Access-Control-Allow-Origin: *"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Content-Type: application/json; charset=UTF-8"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Access-Control-Max-Age: 3600"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"</span><span class="p">);</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nb">parse_url</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">],</span> <span class="kc">PHP_URL_PATH</span><span class="p">);</span>
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span> <span class="s1">'/'</span><span class="p">,</span> <span class="nv">$uri</span> <span class="p">);</span>
+
+<span class="c1">// all of our endpoints start with /person</span>
+<span class="c1">// everything else results in a 404 Not Found</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$uri</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">'person'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">header</span><span class="p">(</span><span class="s2">"HTTP/1.1 404 Not Found"</span><span class="p">);</span>
+    <span class="k">exit</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// the user id is, of course, optional and must be a number:</span>
+<span class="nv">$userId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$uri</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="nv">$userId</span> <span class="o">=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nv">$uri</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="nv">$requestMethod</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">];</span>
+
+<span class="c1">// pass the request method and user ID to the PersonController and process the HTTP request:</span>
+<span class="nv">$controller</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PersonController</span><span class="p">(</span><span class="nv">$dbConnection</span><span class="p">,</span> <span class="nv">$requestMethod</span><span class="p">,</span> <span class="nv">$userId</span><span class="p">);</span>
+<span class="nv">$controller</span><span class="o">-&gt;</span><span class="nf">processRequest</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">src/Controller/PersonController.php</code></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">Src\Controller</span><span class="p">;</span>
+
+<span class="kn">use</span> <span class="nc">Src\TableGateways\PersonGateway</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">PersonController</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="nv">$db</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$requestMethod</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$userId</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="nv">$personGateway</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">(</span><span class="nv">$db</span><span class="p">,</span> <span class="nv">$requestMethod</span><span class="p">,</span> <span class="nv">$userId</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">db</span> <span class="o">=</span> <span class="nv">$db</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">requestMethod</span> <span class="o">=</span> <span class="nv">$requestMethod</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">userId</span> <span class="o">=</span> <span class="nv">$userId</span><span class="p">;</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">personGateway</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PersonGateway</span><span class="p">(</span><span class="nv">$db</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">processRequest</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">requestMethod</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="s1">'GET'</span><span class="o">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">userId</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">getUser</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">userId</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">getAllUsers</span><span class="p">();</span>
+                <span class="p">};</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s1">'POST'</span><span class="o">:</span>
+                <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">createUserFromRequest</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s1">'PUT'</span><span class="o">:</span>
+                <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">updateUserFromRequest</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">userId</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s1">'DELETE'</span><span class="o">:</span>
+                <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">deleteUser</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">userId</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">notFoundResponse</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nb">header</span><span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s1">'status_code_header'</span><span class="p">]);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">getAllUsers</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">personGateway</span><span class="o">-&gt;</span><span class="nf">findAll</span><span class="p">();</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'status_code_header'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'HTTP/1.1 200 OK'</span><span class="p">;</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">getUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">personGateway</span><span class="o">-&gt;</span><span class="nf">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">notFoundResponse</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'status_code_header'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'HTTP/1.1 200 OK'</span><span class="p">;</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">createUserFromRequest</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$input</span> <span class="o">=</span> <span class="p">(</span><span class="k">array</span><span class="p">)</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'php://input'</span><span class="p">),</span> <span class="kc">TRUE</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">validatePerson</span><span class="p">(</span><span class="nv">$input</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">unprocessableEntityResponse</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">personGateway</span><span class="o">-&gt;</span><span class="nf">insert</span><span class="p">(</span><span class="nv">$input</span><span class="p">);</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'status_code_header'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'HTTP/1.1 201 Created'</span><span class="p">;</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">updateUserFromRequest</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">personGateway</span><span class="o">-&gt;</span><span class="nf">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">notFoundResponse</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="nv">$input</span> <span class="o">=</span> <span class="p">(</span><span class="k">array</span><span class="p">)</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'php://input'</span><span class="p">),</span> <span class="kc">TRUE</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">validatePerson</span><span class="p">(</span><span class="nv">$input</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">unprocessableEntityResponse</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">personGateway</span><span class="o">-&gt;</span><span class="nf">update</span><span class="p">(</span><span class="nv">$id</span><span class="p">,</span> <span class="nv">$input</span><span class="p">);</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'status_code_header'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'HTTP/1.1 200 OK'</span><span class="p">;</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">deleteUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">personGateway</span><span class="o">-&gt;</span><span class="nf">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">notFoundResponse</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">personGateway</span><span class="o">-&gt;</span><span class="nb">delete</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'status_code_header'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'HTTP/1.1 200 OK'</span><span class="p">;</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">validatePerson</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$input</span><span class="p">[</span><span class="s1">'firstname'</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$input</span><span class="p">[</span><span class="s1">'lastname'</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">unprocessableEntityResponse</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'status_code_header'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'HTTP/1.1 422 Unprocessable Entity'</span><span class="p">;</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">json_encode</span><span class="p">([</span>
+            <span class="s1">'error'</span> <span class="o">=&gt;</span> <span class="s1">'Invalid input'</span>
+        <span class="p">]);</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">notFoundResponse</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'status_code_header'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'HTTP/1.1 404 Not Found'</span><span class="p">;</span>
+        <span class="nv">$response</span><span class="p">[</span><span class="s1">'body'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can test the API with a tool like Postman. First, go to the project directory and start the PHP server:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-S</span> 127.0.0.1:8000 <span class="nt">-t</span> public
+</code></pre></div></div>
+
+<p>Then connect to <code class="language-plaintext highlighter-rouge">127.0.0.1:8000</code> with Postman and send http requests. Note: when making PUT and POST requests, make sure to set the Body type to <code class="language-plaintext highlighter-rouge">raw</code>, then paste the payload in JSON format and set the content type to JSON (application/json).</p>
+<h2 id="secure-your-php-rest-api-with-oauth-20"><a href="#secure-your-php-rest-api-with-oauth-20">Secure Your PHP REST API with OAuth 2.0</a></h2>
+<p>We’ll use Okta as our authorization server and we’ll implement the 
+Client Credentials Flow. The flow is recommended for machine-to-machine 
+authentication when the client is private and works like this:
+The client application holds a Client ID and a Secret;
+The client passes these credentials to Okta and obtains an access token;
+The client sends the access token to the REST API server;
+The server asks Okta for some metadata that allows it to verify tokens 
+and validates the token (alternatively, it can just ask Okta to verify 
+the token);
+The server then provides the API resource if the token is valid, or 
+responds with a 401 Unauthorized status code if the token is missing, 
+expired or invalid.</p>
+
+<p>Before you begin, you’ll need a free Okta developer account. Install the <a href="https://cli.okta.com/">Okta CLI</a> and run <code class="language-plaintext highlighter-rouge">okta register</code> to sign up for a new account. If you already have an account, run <code class="language-plaintext highlighter-rouge">okta login</code>.
+Then, run <code class="language-plaintext highlighter-rouge">okta apps create service</code>. Select the default app name, or change it as you see fit.</p>
+
+<details>
+  <summary>What does the Okta CLI do?</summary>
+<p>The Okta CLI will create an OAuth 2.0 Service App in your Okta Org. You will see output like the following when it’s finished:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Okta application configuration has been written to: /path/to/app/.okta.env
+</code></pre></div></div>
+
+<p>Run <code class="language-plaintext highlighter-rouge">cat .okta.env</code> (or <code class="language-plaintext highlighter-rouge">type .okta.env</code> on Windows) to see the issuer and credentials for your app.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">OKTA_OAUTH2_ISSUER</span><span class="o">=</span><span class="s2">"https://dev-133337.okta.com/oauth2/default"</span>
+<span class="nb">export </span><span class="nv">OKTA_OAUTH2_CLIENT_ID</span><span class="o">=</span><span class="s2">"0oab8eb55Kb9jdMIr5d6"</span>
+<span class="nb">export </span><span class="nv">OKTA_OAUTH2_CLIENT_SECRET</span><span class="o">=</span><span class="s2">"NEVER-SHOW-SECRETS"</span>
+</code></pre></div></div>
+
+<p>Your Okta domain is the first part of your issuer, before <code class="language-plaintext highlighter-rouge">/oauth2/default</code>.</p>
+
+<p><strong>NOTE</strong>: You can also use the Okta Admin Console to create your app. See <a href="https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/overview/">Create a Service App</a> for more information.</p>
+
+</details>
+
+<p>These are the credentials that your client application will need in 
+order to authenticate. For this example, the client and server code will
+ be in the same repository, so we will add these credentials to our <code class="language-plaintext highlighter-rouge">.env</code> file as well (make sure to replace <code class="language-plaintext highlighter-rouge">{yourClientId}</code> and <code class="language-plaintext highlighter-rouge">{yourClientSecret}</code> with the values from this page):</p>
+
+<p>Add to <code class="language-plaintext highlighter-rouge">.env.example</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">OKTAISSUER</span><span class="o">=</span>
+<span class="nv">OKTACLIENTID</span><span class="o">=</span>
+<span class="nv">OKTASECRET</span><span class="o">=</span>
+</code></pre></div></div>
+
+<p>Add these keys and values to <code class="language-plaintext highlighter-rouge">.env</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">OKTAISSUER</span><span class="o">=</span>https://<span class="o">{</span>yourOktaDomain<span class="o">}</span>/oauth2/default
+<span class="nv">OKTACLIENTID</span><span class="o">={</span>yourClientId<span class="o">}</span>
+<span class="nv">OKTASECRET</span><span class="o">={</span>yourClientSecret<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Log in to the Okta Admin Console (tip: run <code class="language-plaintext highlighter-rouge">okta login</code>, open URL in a browser). Navigate to <strong>Security</strong> &gt; <strong>API</strong>. Select your <strong>default</strong> Authorization Server. Click the <strong>Edit</strong> icon, go to the <strong>Scopes</strong> tab and click <strong>Add Scope</strong> to add a scope for the REST API. Name it <code class="language-plaintext highlighter-rouge">person_api</code> and check <strong>Set as a default scope</strong>.</p>
+
+<p>Add the scope to <code class="language-plaintext highlighter-rouge">.env.example</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">SCOPE</span><span class="o">=</span>
+</code></pre></div></div>
+
+<p>and the key with the value to <code class="language-plaintext highlighter-rouge">.env</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">SCOPE</span><span class="o">=</span>person_api
+</code></pre></div></div>
+
+<h2 id="add-authentication-to-your-php-rest-api"><a href="#add-authentication-to-your-php-rest-api">Add Authentication to Your PHP REST API</a></h2>
+
+<p>We’ll use the Okta JWT Verifier library. It requires a JWT library (we’ll use <code class="language-plaintext highlighter-rouge">firebase/php-jwt</code>) and a PSR-7 compliant library (we’ll use <code class="language-plaintext highlighter-rouge">guzzlehttp/psr7</code>). We’ll install everything through composer:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require okta/jwt-verifier:<span class="s2">"^1.1"</span> firebase/php-jwt:<span class="s2">"^5.2"</span> guzzlehttp/psr7:<span class="s2">"^1.8"</span> mailgun/mailgun-php:<span class="s2">"^3.5"</span> kriswallsmith/buzz:<span class="s2">"^1.2"</span> nyholm/psr7:<span class="s2">"^1.4"</span>
+</code></pre></div></div>
+
+<p>Now we can add the authorization code to our front controller (if using a framework, we’ll do this in a middleware instead):</p>
+
+<p><code class="language-plaintext highlighter-rouge">public/index.php</code> (full version for clarity)</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="s2">"../bootstrap.php"</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Src\Controller\PersonController</span><span class="p">;</span>
+
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Access-Control-Allow-Origin: *"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Content-Type: application/json; charset=UTF-8"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Access-Control-Max-Age: 3600"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"</span><span class="p">);</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nb">parse_url</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">],</span> <span class="kc">PHP_URL_PATH</span><span class="p">);</span>
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="nv">$uri</span><span class="p">);</span>
+
+<span class="c1">// all of our endpoints start with /person</span>
+<span class="c1">// everything else results in a 404 Not Found</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$uri</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">'person'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">header</span><span class="p">(</span><span class="s2">"HTTP/1.1 404 Not Found"</span><span class="p">);</span>
+    <span class="k">exit</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// the user id is, of course, optional and must be a number:</span>
+<span class="nv">$userId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$uri</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="nv">$userId</span> <span class="o">=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nv">$uri</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">// authenticate the request with Okta:</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nf">authenticate</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nb">header</span><span class="p">(</span><span class="s2">"HTTP/1.1 401 Unauthorized"</span><span class="p">);</span>
+    <span class="k">exit</span><span class="p">(</span><span class="s1">'Unauthorized'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nv">$requestMethod</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">];</span>
+
+<span class="c1">// pass the request method and user ID to the PersonController:</span>
+<span class="nv">$controller</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PersonController</span><span class="p">(</span><span class="nv">$dbConnection</span><span class="p">,</span> <span class="nv">$requestMethod</span><span class="p">,</span> <span class="nv">$userId</span><span class="p">);</span>
+<span class="nv">$controller</span><span class="o">-&gt;</span><span class="nf">processRequest</span><span class="p">();</span>
+
+<span class="k">function</span> <span class="n">authenticate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="k">switch</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="nb">array_key_exists</span><span class="p">(</span><span class="s1">'HTTP_AUTHORIZATION'</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">)</span> <span class="o">:</span>
+                <span class="nv">$authHeader</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_AUTHORIZATION'</span><span class="p">];</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="nb">array_key_exists</span><span class="p">(</span><span class="s1">'Authorization'</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">)</span> <span class="o">:</span>
+                <span class="nv">$authHeader</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">];</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">default</span> <span class="o">:</span>
+                <span class="nv">$authHeader</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nb">preg_match</span><span class="p">(</span><span class="s1">'/Bearer\s(\S+)/'</span><span class="p">,</span> <span class="nv">$authHeader</span><span class="p">,</span> <span class="nv">$matches</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">isset</span><span class="p">(</span><span class="nv">$matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="err">\</span><span class="nf">Exception</span><span class="p">(</span><span class="s1">'No Bearer Token'</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nv">$jwtVerifier</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="err">\</span><span class="nf">Okta\JwtVerifier\JwtVerifierBuilder</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="nf">setIssuer</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s1">'OKTAISSUER'</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="nf">setAudience</span><span class="p">(</span><span class="s1">'api://default'</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="nf">setClientId</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s1">'OKTACLIENTID'</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="nf">build</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nv">$jwtVerifier</span><span class="o">-&gt;</span><span class="nf">verify</span><span class="p">(</span><span class="nv">$matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="build-a-sample-client-application-command-line-script-to-test-the-php-rest-api"><a href="#build-a-sample-client-application-command-line-script-to-test-the-php-rest-api">Build a Sample Client Application (Command Line Script) to Test the PHP REST API</a></h2>
+
+<p>In this section, we will add a simple client application (a command 
+line script using curl) to test the REST API. We’ll create a new php 
+file ‘public/clients.php’ with a very simple flow: it will retrieve the 
+Okta details (issuer, scope, client id and secret) from the .env file, 
+then it will obtain an access token from Okta and it will run API calls 
+to get all users and get a specific user (passing the Okta access token 
+in the Authorization header).</p>
+
+<p><code class="language-plaintext highlighter-rouge">public/client.php</code></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="s2">"../bootstrap.php"</span><span class="p">;</span>
+
+<span class="nv">$clientId</span>     <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'OKTACLIENTID'</span><span class="p">);</span>
+<span class="nv">$clientSecret</span> <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'OKTASECRET'</span><span class="p">);</span>
+<span class="nv">$scope</span>        <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'SCOPE'</span><span class="p">);</span>
+<span class="nv">$issuer</span>       <span class="o">=</span> <span class="nb">getenv</span><span class="p">(</span><span class="s1">'OKTAISSUER'</span><span class="p">);</span>
+
+<span class="c1">// obtain an access token</span>
+<span class="nv">$token</span> <span class="o">=</span> <span class="nf">obtainToken</span><span class="p">(</span><span class="nv">$issuer</span><span class="p">,</span> <span class="nv">$clientId</span><span class="p">,</span> <span class="nv">$clientSecret</span><span class="p">,</span> <span class="nv">$scope</span><span class="p">);</span>
+
+<span class="c1">// test requests</span>
+<span class="nf">getAllUsers</span><span class="p">(</span><span class="nv">$token</span><span class="p">);</span>
+<span class="nf">getUser</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// end of client.php flow</span>
+
+<span class="k">function</span> <span class="n">obtainToken</span><span class="p">(</span><span class="nv">$issuer</span><span class="p">,</span> <span class="nv">$clientId</span><span class="p">,</span> <span class="nv">$clientSecret</span><span class="p">,</span> <span class="nv">$scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">"Obtaining token..."</span><span class="p">;</span>
+
+    <span class="c1">// prepare the request</span>
+    <span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$issuer</span> <span class="mf">.</span> <span class="s1">'/v1/token'</span><span class="p">;</span>
+    <span class="nv">$token</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="s2">"</span><span class="nv">$clientId</span><span class="s2">:</span><span class="nv">$clientSecret</span><span class="s2">"</span><span class="p">);</span>
+    <span class="nv">$payload</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">([</span>
+        <span class="s1">'grant_type'</span> <span class="o">=&gt;</span> <span class="s1">'client_credentials'</span><span class="p">,</span>
+        <span class="s1">'scope'</span>      <span class="o">=&gt;</span> <span class="nv">$scope</span>
+    <span class="p">]);</span>
+
+    <span class="c1">// build the curl request</span>
+    <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$uri</span><span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span><span class="p">,</span>
+        <span class="s2">"Authorization: Basic </span><span class="nv">$token</span><span class="s2">"</span>
+    <span class="p">]);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$payload</span><span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+    <span class="c1">// process and return the response</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s1">'access_token'</span><span class="p">])</span>
+        <span class="o">||</span> <span class="o">!</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s1">'token_type'</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="k">exit</span><span class="p">(</span><span class="s1">'failed, exiting.'</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">echo</span> <span class="s2">"success!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+    <span class="c1">// here's your token to use in API requests</span>
+    <span class="k">return</span> <span class="nv">$response</span><span class="p">[</span><span class="s1">'token_type'</span><span class="p">]</span> <span class="mf">.</span> <span class="s2">" "</span> <span class="mf">.</span> <span class="nv">$response</span><span class="p">[</span><span class="s1">'access_token'</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="n">getAllUsers</span><span class="p">(</span><span class="nv">$token</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">"Getting all users..."</span><span class="p">;</span>
+    <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"http://127.0.0.1:8000/person"</span><span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+        <span class="s2">"Authorization: </span><span class="nv">$token</span><span class="s2">"</span>
+    <span class="p">]);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="n">getUser</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">"Getting user with id#</span><span class="nv">$id</span><span class="s2">..."</span><span class="p">;</span>
+    <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"http://127.0.0.1:8000/person/"</span> <span class="mf">.</span> <span class="nv">$id</span><span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+        <span class="s2">"Authorization: </span><span class="nv">$token</span><span class="s2">"</span>
+    <span class="p">]);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can run the application from the command line by going to the <code class="language-plaintext highlighter-rouge">/public</code> directory and running:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php client.php
+</code></pre></div></div>
+
+<p>(Don’t forget to start the server if you haven’t already!)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-S</span> 127.0.0.1:8000 <span class="nt">-t</span> public
+</code></pre></div></div>
+
+<p>That’s it!</p>
+
+<h2 id="learn-more-about-php-secure-rest-apis-and-oauth-20-client-credentials-flow"><a href="#learn-more-about-php-secure-rest-apis-and-oauth-20-client-credentials-flow">Learn More About PHP, Secure REST APIs, and OAuth 2.0 Client Credentials Flow</a></h2>
+
+<p>You can find all the code from this example on GitHub, in the <a href="https://github.com/oktadeveloper/okta-php-core-rest-api-example">oktadeveloper/okta-php-core-rest-api-example</a> repository.</p>
+
+<p>If you would like to dig deeper into the topics covered in this article, the following resources are a great starting point:</p>
+
+<ul>
+  <li><a href="https://developer.okta.com/quickstart/#/vue/php/generic">Our Vue/PHP Quickstart Guide</a></li>
+  <li><a href="https://developer.okta.com/authentication-guide/auth-overview/">Okta Authentication Overview</a></li>
+  <li><a href="https://developer.okta.com/blog/2018/07/09/five-minute-php-app-auth">Add Authentication to your PHP App in 5 Minutes</a></li>
+  <li><a href="https://developer.okta.com/blog/2018/12/28/simple-login-php">Build Simple Login in PHP</a></li>
+</ul>
+
+<p>Like what you learned today? Follow us on <a href="https://twitter.com/oktadev">Twitter</a>, and subscribe to our <a href="https://www.youtube.com/channel/UC5AMiWqFVFxF1q9Ya1FuZ_Q">YouTube channel</a> for more awesome content!</p>
+
+</div>
+
+    
+        
+        
+    
+
+    
+    <div id="disqus">
+        <iframe style="background-color: rgb(255, 255, 255) !important; border: 1px solid rgb(236, 147, 41) !important; min-width: 220px !important; min-height: 210px !important; max-height: 600px !important; z-index: 2147483647 !important; width: 898px !important;" srcdoc="&lt;html&gt;&lt;head&gt;&lt;style&gt;html, body {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+#btn-once-06409868636233423 {
+  border: 2px solid #f06a0a !important;
+  background-color: #f06a0a !important;
+  color: #fefefe !important;
+}
+#btn-site-0012863666899577852 {
+  border: 2px solid #333 !important;
+  background-color: #fefefe !important;
+  color: #333 !important;
+}
+#btn-once-06409868636233423:hover {
+  background-color: #fefefe !important;
+  color: #333 !important;
+}
+#btn-site-0012863666899577852:hover {
+  background-color: #fefefe !important;
+  border: 2px solid #f06a0a !important;
+}
+#ico-help-05138664103452376 {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  line-height: 12px;
+  text-decoration: none;
+}
+#ico-help-05138664103452376:before {
+  border: 2px solid;
+  border-radius: 50%;
+  display: inline-block;
+  color: #555;
+  content: '?';
+  font-size: 12px;
+  font-weight: bold;
+  padding: 1px;
+  height: 1em;
+  width: 1em;
+}
+#ico-help-05138664103452376:hover:before {
+  color: #ec9329;
+}
+a {
+  text-decoration: underline;
+  color: black;
+}
+a:hover {
+  color: #ec9329;
+}&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;margin:0&quot;&gt;&lt;div style=&quot;display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; width: 100% !important; height: 100% !important;&quot;&gt;&lt;div style=&quot;color: rgb(48, 48, 48) !important; font-family: helvetica, arial, sans-serif !important; font-size: 16px !important; display: flex !important; flex-wrap: wrap !important; justify-content: center !important; text-align: center !important; margin: 10px !important;&quot;&gt;Privacy Badger has replaced this Disqus widget&lt;a id=&quot;ico-help-05138664103452376&quot; href=&quot;https://privacybadger.org/#How-does-Privacy-Badger-handle-social-media-widgets&quot; rel=&quot;noreferrer&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(48, 48, 48) !important; font-family: helvetica, arial, sans-serif !important; font-size: 16px !important; display: flex !important; flex-wrap: wrap !important; justify-content: center !important; text-align: center !important; margin: 10px !important; width: 100% !important;&quot;&gt;&lt;button id=&quot;btn-once-06409868636233423&quot; style=&quot;transition: background-color 0.25s ease-out 0s, border-color 0.25s ease-out 0s, color 0.25s ease-out 0s !important; border-radius: 3px !important; cursor: pointer !important; font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif !important; font-size: 14px !important; font-weight: bold !important; line-height: 16px !important; padding: 10px !important; margin: 4px !important; text-align: center !important; width: 70% !important; max-width: 280px !important;&quot;&gt;Allow once&lt;/button&gt;&lt;button id=&quot;btn-site-0012863666899577852&quot; style=&quot;transition: background-color 0.25s ease-out 0s, border-color 0.25s ease-out 0s, color 0.25s ease-out 0s !important; border-radius: 3px !important; cursor: pointer !important; font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif !important; font-size: 14px !important; font-weight: bold !important; line-height: 16px !important; padding: 10px !important; margin: 4px !important; text-align: center !important; width: 70% !important; max-width: 280px !important;&quot;&gt;Always allow on this site&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+        <script type="text/javascript">
+            var disqus_title = "Build a Simple REST API in PHP";
+            var disqus_url = 'https://developer.okta.com/blog/2019/03/08/simple-rest-api-php';
+
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.async = true;
+                dsq.type = 'text/javascript';
+                dsq.src = '//oktadevblog.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+          <noscript>
+              Please enable JavaScript to view the
+              <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus</a>.
+         </noscript>
+    </div>
+    
+</article>
+
+</section>
+
+<script>
+  // NOTE: The eventData object is being used by Google Tag Manager to fire off
+  // custom events that track which type of content was being viewed so we can
+  // track content on a more fine-grained level.
+  //
+  // This data is all anonymized (obviously) and contains no sensitive data.
+  var eventData = {};
+
+  
+    eventData.type = 'conversion';
+  
+
+  
+    eventData.by = 'contractor';
+  
+
+  eventData.communities = [];
+  
+    eventData.communities.push('php');
+  
+</script>
+
+		
+	</div>
+	<footer class="footer">
+    <div class="columns row flex-justify">
+        <div class="column need-support">
+            <h4 class="column-header">Need Support?</h4> 
+            <p>
+              You can reach us directly at developers@okta.com or you can also ask us on the 
+              <a href="https://devforum.okta.com/">forum</a>.
+            </p>
+        </div>
+
+        <div class="column social-links">
+            <h4 class="column-header">Social</h4>
+            <ul class="footer-links footer-links--social">
+                <li>
+                    <a class="footer-link github" target="_blank" rel="noopener noreferrer" href="http://github.com/oktadev">
+                        <span class="link-text">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link twitter" target="_blank" rel="noopener noreferrer" href="http://twitter.com/OktaDev">
+                        <span class="link-text">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link youtube" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/oktadev">
+                        <span class="link-text">YouTube</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link forum" target="_blank" rel="noopener noreferrer" href="https://devforum.okta.com/">
+                        <span class="link-text">Forum</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link rss" target="_blank" rel="noopener noreferrer" href="https://developer.okta.com/feed.xml">
+                        <span class="link-text">Blog RSS</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="column contact-links">
+            <h4 class="column-header">Contact &amp; Legal</h4>
+            <ul class="footer-links">
+                <li><a class="footer-link" href="https://www.okta.com/contact/">Contact our team</a></li>
+                <li><a class="footer-link" href="https://www.okta.com/contact-sales/">Contact sales</a></li>
+                <li><a class="footer-link" href="https://developer.okta.com/terms/">Terms &amp; conditions</a></li>
+                <li><a class="footer-link" href="https://www.okta.com/privacy-policy/">Privacy policy</a></li>
+            </ul>
+        </div>
+
+        <div class="column info-links">
+            <h4 class="column-header">More Info</h4>
+            <ul class="footer-links">
+                <li><a class="footer-link" href="https://developer.okta.com/pricing/">Pricing</a></li>
+                <li><a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://developer.okta.com/okta-integration-network/">Integrate with Okta</a></li>
+                <li><a class="footer-link" href="https://developer.okta.com/docs/change-log/">Change Log</a></li>
+                <li><a class="footer-link" href="https://developer.okta.com/3rd_party_notices/">3rd-party notes</a></li>
+                <li><a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://auth0.com/developers/">Auth0 platform</a></li>
+            </ul>
+        </div>
+
+        <div class="column external-links">
+            <div class="external-url">
+                <a class="anchor-highlight secondary-font small bold new-tab" href="http://www.okta.com/" target="_blank" rel="noopener noreferrer">OKTA.COM</a>
+                <p>Products, case studies, resources</p>
+            </div>
+            <div class="external-url">
+                <a class="anchor-highlight secondary-font small bold new-tab" href="http://help.okta.com/" target="_blank" rel="noopener noreferrer">HELP CENTER</a>
+                <p>Knowledgebase, roadmaps, and more</p>
+            </div>
+            <div class="external-url">
+                <a class="anchor-highlight secondary-font small bold new-tab" href="http://trust.okta.com/" target="_blank" rel="noopener noreferrer">TRUST</a>
+                <p>System status, security, compliance</p>
+            </div>
+        </div>
+        <div class="column copyright"><span>Copyright © 2021 Okta.</span></div>
+    </div>
+</footer>
+
+    <script type="text/javascript" src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/master-d89184dd2780ebbeacd00092fb900176edd5a8879b330c035b1363.js"></script>
+    <script type="text/javascript" src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/navigation-0fd747a04adcb4dccb0dec8d3e36022029ed25cb3c38e5235d.js"></script>
+
+    <!-- Coveo -->
+    <script src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/CoveoJsSearch.js"></script>
+    <script src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/okta_coveo_search_developer.js"></script>
+
+    
+    
+    
+    
+      <script type="text/javascript" src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/blog-6e32dad27404131cc8630a5282264bed2ab4c08c91ac86fa496b75c5.js"></script>
+    
+    <!-- Fix <details> for IE/Edge -->
+    <script src="Build%20a%20Simple%20REST%20API%20in%20PHP%20Okta%20Developer_files/index.js" async=""></script>
+
+  <!-- START Post Footer -->
+  
+  <!-- START Google Tag Manager -->
+  <!-- https://support.google.com/tagmanager/answer/6103696?hl=en -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KXMLV58" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- END Google Tag Manager -->
+  <!-- END Post Footer -->
+
+
+</body></html>

@@ -6,6 +6,8 @@ Dans ce projet, nous voulons utiliser un ensemble de données concernant le viru
 
 Nous commencerons par des recherches simples (basées sur de formulaires) et plus tard nous créerons des graphiques montrant l'évolution du virus, comparant les données de différents pays (choisis ou non par un utilisateur), etc... C'est plus un projet libre qu'un devoir fixé, donc chaque élève peut chercher autant qu'il peut en utilisant son imagination.
 
+
+
 <br>
 
 ## Information technique:
