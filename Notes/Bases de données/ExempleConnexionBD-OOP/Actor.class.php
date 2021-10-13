@@ -105,4 +105,8 @@ class Actor
 
         return $this;
     }
+
+    public function direBonjour (){
+        echo "<h2>Bonjour, je suis ".$this->first_name. " ".$this->last_name."</h2>";
+    }
 }

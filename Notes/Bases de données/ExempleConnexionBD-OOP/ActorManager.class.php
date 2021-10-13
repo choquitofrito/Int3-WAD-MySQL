@@ -40,32 +40,70 @@ class ActorManager
     // select reçoit un array de filtres et renvoie un array d'objets Actor
     // c'est possible que l'array soit vide ou 
     // qu'il y ait un seul objet dans l'array
-    public function select(array $filtres): array
+    public function select(array $filtres = []): array
     {
         $sql = "SELECT * FROM actor";
-        $requete = $this->bdd->prepare($sql);
-        $requete->execute();
-        
-        $res = $requete->fetchAll(PDO::FETCH_ASSOC);
-        // on crée un array d'objets maintenant à partir de l'array 
-        // d'arrays
-        var_dump ($res[0]);
-        $acteurTemp = new Actor($res[0]);
-        var_dump ($acteurTemp);
-        die();
+        // on veut obtenir une requête dans cet esprit:
+        // SELECT * from actor WHERE first_name=:first_name AND last_name=:last_name
+        if (count($filtres) > 0) {
+            $sql = $sql . " WHERE ";
 
-        // $arrayObjetsActor = [];
-        // foreach ($res as $unActorArray){
-        //     $arrayObjetsActor[] = $unActorArray;
-        // }
-        // var_dump ($arrayObjetsActor);
+            $arrayFiltresRequete = [];
+            foreach ($filtres as $nomFiltre => $valeur) {
+                $arrayFiltresRequete[] = $nomFiltre . "=:" . $nomFiltre;
+            }
+            // var_dump($arrayFiltresRequete);
+            $sql = $sql . implode(" AND ", $arrayFiltresRequete);
+        }
+
+        $requete = $this->bdd->prepare($sql);
+
+        // on veut faire bindValue de cette manière:
+        // $requete->bindValue(":first_name",$filtres['first_name']);
+        // $requete->bindValue(":last_name",$filtres['last_name']);
+        foreach ($filtres as $nomFiltre => $valFiltre) {
+            $requete->bindValue(":" . $nomFiltre, $valFiltre);
+        }
+
+
+        // debugger tout le temps le contenu du $sql 
+        // var_dump($sql);
+        // die();
+        $requete->execute();
+
+        $res = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        // exemple de création d'un objet à partir d'un array. Notre constructer est adapté :
+        // var_dump ($res[0]);
+        // $acteurTemp = new Actor($res[0]);
+        // var_dump ($acteurTemp);
         // die();
 
 
+        // on crée un array d'objets à partir de l'array 
+        // d'arrays
 
-        var_dump($res);
-        die();
+        $arrayObjetsActor = [];
+        foreach ($res as $unActorArray) {
+            $arrayObjetsActor[] = new Actor($unActorArray);
+        }
+        return $arrayObjetsActor;
     }
+
+
+    // on cherche un seul objet!
+    public function selectParId(int $id): Actor
+    {
+        $sql = "SELECT * FROM actor WHERE id=:id";
+        $requete = $this->bdd->prepare($sql);
+        $requete->bindValue(":id",$id);
+        $requete->execute();
+        $arrayUnActeur = $requete->fetch(PDO::FETCH_ASSOC); // une seule ligne, un seul array
+        return new Actor($arrayUnActeur);
+
+    }
+
+
 
     // public function select ($id = "", $first_name = "" , $last_name = "", $last_update="" ) {
 

@@ -56,11 +56,24 @@
     // $actorManager->delete($actor2);
 
     $actorManager = new ActorManager($bdd); // cet objet gére le CRUD des acteurs
-    $arrayObjetsActeurs = $actorManager->select([
-        'first_name' => 'Julie',
-        'last_name' => 'De Deken'
-    ]);
+    $arrayObjetsActeurs = $actorManager->select(
+        [
+            // 'first_name' => 'Adam',
+            'last_name' => 'Stallone'
+        ]
+    );
+    // $arrayObjetsActeurs[0]->direBonjour();
 
+    // parcourir l'array du résultat
+    foreach ($arrayObjetsActeurs as $objetActor){
+        $objetActor->direBonjour();
+    }
+
+    // pour debugger toujours!
+    // var_dump($arrayObjetsActeurs);
+
+    // ex. utilisation selectId
+    var_dump ($actorManager->selectParId(52));
 
     ?>
 </body>
