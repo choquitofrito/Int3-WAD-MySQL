@@ -65,7 +65,7 @@
     // $arrayObjetsActeurs[0]->direBonjour();
 
     // parcourir l'array du résultat
-    foreach ($arrayObjetsActeurs as $objetActor){
+    foreach ($arrayObjetsActeurs as $objetActor) {
         $objetActor->direBonjour();
     }
 
@@ -73,10 +73,17 @@
     // var_dump($arrayObjetsActeurs);
 
     // ex. utilisation selectId
-    var_dump ($actorManager->selectParId(52));
+    var_dump($actorManager->selectParId(52));
 
-    
-    $actorManager->update
+    // update: ex: on obtient un objet de la BD, on le modifie et on le stocke à nouveau (modifié)
+    echo "<h2>Exemple UPDATE</h2>";
+    $unActeur = $actorManager->selectParId(3);
+    $unActeur->direBonjour();
+    $unActeur->hydrate(["first_name" => "Johnny"]);
+    $unActeur->direBonjour();
+    // le changement se fait uniquement au niveau d'objet, pas dans la BD
+    $actorManager->update ($unActeur);
+
 
 
     ?>

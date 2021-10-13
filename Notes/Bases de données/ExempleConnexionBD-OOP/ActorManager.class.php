@@ -100,10 +100,22 @@ class ActorManager
         $requete->execute();
         $arrayUnActeur = $requete->fetch(PDO::FETCH_ASSOC); // une seule ligne, un seul array
         return new Actor($arrayUnActeur);
-
+        
     }
-
     
+    public function update (Actor $unActeur) : void {
+        $sql = "UPDATE actor SET first_name = :first_name, 
+                                last_name = :last_name,
+                                last_update = :last_update
+                WHERE id=:id";
+        $requete = $this->bdd->prepare($sql);
+        $requete->bindValue(":id", $unActeur->getId());
+        $requete->bindValue(":first_name",$unActeur->getFirst_name()); 
+        $requete->bindValue(":last_name",$unActeur->getLast_name());
+        $requete->bindValue(":last_update",$unActeur->getLast_update());
+        $requete->execute();
+        
+    }
 
 
     // public function select ($id = "", $first_name = "" , $last_name = "", $last_update="" ) {
